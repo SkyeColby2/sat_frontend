@@ -763,6 +763,7 @@ class TycoonEngine {
         const feedback = document.getElementById('serve-modal-feedback');
         const footer = document.getElementById('serve-modal-footer');
         
+        // Ensure standard visibility panels flex out cleanly
         feedback.style.display = 'block';
         footer.style.display = 'flex';
         
@@ -775,25 +776,62 @@ class TycoonEngine {
             this.saveState();
             this.updateUI();
             
-            document.getElementById('serve-modal-feedback-title').innerHTML = `<i class="fa-solid fa-circle-check"></i> Order Served Successfully!`;
-            document.getElementById('serve-modal-feedback-text').textContent = `The customer was pleased! You earned a massive cash tip of $${bonus.toFixed(2)}.`;
+            feedback.innerHTML = `
+                <strong style="display:block; font-size:0.95rem; margin-bottom:4px; color:#34D399;">
+                    <i class="fa-solid fa-circle-check"></i> Order Served Successfully!
+                </strong>
+                <span>The customer was pleased! You earned a massive cash tip of $${bonus.toFixed(2)}.</span>
+            `;
             this.seatRandomCustomers();
         } else {
+            // 🛑 THE BULLETPROOF RESTAURANT FEEDBACK DRAW PIPELINE
             buttonEl.classList.add('incorrect');
             feedback.className = "serving-feedback error";
             
+            // Highlight the true winner option element card
             container.querySelectorAll('button').forEach(btn => {
                 if (btn.textContent === this.activeServingQuestion.answer) {
                     btn.classList.add('correct');
                 }
             });
-            document.getElementById('serve-modal-feedback-title').innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Wrong Dish Served!`;
-            document.getElementById('serve-modal-feedback-text').textContent = `Incorrect definition. The customer left without tipping. The correct answer was: "${this.activeServingQuestion.answer}".`;
+
+            const targetWord = this.activeServingQuestion.word.word;
+            const definition = this.activeServingQuestion.word.definition;
+            
+            // Directly inject explanation context layout directly to clear variable targets safely
+            feedback.innerHTML = `
+                <strong style="display:block; font-size:0.95rem; margin-bottom:6px; color:#F87171;">
+                    <i class="fa-solid fa-circle-xmark"></i> Wrong Dish Served!
+                </strong>
+                <span style="font-size:0.8rem; display:block; margin-bottom:4px; line-height:1.4;">
+                    Incorrect choice. The customer left without tipping. 
+                    <br><br>
+                    <strong>Correct Answer:</strong> <span style="color:#34D399; font-weight:600;">"${this.activeServingQuestion.answer}"</span>
+                    <br>
+                    <strong>Definition:</strong> ${definition}
+                </span>
+            `;
+
+            // Reveal example context sentences wrapped under placeholders replacements
+            const sentenceEl = document.getElementById('serve-modal-sentence');
+            if (this.activeServingQuestion.word.sentence && sentenceEl) {
+                const solvedSentence = this.activeServingQuestion.word.sentence.replace(
+                    /______+/g, 
+                    `<span style="color: #F87171; font-weight: 700; text-decoration: underline;">${targetWord}</span>`
+                );
+                sentenceEl.innerHTML = `<div style="margin-top: 10px; border-left: 2px solid #F87171; padding-left: 8px; color: var(--text-secondary); font-style: italic;">"${solvedSentence}"</div>`;
+                sentenceEl.style.display = 'block';
+            }
         }
         
-        document.getElementById('serve-modal-continue-btn').onclick = () => {
-            document.getElementById('serving-modal').style.display = 'none';
-        };
+        // 🛑 MANUAL PROCEED FORCE LINK: Wait for explicit click declaration trigger
+        const continueBtn = document.getElementById('serve-modal-continue-btn');
+        if (continueBtn) {
+            continueBtn.onclick = null;
+            continueBtn.onclick = () => {
+                document.getElementById('serving-modal').style.display = 'none';
+            };
+        }
     }
 
     stop() {

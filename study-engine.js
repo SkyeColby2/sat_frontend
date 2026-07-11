@@ -638,40 +638,37 @@ class StudyEngine {
     submitTimerAnswer(buttonEl, selectedOption) {
         if (!this.timerGameActive) return;
         
-        // ⏱️ Clear countdown timer immediately so the user can read the feedback
+        // ⏱️ Stop the timer loop immediately so the player can read the breakdown
         clearInterval(this.timerInterval);
         
-        // Disable choices
         const container = document.getElementById('timer-options-grid');
-        container.querySelectorAll('button').forEach(btn => btn.disabled = true);
-        
         const correct = selectedOption === this.timerQuestion.answer;
         
         if (correct) {
             buttonEl.classList.add('correct');
             this.timerStreak++;
-            
-            // Decrease timer limit by 10% compounding
             this.timerLimit = this.timerLimit * 0.90;
-            
             this.updateStreakDisplay();
             
-            // Brief pause before next question
+            // Disable all buttons to prevent double clicking
+            container.querySelectorAll('button').forEach(btn => btn.disabled = true);
+            
             setTimeout(() => {
                 this.loadNextTimerQuestion();
             }, 800);
         } else {
-            // 🛑 IMPROVED WRONG ANSWER FEEDBACK PIPELINE
+            // 🛑 WRONG ANSWER: Reveal correct details and require a manual click to end game
             buttonEl.classList.add('incorrect');
             
-            // 1. Highlight the true correct choice in green right on the grid
+            // Highlight the correct option in green
             container.querySelectorAll('button').forEach(btn => {
                 if (btn.textContent === this.timerQuestion.answer) {
                     btn.classList.add('correct');
                 }
+                btn.disabled = true;
             });
             
-            // 2. Inject rich context details into the question card prompt block dynamically
+            // Inject context explanation block directly into the prompt panel area
             const promptEl = document.getElementById('timer-prompt');
             const targetWord = this.timerQuestion.word.word;
             const definition = this.timerQuestion.word.definition;
@@ -687,7 +684,6 @@ class StudyEngine {
                     </span>
             `;
 
-            // If it's a context question, reveal the filled-in sentence framework for clarity
             if (rawSentence) {
                 const filledSentence = rawSentence.replace(/______+/g, `<strong style="color:#F87171; text-decoration:underline;">${targetWord}</strong>`);
                 feedbackHtml += `
@@ -696,14 +692,24 @@ class StudyEngine {
                     </span>
                 `;
             }
-            
             feedbackHtml += `</div>`;
             promptEl.innerHTML += feedbackHtml;
 
-            // 3. Give the student 3.5 seconds to review their mistake before switching to Game Over screen
-            setTimeout(() => {
+            // 🛑 THE FIX: Append a manual "Proceed" action button at the bottom of the card list area
+            const actionWrapper = document.createElement('div');
+            actionWrapper.style.cssText = "width: 100%; text-align: center; margin-top: 16px;";
+            actionWrapper.innerHTML = `
+                <button id="timer-proceed-failure-btn" class="btn btn-indigo" style="width: 100%; padding: 12px; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                    Proceed to Game Over Screen ➔
+                </button>
+            `;
+            container.after(actionWrapper);
+
+            // Handle manual redirection exit click event
+            document.getElementById('timer-proceed-failure-btn').onclick = () => {
+                actionWrapper.remove(); // Clean up dynamic element button layout safely
                 this.endTimerGame(`Stumbled on "${targetWord}". Correct: "${this.timerQuestion.answer}"`);
-            }, 3500);
+            };
         }
     }
 
