@@ -16727,5 +16727,309 @@
       "cobbler",
       "trepidation"
     ]
+  },
+  {
+    "word": "abrupt",
+    "definition": "Sudden and unexpected; steep or sharp in manner or nature.",
+    "sentence": "The car came to an ______ stop, causing everyone inside to lurch forward.",
+    "difficulty": "medium",
+    "synonyms": [
+      "sudden",
+      "unexpected",
+      "sharp"
+    ],
+    "distractors": [
+      "gradual",
+      "smooth",
+      "steady"
+    ]
+  },
+  {
+    "word": "accessory",
+    "definition": "a supplementary or additional item that enhances or completes something else.",
+    "sentence": "She wore a beautiful necklace as an ______ to her elegant dress.",
+    "difficulty": "medium",
+    "synonyms": [
+      "add-on",
+      "supplement",
+      "complement"
+    ],
+    "distractors": [
+      "primary",
+      "essential",
+      "fundamental"
+    ]
+  },
+  {
+    "word": "acquiesced",
+    "definition": "To accept something reluctantly but without protest.",
+    "sentence": "Although she had reservations about the plan, she ultimately ______ to the group's decision.",
+    "difficulty": "medium",
+    "synonyms": [
+      "agreed",
+      "complied",
+      "consented"
+    ],
+    "distractors": [
+      "resisted",
+      "protested",
+      "objected"
+    ]
+  },
+  {
+    "word": "alleviate",
+    "definition": "to make (suffering, deficiency, or a problem) less severe",
+    "sentence": "The new medication was designed to ______ the symptoms of the illness.",
+    "difficulty": "medium",
+    "synonyms": [
+      "relieve",
+      "ease",
+      "mitigate"
+    ],
+    "distractors": [
+      "exacerbate",
+      "complicate",
+      "intensify"
+    ]
+  },
+  {
+    "word": "amorphous",
+    "definition": "lacking a definite shape or form; shapeless.",
+    "sentence": "The artist's sculpture was intentionally ______, challenging traditional notions of form and structure.",
+    "difficulty": "medium",
+    "synonyms": [
+      "shapeless",
+      "formless",
+      "indeterminate"
+    ],
+    "distractors": [
+      "meticulous",
+      "concrete",
+      "translucent"
+    ]
+  },
+  {
+    "word": "anachronistic",
+    "definition": "belonging to a period other than that being portrayed; out of place in time.",
+    "sentence": "The movie was criticized for its ______ use of modern slang in a historical setting.",
+    "difficulty": "medium",
+    "synonyms": [
+      "outdated",
+      "inappropriate",
+      "misplaced"
+    ],
+    "distractors": [
+      "contemporary",
+      "timeless",
+      "futuristic"
+    ]
+  },
+  {
+    "word": "analogy",
+    "definition": "A comparison between two things, typically for the purpose of explanation or clarification.",
+    "sentence": "The teacher used an ______ to explain the complex concept by relating it to something familiar to the students.",
+    "difficulty": "medium",
+    "synonyms": [
+      "comparison",
+      "similarity",
+      "metaphor"
+    ],
+    "distractors": [
+      "paradox",
+      "anomaly",
+      "hypothesis"
+    ]
+  },
+  {
+    "word": "antecedent",
+    "definition": "a thing or event that existed before or logically precedes another.",
+    "sentence": "In the sentence 'When the dog barked, it startled the cat,' the word 'dog' is the ______ of 'it.'",
+    "difficulty": "medium",
+    "synonyms": [
+      "predecessor",
+      "forerunner",
+      "precursor"
+    ],
+    "distractors": [
+      "subsequent",
+      "consequent",
+      "following"
+    ]
+  },
+  {
+    "word": "arcane",
+    "definition": "Understood by few; mysterious or secret.",
+    "sentence": "The professor's lecture on quantum mechanics was so ______ that only a handful of students could grasp the concepts.",
+    "difficulty": "medium",
+    "synonyms": [
+      "esoteric",
+      "enigmatic",
+      "obscure"
+    ],
+    "distractors": [
+      "mundane",
+      "transparent",
+      "obvious"
+    ]
+  },
+  {
+    "word": "assuage",
+    "definition": "to make an unpleasant feeling less intense; to soothe or calm",
+    "sentence": "To ______ her guilt, she decided to volunteer at the local shelter.",
+    "difficulty": "medium",
+    "synonyms": [
+      "alleviate",
+      "mitigate",
+      "pacify"
+    ],
+    "distractors": [
+      "aggravate",
+      "exacerbate",
+      "intensify"
+    ]
+  },
+  {
+    "word": "attrition",
+    "definition": "the process of gradually reducing the strength or effectiveness of something through sustained attack or pressure.",
+    "sentence": "The company's workforce experienced significant ______ due to the high turnover rate and lack of employee retention strategies.",
+    "difficulty": "medium",
+    "synonyms": [
+      "reduction",
+      "diminution",
+      "erosion"
+    ],
+    "distractors": [
+      "contribution",
+      "expansion",
+      "augmentation"
+    ]
+  },
+  {
+    "word": "defunct",
+    "definition": "no longer existing or functioning; dead or inactive.",
+    "sentence": "The once-popular amusement park is now completely ______, with overgrown weeds and rusting rides.",
+    "difficulty": "medium",
+    "synonyms": [
+      "obsolete",
+      "extinct",
+      "inactive"
+    ],
+    "distractors": [
+      "dormant",
+      "vibrant",
+      "novel"
+    ]
+  },
+  {
+    "word": "discretion",
+    "definition": "the quality of being careful about what one says or does; the freedom to decide what should be done in a particular situation.",
+    "sentence": "The teacher exercised her ______ when deciding how to handle the situation with the students.",
+    "difficulty": "medium",
+    "synonyms": [
+      "judgment",
+      "tact",
+      "prudence"
+    ],
+    "distractors": [
+      "indiscretion",
+      "oblivion",
+      "compliance"
+    ]
+  },
+  {
+    "word": "diverge",
+    "definition": "to separate from another route and go in a different direction; to differ in opinion or character.",
+    "sentence": "As the two paths began to ______, we had to decide which one to take.",
+    "difficulty": "medium",
+    "synonyms": [
+      "separate",
+      "branch",
+      "deviate"
+    ],
+    "distractors": [
+      "converge",
+      "merge",
+      "align"
+    ]
+  },
+  {
+    "word": "encrypt",
+    "definition": "to convert information or data into a code, especially to prevent unauthorized access",
+    "sentence": "To ensure the security of sensitive information, we must ______ all files before sending them over the internet.",
+    "difficulty": "medium",
+    "synonyms": [
+      "encode",
+      "cipher",
+      "secure"
+    ],
+    "distractors": [
+      "decrypt",
+      "expose",
+      "transmit"
+    ]
+  },
+  {
+    "word": "extemporaneous",
+    "definition": "done without preparation; impromptu.",
+    "sentence": "The speaker's ______ remarks captivated the audience, showcasing his ability to think on his feet.",
+    "difficulty": "medium",
+    "synonyms": [
+      "improvised",
+      "unrehearsed",
+      "spontaneous"
+    ],
+    "distractors": [
+      "meticulous",
+      "premeditated",
+      "calculated"
+    ]
+  },
+  {
+    "word": "fastidious",
+    "definition": "very attentive to detail; hard to please; meticulous.",
+    "sentence": "Her ______ nature made it difficult for her to accept anything less than perfection in her work.",
+    "difficulty": "medium",
+    "distractors": [
+      "negligent",
+      "indifferent",
+      "careless"
+    ],
+    "synonyms": [
+      "meticulous",
+      "careful",
+      "particular"
+    ]
+  },
+  {
+    "word": "indulge",
+    "definition": "to allow oneself to enjoy the pleasure of something; to give in to one's desires or whims.",
+    "sentence": "After a long week of work, she decided to ______ in her favorite dessert as a reward.",
+    "difficulty": "medium",
+    "synonyms": [
+      "satisfy",
+      "pamper",
+      "gratify"
+    ],
+    "distractors": [
+      "restrain",
+      "abstain",
+      "deny"
+    ]
+  },
+  {
+    "word": "opaque",
+    "definition": "Not able to be seen through; not transparent.",
+    "sentence": "The glass was so ______ that we couldn't see what was happening on the other side.",
+    "difficulty": "medium",
+    "synonyms": [
+      "cloudy",
+      "unclear",
+      "obscure"
+    ],
+    "distractors": [
+      "translucent",
+      "transparent",
+      "clear"
+    ]
   }
 ]
