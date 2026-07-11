@@ -1206,52 +1206,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function generateAndAddWordFromAPI(wordToTrack) {
     const backendUrl = "https://sat-vocab-backend-fnrv.onrender.com/api/generate-word";
-    
-    // Find or create a status container element to give the user live feedback
-    let statusBanner = document.getElementById('search-status-banner'); 
+    const textEl = document.getElementById('add-word-nomatch-text');
     
     try {
-        if (statusBanner) {
-            statusBanner.style.color = "#93C5FD"; // Soft blue loading color
-            statusBanner.textContent = `🧠 Cloud AI is building a profile for "${wordToTrack}"...`;
+        if (textEl) {
+            textEl.innerHTML = `🧠 Cloud AI is building a profile for "${wordToTrack}"...`;
         }
         
         const response = await fetch(backendUrl, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ key: wordToTrack })
         });
 
         if (!response.ok) throw new Error("Backend server error mapping card.");
-
         const generatedCard = await response.json();
         
-        // 1. Push the generated card directly into your active runtime pool array
-        if (typeof vocabPool !== 'undefined') {
-            vocabPool.push(generatedCard);
-            
-            // 2. Save the updated pool straight to localStorage so it persists on refresh
-            localStorage.setItem('sat_vocab_pool', JSON.stringify(vocabPool));
+        // 1. Pull whatever is currently stored in localStorage
+        let currentPool = [];
+        const localData = localStorage.getItem('sat_vocab_pool');
+        if (localData) {
+            try { currentPool = JSON.parse(localData); } catch(e) {}
         }
         
-        // 3. Update the UI banner to reflect success
-        if (statusBanner) {
-            statusBanner.style.color = "#34D399"; // Success green
-            statusBanner.textContent = `🎯 Added "${generatedCard.word}" smoothly via Cloud Database synchronization!`;
-        }
+        // 2. Add our shiny new word profile to the list array
+        currentPool.push(generatedCard);
         
-        // 4. Refresh your dashboard vocabulary display grid if the function exists
-        if (typeof renderVocabularyDashboard === "function") {
-            renderVocabularyDashboard();
+        // 3. Save it back down immediately to localStorage
+        localStorage.setItem('sat_vocab_pool', JSON.stringify(currentPool));
+        
+        // 4. Update the UI text so you see the confirmation instantly
+        if (textEl) {
+            textEl.style.color = "#34D399"; // Success Green
+            textEl.innerHTML = `🎯 Added "${generatedCard.word}" to your study pool! Refresh to view.`;
         }
 
     } catch (err) {
         console.error("API Integration Error:", err);
-        if (statusBanner) {
-            statusBanner.style.color = "#F87171"; // Error red
-            statusBanner.textContent = "❌ Failed to fetch cloud word structure.";
+        if (textEl) {
+            textEl.style.color = "#F87171"; // Error Red
+            textEl.innerHTML = "❌ Failed to fetch cloud word structure.";
         }
     }
 }
