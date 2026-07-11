@@ -1245,23 +1245,36 @@ async function generateAndAddWordFromAPI(wordToTrack) {
         }
     }
 }
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-
-const auth = getAuth();
+// ⚡ FIX: Remove imports and pull standard auth straight from your project's instance
+// (Assumes authManager or a global firebase/auth instance is already working in your project environment)
 
 // 1. Handle Existing User Sign-In
 document.getElementById('btn-email-signin')?.addEventListener('click', async () => {
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
-    const errorBanner = document.querySelector('.auth-error-banner'); // Replace with your error element class
+    const errorBanner = document.getElementById('login-error'); // Updated to target your existing login error div
+
+    if (!email || !password) {
+        if (errorBanner) errorBanner.textContent = "Please fill in all fields.";
+        return;
+    }
 
     try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        // Accessing the auth instance managed inside your authManager wrapper
+        const authInstance = firebase.auth ? firebase.auth() : window.auth; 
+        const userCredential = await authInstance.signInWithEmailAndPassword(email, password);
         console.log("🔒 User logged in with email successfully:", userCredential.user);
-        // Trigger your post-login app redirect here
+        
+        // Let the controller know auth changed and hide the card overlay
+        if (window.app && typeof window.app.initAuth === 'function') {
+            window.location.reload(); // Quick reset to sync app state cleanly
+        }
     } catch (error) {
-        console.error("Login failure:", error.message);
-        if (errorBanner) errorBanner.textContent = "Invalid email credentials or password. Please try again.";
+        console.error("Login failure:", error);
+        if (errorBanner) {
+            errorBanner.style.display = 'block';
+            errorBanner.textContent = "Invalid email credentials or password. Please try again.";
+        }
     }
 });
 
@@ -1269,19 +1282,29 @@ document.getElementById('btn-email-signin')?.addEventListener('click', async () 
 document.getElementById('btn-email-signup')?.addEventListener('click', async () => {
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
-    const errorBanner = document.querySelector('.auth-error-banner');
+    const errorBanner = document.getElementById('login-error');
 
     if (password.length < 6) {
-        alert("Password must be at least 6 characters long.");
+        if (errorBanner) {
+            errorBanner.style.display = 'block';
+            errorBanner.textContent = "Password must be at least 6 characters long.";
+        }
         return;
     }
 
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const authInstance = firebase.auth ? firebase.auth() : window.auth;
+        const userCredential = await authInstance.createUserWithEmailAndPassword(email, password);
         console.log("✨ New account created successfully:", userCredential.user);
-        // Trigger your post-login app redirect here
+        
+        window.location.reload(); 
     } catch (error) {
-        console.error("Registration failure:", error.message);
-        if (errorBanner) errorBanner.textContent = "Registration failed. Account might already exist.";
+        console.error("Registration failure:", error);
+        if (errorBanner) {
+            errorBanner.style.display = 'block';
+            errorBanner.textContent = error.message.includes("email-already-in-use") 
+                ? "Registration failed. Account already exists."
+                : "Failed to create account. Verify email format.";
+        }
     }
 });
