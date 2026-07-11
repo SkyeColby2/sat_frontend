@@ -503,7 +503,7 @@ class TycoonEngine {
         this.updateShopItem('tipjar', this.state.tipJarLevel);
         this.updateShopItem('floor', this.state.currentFloor);
         this.updateShopItem('dish', this.getUnlockedDishesCount());
-        
+        this.bindEvents();
         this.renderMenuPanelList();
     }
 
@@ -551,8 +551,30 @@ class TycoonEngine {
 
         const serveBtn = document.getElementById('serve-customer-btn');
         serveBtn.onclick = () => this.launchServeQuestion();
-    }
 
+        // 🚀 ADDED: View Menu Text Link Toggle Handler
+        const toggleMenuBtn = document.getElementById('toggle-menu-board-btn');
+        const menuListContainer = document.getElementById('tycoon-menu-list');
+        
+        if (toggleMenuBtn && menuListContainer) {
+            toggleMenuBtn.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation(); // Stops the click from accidentally triggering the upgrade button next to it
+                
+                // Inspect computed styles to see if it's currently hidden
+                const isHidden = window.getComputedStyle(menuListContainer).display === 'none';
+                
+                if (isHidden) {
+                    menuListContainer.style.setProperty('display', 'flex', 'important');
+                    toggleMenuBtn.textContent = "🙈 Hide Menu";
+                    this.renderMenuPanelList(); // Instantly populates the unlocked dishes list
+                } else {
+                    menuListContainer.style.setProperty('display', 'none', 'important');
+                    toggleMenuBtn.textContent = "👁️ View Menu";
+                }
+            };
+        }
+    }
     findNextAvailableDishToUnlock() {
         const countries = Object.keys(this.dishDatabase);
         const allLockedDishes = [];
