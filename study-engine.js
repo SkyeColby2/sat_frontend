@@ -638,7 +638,7 @@ class StudyEngine {
     submitTimerAnswer(buttonEl, selectedOption) {
         if (!this.timerGameActive) return;
         
-        // Clear countdown timer immediately
+        // ⏱️ Clear countdown timer immediately so the user can read the feedback
         clearInterval(this.timerInterval);
         
         // Disable choices
@@ -658,19 +658,52 @@ class StudyEngine {
             
             // Brief pause before next question
             setTimeout(() => {
-                this.loadTimerQuestion();
+                this.loadNextTimerQuestion();
             }, 800);
         } else {
+            // 🛑 IMPROVED WRONG ANSWER FEEDBACK PIPELINE
             buttonEl.classList.add('incorrect');
+            
+            // 1. Highlight the true correct choice in green right on the grid
             container.querySelectorAll('button').forEach(btn => {
                 if (btn.textContent === this.timerQuestion.answer) {
                     btn.classList.add('correct');
                 }
             });
             
+            // 2. Inject rich context details into the question card prompt block dynamically
+            const promptEl = document.getElementById('timer-prompt');
+            const targetWord = this.timerQuestion.word.word;
+            const definition = this.timerQuestion.word.definition;
+            const rawSentence = this.timerQuestion.word.sentence || "";
+            
+            let feedbackHtml = `
+                <div style="margin-top: 16px; padding: 14px; background: rgba(248, 113, 113, 0.08); border: 1px solid rgba(248, 113, 113, 0.2); border-radius: 12px; text-align: left;">
+                    <span style="color: #F87171; font-weight: 700; display: block; font-size: 0.9rem; margin-bottom: 6px;">
+                        ⚠️ Streak Broken on "${targetWord}"
+                    </span>
+                    <span style="color: var(--text-secondary); display: block; font-size: 0.8rem; margin-bottom: 8px; line-height: 1.4;">
+                        <strong>Definition:</strong> ${definition}
+                    </span>
+            `;
+
+            // If it's a context question, reveal the filled-in sentence framework for clarity
+            if (rawSentence) {
+                const filledSentence = rawSentence.replace(/______+/g, `<strong style="color:#F87171; text-decoration:underline;">${targetWord}</strong>`);
+                feedbackHtml += `
+                    <span style="color: var(--text-muted); display: block; font-size: 0.75rem; border-left: 2px solid #F87171; padding-left: 8px; font-style: italic; line-height: 1.4;">
+                        "${filledSentence}"
+                    </span>
+                `;
+            }
+            
+            feedbackHtml += `</div>`;
+            promptEl.innerHTML += feedbackHtml;
+
+            // 3. Give the student 3.5 seconds to review their mistake before switching to Game Over screen
             setTimeout(() => {
-                this.endTimerGame("You answered incorrectly!");
-            }, 1000);
+                this.endTimerGame(`Stumbled on "${targetWord}". Correct: "${this.timerQuestion.answer}"`);
+            }, 3500);
         }
     }
 
