@@ -463,8 +463,24 @@ class AppController {
                 dropdown.style.display = 'none';
                 dropdown.innerHTML = '';
                 nomatch.style.display = 'flex';
-                document.getElementById('add-word-nomatch-text').textContent =
-                    `No matches for "${query}" in the local database (${this.localDB.size} words).`;
+                
+                // 1. Change textContent to innerHTML and append the styling layout button
+                const textEl = document.getElementById('add-word-nomatch-text');
+                textEl.innerHTML = `
+                    No matches for "${query}" in the local database (${this.localDB.size} words).
+                    <button id="fallback-add-btn" style="background: #6366F1; color: white; border: none; padding: 6px 12px; margin-left: 12px; border-radius: 6px; cursor: pointer; font-weight: 500; font-family: inherit; transition: background 0.2s;">
+                        ✨ Generate with Cloud AI
+                    </button>
+                `;
+                
+                // 2. Clear any previous event listener by cloning the button (prevents double-clicks)
+                const newBtn = document.getElementById('fallback-add-btn');
+                
+                // 3. Attach the click event listener to run the Render backend pipeline
+                newBtn.addEventListener('click', () => {
+                    generateAndAddWordFromAPI(query);
+                });
+                
                 return;
             }
 
@@ -1187,3 +1203,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+async function generateAndAddWordFromAPI(wordToTrack) {
+    const backendUrl = "https://sat-vocab-backend-fnrv.onrender.com/api/generate-word";
+    
+    // Find or create a status container element to give the user live feedback
+    let statusBanner = document.getElementById('search-status-banner'); 
+    
+    try {
+        if (statusBanner) {
+            statusBanner.style.color = "#93C5FD"; // Soft blue loading color
+            statusBanner.textContent = `🧠 Cloud AI is building a profile for "${wordToTrack}"...`;
+        }
+        
+        const response = await fetch(backendUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ key: wordToTrack })
+        });
+
+        if (!response.ok) throw new Error("Backend server error mapping card.");
+
+        const generatedCard = await response.json();
+        
+        // 1. Push the generated card directly into your active runtime pool array
+        if (typeof vocabPool !== 'undefined') {
+            vocabPool.push(generatedCard);
+            
+            // 2. Save the updated pool straight to localStorage so it persists on refresh
+            localStorage.setItem('sat_vocab_pool', JSON.stringify(vocabPool));
+        }
+        
+        // 3. Update the UI banner to reflect success
+        if (statusBanner) {
+            statusBanner.style.color = "#34D399"; // Success green
+            statusBanner.textContent = `🎯 Added "${generatedCard.word}" smoothly via Cloud Database synchronization!`;
+        }
+        
+        // 4. Refresh your dashboard vocabulary display grid if the function exists
+        if (typeof renderVocabularyDashboard === "function") {
+            renderVocabularyDashboard();
+        }
+
+    } catch (err) {
+        console.error("API Integration Error:", err);
+        if (statusBanner) {
+            statusBanner.style.color = "#F87171"; // Error red
+            statusBanner.textContent = "❌ Failed to fetch cloud word structure.";
+        }
+    }
+}
