@@ -723,23 +723,20 @@ class AppController {
     }
 
     async loadDefaultPool() {
-        try {
-            const res = await fetch('vocabulary.json');
-            if (!res.ok) throw new Error("Failed to fetch vocabulary.json");
-            const data = await res.json();
-            this.vocabPool = data;
-        } catch (err) {
-            console.warn("Failed to load vocabulary.json, falling back to preloads:", err);
-            // Deep copy default pool data from vocabulary-pool.js
-            this.vocabPool = JSON.parse(JSON.stringify(DEFAULT_VOCAB_POOL));
-        }
+        // 🧼 Force the default pool list array to initialize completely empty
+        this.vocabPool = [];
+        
+        // Save the clean slate down to LocalStorage and refresh metrics
         this.saveVocabularyPool();
         this.syncDashboardProgress();
-        this.showNotification("Default Pool Loaded", `Preloaded ${this.vocabPool.length} SAT vocabulary words.`, "success");
         
-        // Refresh active views if running
-        this.studyEngine.loadNextStudyQuestion();
-        this.studyEngine.loadFlashcards();
+        this.showNotification("Default Pool Reset", "The vocabulary pool has been initialized to empty.", "success");
+        
+        // Refresh active views to show the blank layout fallbacks
+        if (this.studyEngine) {
+            this.studyEngine.loadNextStudyQuestion();
+            this.studyEngine.loadFlashcards();
+        }
     }
 
     saveVocabularyPool() {
