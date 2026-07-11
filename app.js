@@ -1245,3 +1245,43 @@ async function generateAndAddWordFromAPI(wordToTrack) {
         }
     }
 }
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
+
+// 1. Handle Existing User Sign-In
+document.getElementById('btn-email-signin')?.addEventListener('click', async () => {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const errorBanner = document.querySelector('.auth-error-banner'); // Replace with your error element class
+
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("🔒 User logged in with email successfully:", userCredential.user);
+        // Trigger your post-login app redirect here
+    } catch (error) {
+        console.error("Login failure:", error.message);
+        if (errorBanner) errorBanner.textContent = "Invalid email credentials or password. Please try again.";
+    }
+});
+
+// 2. Handle New Account Registration
+document.getElementById('btn-email-signup')?.addEventListener('click', async () => {
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const errorBanner = document.querySelector('.auth-error-banner');
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log("✨ New account created successfully:", userCredential.user);
+        // Trigger your post-login app redirect here
+    } catch (error) {
+        console.error("Registration failure:", error.message);
+        if (errorBanner) errorBanner.textContent = "Registration failed. Account might already exist.";
+    }
+});
