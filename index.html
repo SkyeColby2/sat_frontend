@@ -115,6 +115,11 @@
                 <div class="widget-income">
                     <span>+<span id="sidebar-income-rate">0.00</span>/sec</span>
                 </div>
+                <!-- 🌟 Critic Stars Review Widget -->
+                <div class="tycoon-stat-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Restaurant Rating</span>
+                    <div id="tycoon-review-stars" style="color: #FBBF24; font-weight: 700; font-size: 1rem;">★☆☆☆☆ (1.5 / 5.0 Stars)</div>
+                </div>
             </div>
 
             <nav class="sidebar-nav">
@@ -618,6 +623,19 @@
                                     </div>
                                     <button class="btn btn-amber upgrade-buy-btn" data-upgrade="staff">
                                         Buy <span class="price-symbol">$</span><span class="price-val">300.00</span>
+                                    </button>
+                                </div>
+                                <!-- 🍳 New Global Dish Unlock Upgrade Card -->
+                                <div class="upgrade-item-card" id="upgrade-dish" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px;">
+                                    <div class="upgrade-card-info" style="display: flex; gap: 12px; align-items: center;">
+                                        <div style="font-size: 2rem; background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 8px;">🍳</div>
+                                        <div>
+                                            <h4 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: white;">Expand Global Menu</h4>
+                                            <p style="margin: 4px 0 0; font-size: 0.75rem; color: var(--text-muted);">Unlock new cuisines to increase your star reviews. (<span class="level-val">1</span>/300)</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn upgrade-buy-btn disabled" style="padding: 10px 16px; border-radius: 8px; font-weight: 600; font-family: inherit; cursor: pointer; border: none; white-space: nowrap;" disabled>
+                                        Unlock Dish ($<span class="price-val">75</span>)
                                     </button>
                                 </div>
 
