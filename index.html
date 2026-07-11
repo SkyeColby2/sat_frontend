@@ -60,7 +60,20 @@
             </button>
 
             <div class="login-divider"><span>or</span></div>
-
+            <div id="email-login-form" style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; width: 100%;">
+                <input type="email" id="login-email" placeholder="Email Address" style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                
+                <input type="password" id="login-password" placeholder="Password" style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                
+                <div style="display: flex; gap: 10px; margin-top: 4px;">
+                    <button id="btn-email-signin" style="flex: 1; padding: 12px; background: #6366F1; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                        Sign In
+                    </button>
+                    <button id="btn-email-signup" style="flex: 1; padding: 12px; background: transparent; color: #9CA3AF; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; font-weight: 600; cursor: pointer;">
+                        Register
+                    </button>
+                </div>
+            </div>
             <!-- Guest mode -->
             <button class="btn-guest" id="guest-continue-btn">
                 <i class="fa-solid fa-user-slash"></i>
