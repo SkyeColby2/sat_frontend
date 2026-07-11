@@ -626,17 +626,32 @@
                                     </button>
                                 </div>
                                 <!-- 🍳 New Global Dish Unlock Upgrade Card -->
-                                <div class="upgrade-item-card" id="upgrade-dish" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px;">
-                                    <div class="upgrade-card-info" style="display: flex; gap: 12px; align-items: center;">
-                                        <div style="font-size: 2rem; background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 8px;">🍳</div>
-                                        <div>
-                                            <h4 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: white;">Expand Global Menu</h4>
-                                            <p style="margin: 4px 0 0; font-size: 0.75rem; color: var(--text-muted);">Unlock new cuisines to increase your star reviews. (<span class="level-val">1</span>/300)</p>
+                                <!-- 🍳 Integrated Global Dish Upgrade & Collapsible Menu Card -->
+                                <div class="upgrade-item-card" id="upgrade-dish" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 12px;">
+                                    
+                                    <!-- Top Action Row -->
+                                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 16px;">
+                                        <div class="upgrade-card-info" style="display: flex; gap: 12px; align-items: center;">
+                                            <div style="font-size: 2rem; background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 8px;">🍳</div>
+                                            <div>
+                                                <h4 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: white;">Expand Global Menu</h4>
+                                                <p style="margin: 4px 0 0; font-size: 0.75rem; color: var(--text-muted);">
+                                                    Unlock new cuisines to increase your star reviews. (<span class="level-val">6</span>/300)
+                                                    <br>
+                                                    <!-- 👁️ View Menu Text Link -->
+                                                    <span id="toggle-menu-board-btn" style="color: #6366F1; text-decoration: underline; cursor: pointer; font-weight: 600; font-size: 0.75rem; margin-top: 4px; display: inline-block;">👁️ View Menu</span>
+                                                </p>
+                                            </div>
                                         </div>
+                                        <button class="btn upgrade-buy-btn disabled" style="padding: 10px 16px; border-radius: 8px; font-weight: 600; font-family: inherit; cursor: pointer; border: none; white-space: nowrap;" disabled>
+                                            Unlock Dish ($<span class="price-val">93</span>)
+                                        </button>
                                     </div>
-                                    <button class="btn upgrade-buy-btn disabled" style="padding: 10px 16px; border-radius: 8px; font-weight: 600; font-family: inherit; cursor: pointer; border: none; white-space: nowrap;" disabled>
-                                        Unlock Dish ($<span class="price-val">75</span>)
-                                    </button>
+
+                                    <!-- 📜 Collapsible Internal Drawer List (Hidden by default) -->
+                                    <div id="tycoon-menu-list" style="display: none; max-height: 200px; overflow-y: auto; background: rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 10px; flex-direction: column; gap: 8px; margin-top: 4px; border: 1px solid rgba(255,255,255,0.03);">
+                                        <!-- Filled dynamically by tycoon-engine.js -->
+                                    </div>
                                 </div>
 
                                 <!-- Tip Jars upgrade -->

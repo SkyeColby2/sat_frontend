@@ -432,7 +432,7 @@ class TycoonEngine {
             case 'dish':
                 const currentUnlocked = this.getUnlockedDishesCount();
                 if (currentUnlocked >= 300) return Infinity;
-                return Math.round(75 * Math.pow(1.045, currentUnlocked - 1));
+                return Math.round(75 * Math.pow(1.5, currentUnlocked - 1));
             default:
                 return 0;
         }
@@ -555,18 +555,22 @@ class TycoonEngine {
 
     findNextAvailableDishToUnlock() {
         const countries = Object.keys(this.dishDatabase);
-        
-        // Scan sequential layers across all country structures horizontally to keep unlocks evenly distributed
-        for (let i = 0; i < 6; i++) { 
-            for (let c = 0; c < countries.length; c++) {
-                const countryList = this.dishDatabase[countries[c]];
-                const targetDish = countryList[i];
-                if (targetDish && !this.state.unlockedDishes.includes(targetDish.id)) {
-                    return { ...targetDish, country: countries[c] };
+        const allLockedDishes = [];
+
+        // Gather every single locked dish from the database into a flat array
+        countries.forEach(country => {
+            this.dishDatabase[country].forEach(dish => {
+                if (!this.state.unlockedDishes.includes(dish.id)) {
+                    allLockedDishes.push({ ...dish, country: country });
                 }
-            }
-        }
-        return null;
+            });
+        });
+
+        if (allLockedDishes.length === 0) return null;
+
+        // 🎲 Randomly pick one out of the pool
+        const randomIndex = Math.floor(Math.random() * allLockedDishes.length);
+        return allLockedDishes[randomIndex];
     }
 
     buyUpgrade(type) {
@@ -659,7 +663,7 @@ class TycoonEngine {
 
     renderMenuPanelList() {
         const menuContainer = document.getElementById('tycoon-menu-list');
-        if (!menuContainer) return;
+        if (!menuContainer || menuContainer.style.display === 'none') return; // Skip DOM load if closed
         
         menuContainer.innerHTML = '';
         const countries = Object.keys(this.dishDatabase);
@@ -674,7 +678,7 @@ class TycoonEngine {
                 groupDiv.style.marginBottom = "10px";
                 
                 groupDiv.innerHTML = `
-                    <h5 style="color:var(--color-indigo); font-size:0.8rem; margin-bottom:4px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:2px;">
+                    <h5 style="color:var(--color-indigo); font-size:0.8rem; margin: 0 0 4px 0; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:2px;">
                         ${country} (${unlockedInCountry.length}/${countryDishes.length})
                     </h5>
                     <div style="display:flex; flex-wrap:wrap; gap:4px; font-size:0.7rem; color:var(--text-secondary);">
