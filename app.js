@@ -917,78 +917,63 @@ class AppController {
             statusMsg.textContent = `[${i + 1}/${words.length}] 🧠 Asking AI to generate card for "${key}"…`;
             
             try {
-                // Call OpenAI using your existing API key configuration
-                const aiResponse = await fetch("https://api.openai.com/v1/responses", {
+                // 1. Point this to your live Render public URL (or "http://localhost:3000/api/generate-word" for local testing)
+                const backendUrl = "https://sat-vocab-backend-fnrv.onrender.com";
+
+                // 2. Send the missing word data to your Render backend proxy
+                const backendResponse = await fetch(backendUrl, {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer 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` // Or temporarily: Bearer sk-proj-...
+                        "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({
-                        model: "gpt-5-mini",
-                        reasoning: {
-                            effort: "low"
-                        },
-                        text: {
-                            format: {
-                                type: "json_object"
-                            }
-                        },
-                        input: [
-                            {
-                                role: "system",
-                                content: `
-                You create SAT vocabulary cards.
-
-                Return ONLY valid JSON with exactly these fields:
-
-                {
-                "word":"",
-                "definition":"",
-                "sentence":"",
-                "difficulty":"",
-                "synonyms":[],
-                "distractors":[]
-                }
-
-                Rules:
-                - Definition: concise (10-25 words).
-                - Sentence: a natural, realistic sentence from literature, journalism, history, or academic writing.
-                - Replace ONLY the vocabulary word with "______".
-                - Never mention SAT, vocabulary, students, studying, or learning.
-                - Synonyms: exactly 3 clean strings.
-                - Distractors: exactly 3 distinct words that are incorrect for this context. These distractors MUST be common, recognizable words (e.g., 'temporary', 'flexible', 'imperfect', 'predictable') rather than obscure, hyper-academic, or rare literature-level terms.
-                - Difficulty must be "easy", "medium", or "hard".
-                `
-                            },
-                            {
-                                role: "user",
-                                content: `Generate a study card for the word "${key}".`
-                            }
-                        ]
-                    })
+                    body: JSON.stringify({ key: key, baseRaw: baseRaw })
                 });
 
-                if (!aiResponse.ok) throw new Error(`OpenAI API responded with status ${aiResponse.status}`);
+                if (!backendResponse.ok) throw new Error("Backend server rejected the layout payload.");
                 
-                const aiData = await aiResponse.json();
-                const generatedCard = JSON.parse(aiData.choices[0].message.content);
+                const generatedCard = await backendResponse.json();
 
-                // Sanitize the AI results to ensure structural safety
+                // 3. Sanitize fields and build the cards safely
                 const entry = AppController.sanitizeDBEntry(generatedCard, key);
-                
-                // Add it to your active session deck
+
                 importedPool.push(entry);
                 apiHits++;
                 
-                // CRITICAL STEP: Add it to your local background database cache Map 
-                // so it is immediately supported without hitting the API again during this session!
+                // Cache into local database map so it persists for this session
                 this.localDB.set(key, entry);
-                console.log(`[Import] ✨ OpenAI successfully generated and cached structural data for "${key}".`);
+                statusMsg.textContent = `[${i + 1}/${words.length}] ✨ "${key}" auto-generated safely via backend proxy.`;
 
             } catch (err) {
-                console.error(`[Import] ❌ OpenAI fallback failed for "${key}" — skipping word.`, err);
-                misses++;
+                console.error(`[Import] ❌ Secure proxy fallback failed for "${key}". Reverting to secondary fallback:`, err);
+                
+                // Fallback to secondary dictionary API if your backend drops or hits limits
+                try {
+                    const backupRes = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(key)}`);
+                    let realDefinition = "An important contextual academic term.";
+                    let discoveredSynonyms = [key];
+
+                    if (backupRes.ok) {
+                        const apiData = await backupRes.json();
+                        const primaryMeaning = apiData[0]?.meanings?.[0];
+                        realDefinition = primaryMeaning?.definitions?.[0]?.definition || realDefinition;
+                        discoveredSynonyms = primaryMeaning?.synonyms?.slice(0, 3) || discoveredSynonyms;
+                    }
+
+                    const fallbackCard = AppController.sanitizeDBEntry({
+                        word: baseRaw,
+                        definition: realDefinition,
+                        synonyms: discoveredSynonyms.length > 0 ? discoveredSynonyms : [key],
+                        sentence: `The author's arguments highlights how the definition of ______ can be interpreted in multiple ways.`,
+                        distractors: ["simple", "ordinary", "constant"]
+                    }, key);
+
+                    importedPool.push(fallbackCard);
+                    apiHits++; 
+
+                } catch (backupErr) {
+                    console.error(`[Import] ❌ Critical fallback chain failure for "${key}":`, backupErr);
+                    misses++;
+                }
             }
         }
 
