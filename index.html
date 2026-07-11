@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAT Vocab Quest & Restaurant Tycoon</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════
+         LOGIN OVERLAY — shown until the user signs in or
+         chooses "Continue without signing in"
+    ════════════════════════════════════════════════════════ -->
+    <div id="login-overlay" class="login-overlay" style="display:none;">
+        <!-- Animated background particles -->
+        <div class="login-bg-glow login-bg-glow-1"></div>
+        <div class="login-bg-glow login-bg-glow-2"></div>
+        <div class="login-bg-glow login-bg-glow-3"></div>
+
+        <div class="login-card">
+            <!-- App logo / branding -->
+            <div class="login-brand">
+                <div class="login-brand-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h1 class="login-brand-title">Vocab Quest</h1>
+                <p class="login-brand-sub">SAT &amp; Restaurant Tycoon</p>
+            </div>
+
+            <!-- Headline -->
+            <div class="login-headline">
+                <h2>Welcome back, scholar.</h2>
+                <p>Sign in to save your progress and vocabulary pool across all your devices.</p>
+            </div>
+
+            <!-- Benefits list -->
+            <ul class="login-benefits">
+                <li><i class="fa-solid fa-cloud text-indigo"></i> Vocab pool synced across devices</li>
+                <li><i class="fa-solid fa-trophy text-amber"></i> High scores &amp; mastery saved</li>
+                <li><i class="fa-solid fa-store text-emerald"></i> Restaurant Tycoon progress persisted</li>
+            </ul>
+
+            <!-- Google Sign-In button -->
+            <button class="btn-google-signin" id="google-signin-btn">
+                <svg class="google-logo" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
+            </button>
+
+            <div class="login-divider"><span>or</span></div>
+
+            <!-- Guest mode -->
+            <button class="btn-guest" id="guest-continue-btn">
+                <i class="fa-solid fa-user-slash"></i>
+                Continue without signing in
+                <span class="btn-guest-note">(progress saved locally only)</span>
+            </button>
+
+            <!-- Loading spinner (shown during sign-in) -->
+            <div class="login-loading" id="login-loading" style="display:none;">
+                <div class="login-spinner"></div>
+                <span>Signing you in…</span>
+            </div>
+
+            <!-- Error message -->
+            <p class="login-error" id="login-error" style="display:none;"></p>
+        </div>
+    </div>
+
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap brand-icon"></i>
+                <div class="brand-text">
+                    <span class="brand-title">Vocab Quest</span>
+                    <span class="brand-subtitle">SAT & Tycoon</span>
+                </div>
+            </div>
+
+            <!-- Tycoon Mini-Widget in Sidebar -->
+            <div class="sidebar-tycoon-widget">
+                <div class="widget-header">
+                    <span><i class="fa-solid fa-store text-amber"></i> Restaurant</span>
+                    <span id="widget-floor-badge" class="badge badge-amber">Floor 1</span>
+                </div>
+                <div class="widget-balance">
+                    <span class="currency-symbol">$</span><span id="sidebar-cash">0.00</span>
+                </div>
+                <div class="widget-income">
+                    <span>+<span id="sidebar-income-rate">0.00</span>/sec</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-target="dashboard-view">
+                    <i class="fa-solid fa-table-columns"></i> Dashboard & Import
+                </button>
+                <button class="nav-item" data-target="study-view">
+                    <i class="fa-solid fa-brain"></i> Study Mode
+                </button>
+                <button class="nav-item" data-target="flashcard-view">
+                    <i class="fa-solid fa-clone"></i> Flashcards
+                </button>
+                <button class="nav-item" data-target="timer-view">
+                    <i class="fa-solid fa-stopwatch"></i> Beat the Timer
+                </button>
+                <button class="nav-item" data-target="tycoon-view">
+                    <i class="fa-solid fa-shop"></i> Restaurant Tycoon
+                </button>
+            </nav>
+
+            <!-- User Profile Panel (shown when signed in) -->
+            <div class="sidebar-user-panel" id="sidebar-user-panel" style="display:none;">
+                <div class="user-avatar-row">
+                    <img id="user-avatar" class="user-avatar" src="" alt="Avatar" onerror="this.style.display='none'">
+                    <div class="user-info">
+                        <span class="user-name" id="user-display-name">Student</span>
+                        <span class="user-sync-status" id="user-sync-status">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> Synced
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-outline btn-block" id="signout-btn" style="margin-top:0.5rem;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-sm btn-outline btn-block" id="reset-app-btn">
+                    <i class="fa-solid fa-trash-can"></i> Reset All Data
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <!-- View 1: Dashboard & CSV Import -->
+            <section id="dashboard-view" class="view-panel active">
+                <div class="view-header">
+                    <h1>Dashboard & Vocab Pool</h1>
+                    <p>Load custom vocabulary list via CSV or start learning immediately with our premium preloaded SAT words.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- CSV Uploader Card -->
+                    <div class="glass-card upload-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-file-csv text-indigo"></i> Import Custom CSV</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="dropzone" id="csv-dropzone">
+                                <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                                <p>Drag and drop your spreadsheet or CSV here</p>
+                                <span>or click to browse files</span>
+                                <input type="file" id="csv-file-input" accept=".csv,.xlsx,.xls" style="display: none;">
+                            </div>
+
+                            <div class="column-selector-wrapper" id="column-selector-area" style="display: none;">
+                                <label for="word-column-select">Select Column with Words:</label>
+                                <div class="selector-controls">
+                                    <select id="word-column-select" class="form-control">
+                                        <!-- Columns will be injected dynamically -->
+                                    </select>
+                                    <button class="btn btn-primary" id="process-csv-btn">Import Words</button>
+                                </div>
+                            </div>
+
+                            <div class="import-status" id="import-status-message" style="display: none;">
+                                <!-- Status info -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Word Card -->
+                    <div class="glass-card add-word-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-circle-plus text-emerald"></i> Add Word to Pool</h3>
+                        </div>
+                        <div class="card-body">
+                            <!-- Live-search input -->
+                            <div class="add-word-search-wrapper">
+                                <div class="add-word-input-row">
+                                    <i class="fa-solid fa-magnifying-glass add-word-search-icon"></i>
+                                    <input
+                                        type="text"
+                                        id="add-word-input"
+                                        class="form-control add-word-input"
+                                        placeholder="Type a word (e.g. &quot;ab&quot;)…"
+                                        autocomplete="off"
+                                        spellcheck="false"
+                                    >
+                                </div>
+                                <!-- Dropdown list -->
+                                <ul class="add-word-dropdown" id="add-word-dropdown" style="display:none;"></ul>
+                            </div>
+
+                            <!-- Autocomplete preview (shown after selection) -->
+                            <div class="add-word-preview" id="add-word-preview" style="display:none;">
+                                <div class="preview-word-row">
+                                    <span class="preview-word-label" id="preview-word-name"></span>
+                                    <span class="preview-difficulty-badge" id="preview-difficulty"></span>
+                                </div>
+                                <div class="preview-field">
+                                    <span class="preview-field-label"><i class="fa-solid fa-book-open text-indigo"></i> Definition</span>
+                                    <p class="preview-field-value" id="preview-definition"></p>
+                                </div>
+                                <div class="preview-field">
+                                    <span class="preview-field-label"><i class="fa-solid fa-arrows-rotate text-amber"></i> Synonyms</span>
+                                    <p class="preview-field-value preview-chips" id="preview-synonyms"></p>
+                                </div>
+                                <div class="preview-field">
+                                    <span class="preview-field-label"><i class="fa-solid fa-quote-left text-muted"></i> Example Sentence</span>
+                                    <p class="preview-field-value preview-sentence" id="preview-sentence"></p>
+                                </div>
+                                <div class="add-word-actions">
+                                    <button class="btn btn-primary add-word-confirm-btn" id="add-word-confirm-btn">
+                                        <i class="fa-solid fa-plus"></i> Add to Pool
+                                    </button>
+                                    <button class="btn btn-secondary add-word-clear-btn" id="add-word-clear-btn">
+                                        <i class="fa-solid fa-xmark"></i> Clear
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- No-match notice -->
+                            <div class="add-word-nomatch" id="add-word-nomatch" style="display:none;">
+                                <i class="fa-solid fa-circle-exclamation text-amber"></i>
+                                <span id="add-word-nomatch-text">No matches found in the local database.</span>
+                            </div>
+
+                            <div class="import-status" id="add-word-status" style="display:none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Card -->
+                    <div class="glass-card stats-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-chart-pie text-emerald"></i> Learning Progress</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress-radial-group">
+                                <div class="radial-progress-item">
+                                    <div class="radial-text" id="mastery-percent">0%</div>
+                                    <div class="radial-label">Mastered Words</div>
+                                </div>
+                                <div class="radial-details">
+                                    <div class="radial-stat-row">
+                                        <span>Total Words in Pool:</span>
+                                        <strong id="total-words-count">0</strong>
+                                    </div>
+                                    <div class="radial-stat-row">
+                                        <span>Mastered:</span>
+                                        <strong id="mastered-count" class="text-emerald">0</strong>
+                                    </div>
+                                    <div class="radial-stat-row">
+                                        <span>In Progress:</span>
+                                        <strong id="progress-count" class="text-indigo">0</strong>
+                                    </div>
+                                    <div class="radial-stat-row">
+                                        <span>Unstarted:</span>
+                                        <strong id="unstarted-count" class="text-muted">0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Word Pool Table Card -->
+                    <div class="glass-card pool-card span-cols-2">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-list-ul text-indigo"></i> Active Vocabulary Pool</h3>
+                            <div class="pool-actions">
+                                <input type="text" id="vocab-search" placeholder="Search words..." class="form-control form-control-sm">
+                                <button class="btn btn-sm btn-secondary" id="load-defaults-btn">Reload Default SAT List</button>
+                            </div>
+                        </div>
+                        <div class="card-body scroll-table-container">
+                            <table class="pool-table" id="vocab-pool-table">
+                                <thead>
+                                    <tr>
+                                        <th>Word</th>
+                                        <th>Definition</th>
+                                        <th>Mastery Stage</th>
+                                        <th>Difficulty</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vocab-pool-rows">
+                                    <!-- Rows injected dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 2: Study Component (Learning Loop) -->
+            <section id="study-view" class="view-panel">
+                <div class="view-header">
+                    <h1>Core Learning Loop</h1>
+                    <p>Master vocabulary step-by-step. Get synonyms, contexts, and word banks right sequentially to master each word.</p>
+                </div>
+
+                <div class="study-container">
+                    <div class="glass-card study-card">
+                        <!-- Word header hidden during quiz to avoid revealing the answer -->
+                        <div class="study-word-header">
+                            <div class="word-info" style="display:none;">
+                                <h2 id="study-target-word">Target Word</h2>
+                                <span id="study-phonetic">/phonetic/</span>
+                            </div>
+                            <div class="mastery-stages-display">
+                                <span class="stage-badge" id="badge-stage-a">A: Synonym</span>
+                                <span class="stage-badge" id="badge-stage-b">B: Context</span>
+                                <span class="stage-badge" id="badge-stage-c">C: Word Bank</span>
+                            </div>
+                        </div>
+
+                        <div class="study-question-box">
+                            <!-- Question Instructions / Prompts -->
+                            <div class="question-instruction" id="study-instruction">
+                                Identify the synonym of the word above:
+                            </div>
+
+                            <!-- Context Sentence Display (Hidden in Stage A) -->
+                            <div class="context-sentence" id="study-context-sentence" style="display: none;">
+                                <!-- "He was a very _____ person, always seeking the truth." -->
+                            </div>
+
+                            <!-- Multiple Choice Options (Stages A & B) -->
+                            <div class="study-options-grid" id="study-mcq-options">
+                                <!-- Option buttons -->
+                            </div>
+
+                            <!-- Stage C Advanced Word Bank Display (Stage C only) -->
+                            <div class="study-bank-container" id="study-bank-area" style="display: none;">
+                                <div class="word-bank-grid" id="study-word-bank">
+                                    <!-- 10 buttons -->
+                                </div>
+                                <div class="word-bank-submit-row">
+                                    <button class="btn btn-secondary" id="clear-bank-selection-btn">Clear Selection</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feedback area -->
+                        <div class="study-feedback" id="study-feedback-box" style="display: none;">
+                            <div class="feedback-heading">
+                                <i class="fa-solid fa-circle-check"></i> <span id="study-feedback-title">Correct!</span>
+                            </div>
+                            <p id="study-feedback-text">Detailed explanation of the word and its context.</p>
+                            <button class="btn btn-primary" id="study-next-btn">Continue</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 3: Flashcard Component -->
+            <section id="flashcard-view" class="view-panel">
+                <div class="view-header">
+                    <h1>Flashcard Deck</h1>
+                    <p>Review active vocabulary pool, rate word difficulty, and study efficiently.</p>
+                </div>
+
+                <div class="flashcard-deck-container">
+                    <div class="flashcard-wrapper">
+                        <!-- Flashcard Item -->
+                        <div class="flashcard-container" id="flashcard-item">
+                            <div class="flashcard-card">
+                                <!-- Front Face -->
+                                <div class="flashcard-face front">
+                                    <span class="card-instruction">FRONT</span>
+                                    <div class="card-word" id="card-word-display">Vocabulary</div>
+                                    <div class="card-phonetic" id="card-phonetic-display">/vōˈkabyəˌlerē/</div>
+                                    <span class="card-tap-hint">Click card to reveal definition</span>
+                                </div>
+                                <!-- Back Face -->
+                                <div class="flashcard-face back">
+                                    <span class="card-instruction">BACK</span>
+                                    <div class="card-definition-box">
+                                        <h4>Definition:</h4>
+                                        <p id="card-definition-display">The body of words used in a particular language.</p>
+                                    </div>
+                                    <div class="card-synonyms-box">
+                                        <h4>Synonyms:</h4>
+                                        <p id="card-synonyms-display">lexicon, glossary, terminology</p>
+                                    </div>
+                                    <div class="card-example-box">
+                                        <h4>Context / Example:</h4>
+                                        <p id="card-example-display">"Reading widely is a great way to expand your vocabulary."</p>
+                                    </div>
+                                    <span class="card-tap-hint">Click to flip back</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flashcard rating controls -->
+                    <div class="flashcard-controls">
+                        <button class="btn btn-outline" id="card-prev-btn"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                        <div class="difficulty-rate-buttons">
+                            <button class="btn btn-sm btn-rate rate-easy" data-difficulty="easy">Easy</button>
+                            <button class="btn btn-sm btn-rate rate-medium" data-difficulty="medium">Medium</button>
+                            <button class="btn btn-sm btn-rate rate-hard" data-difficulty="hard">Hard</button>
+                        </div>
+                        <button class="btn btn-outline" id="card-next-btn">Next <i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 4: Beat the Timer Game -->
+            <section id="timer-view" class="view-panel">
+                <div class="view-header">
+                    <h1>Beat the Timer</h1>
+                    <p>Answer questions rapidly. Each correct answer speeds up the timer by 10%. Get a wrong answer or run out of time, and the run ends!</p>
+                </div>
+
+                <div class="timer-game-layout">
+                    <!-- Leaderboard / Run start panel -->
+                    <div class="glass-card timer-menu-card" id="timer-menu">
+                        <div class="card-header text-center">
+                            <h2><i class="fa-solid fa-fire text-danger"></i> Ready to Challenge?</h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="high-score-display">
+                                <span class="score-label">Personal High Score</span>
+                                <span class="score-value" id="timer-high-score">0</span>
+                                <span class="score-subtitle">consecutive answers</span>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-pulse" id="start-timer-game-btn">
+                                <i class="fa-solid fa-play"></i> Start Quiz Run
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Active Gameplay Screen -->
+                    <div class="glass-card timer-play-card" id="timer-gameplay" style="display: none;">
+                        <div class="timer-game-header">
+                            <div class="timer-score-box">
+                                <span>Streak:</span>
+                                <strong id="timer-current-streak">0</strong>
+                            </div>
+                            <div class="timer-seconds-box">
+                                <span>Timer Limit:</span>
+                                <strong id="timer-limit-val">10.00s</strong>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar Timer -->
+                        <div class="timer-progress-bg">
+                            <div class="timer-progress-fill" id="timer-bar" style="width: 100%;"></div>
+                        </div>
+
+                        <div class="timer-question-container">
+                            <!-- Answer word hidden — sentence/prompt are the only clues -->
+                            <div class="timer-question-word" id="timer-target-word" style="display:none;">Target Word</div>
+                            <div class="timer-question-prompt" id="timer-prompt">Identify the synonym:</div>
+                            <div class="timer-question-sentence" id="timer-sentence" style="display: none;">Context fill in the blank</div>
+                            
+                            <div class="study-options-grid" id="timer-options-grid">
+                                <!-- Options dynamically generated -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Over Screen -->
+                    <div class="glass-card timer-over-card" id="timer-gameover" style="display: none;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-circle-exclamation gameover-icon text-danger"></i>
+                            <h2>Game Over!</h2>
+                            <p id="timer-gameover-reason">You ran out of time!</p>
+                            
+                            <div class="gameover-stats">
+                                <div class="gameover-stat">
+                                    <span>Your Streak:</span>
+                                    <strong id="timer-final-streak">0</strong>
+                                </div>
+                                <div class="gameover-stat">
+                                    <span>New High Score?</span>
+                                    <strong id="timer-new-high-indicator" class="text-emerald">No</strong>
+                                </div>
+                            </div>
+
+                            <div class="gameover-actions">
+                                <button class="btn btn-primary" id="restart-timer-game-btn">Play Again</button>
+                                <button class="btn btn-secondary" id="exit-timer-game-btn">Back to Menu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 5: Restaurant Tycoon Game -->
+            <section id="tycoon-view" class="view-panel">
+                <!-- Tycoon Header Panel -->
+                <div class="tycoon-dashboard-header">
+                    <div class="header-main-info">
+                        <h1>Restaurant Tycoon</h1>
+                        <p>Answer vocabulary questions to serve customers for massive cash multipliers, and hire staff to earn passive income!</p>
+                    </div>
+                    <!-- Stats panel -->
+                    <div class="tycoon-stats-summary">
+                        <div class="tycoon-stat-widget">
+                            <span class="widget-label">Total Balance</span>
+                            <div class="widget-val text-amber">
+                                <span class="currency-symbol">$</span><span id="tycoon-cash">0.00</span>
+                            </div>
+                        </div>
+                        <div class="tycoon-stat-widget">
+                            <span class="widget-label">Passive Income Rate</span>
+                            <div class="widget-val text-emerald">
+                                <span class="rate-plus">+</span><span class="currency-symbol">$</span><span id="tycoon-income-rate">0.00</span><span class="rate-per-sec">/s</span>
+                            </div>
+                        </div>
+                        <div class="tycoon-stat-widget">
+                            <span class="widget-label">Floors Unlocked</span>
+                            <div class="widget-val text-indigo" id="tycoon-floor-display">
+                                Floor 1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tycoon-grid">
+                    <!-- Left: Restaurant Visualizer -->
+                    <div class="glass-card visualizer-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-utensils text-amber"></i> Restaurant Floor Plan</h3>
+                            <span class="capacity-indicator" id="tycoon-seating-ratio">Seated: 0/4</span>
+                        </div>
+                        <div class="card-body visualizer-body">
+                            <!-- Floor Display Widget -->
+                            <div class="restaurant-floor-visual" id="floor-visualizer">
+                                <!-- Tables and Waitstaff rendered here dynamically -->
+                            </div>
+                            
+                            <!-- Serve Order Active Action Box -->
+                            <div class="tycoon-serving-area">
+                                <div class="serving-header" id="tycoon-serving-status">
+                                    <i class="fa-solid fa-bell text-amber"></i> Customer Order Ready!
+                                </div>
+                                <div class="serving-action-body">
+                                    <p id="tycoon-serving-desc">Correct answers award a cash bonus of <strong>$<span id="serve-bonus-val">100.00</span></strong>!</p>
+                                    <button class="btn btn-block btn-amber btn-pulse" id="serve-customer-btn">
+                                        <i class="fa-solid fa-utensils"></i> Serve Active Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Upgrades Shop -->
+                    <div class="glass-card shop-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-cart-shopping text-amber"></i> Shop & Upgrade Center</h3>
+                        </div>
+                        <div class="card-body shop-body">
+                            <div class="upgrades-list" id="shop-upgrades-list">
+                                <!-- Multipliers upgrade -->
+                                <div class="upgrade-item" id="upgrade-multiplier">
+                                    <div class="upgrade-icon-box bg-red"><i class="fa-solid fa-coins"></i></div>
+                                    <div class="upgrade-info">
+                                        <h4 class="upgrade-name">Cash Multiplier</h4>
+                                        <p class="upgrade-desc">Increases active serve cash bonus (+50% per level)</p>
+                                        <span class="upgrade-level">Level <span class="level-val">1</span></span>
+                                    </div>
+                                    <button class="btn btn-amber upgrade-buy-btn" data-upgrade="multiplier">
+                                        Buy <span class="price-symbol">$</span><span class="price-val">50.00</span>
+                                    </button>
+                                </div>
+
+                                <!-- Tables upgrade -->
+                                <div class="upgrade-item" id="upgrade-tables">
+                                    <div class="upgrade-icon-box bg-blue"><i class="fa-solid fa-chair"></i></div>
+                                    <div class="upgrade-info">
+                                        <h4 class="upgrade-name">Dining Tables</h4>
+                                        <p class="upgrade-desc">Adds tables, raising passive income cap (+1 table, max 8)</p>
+                                        <span class="upgrade-level">Level <span class="level-val">1</span> (<span class="count-val">4</span> Tables)</span>
+                                    </div>
+                                    <button class="btn btn-amber upgrade-buy-btn" data-upgrade="tables">
+                                        Buy <span class="price-symbol">$</span><span class="price-val">150.00</span>
+                                    </button>
+                                </div>
+
+                                <!-- Staff upgrade -->
+                                <div class="upgrade-item" id="upgrade-staff">
+                                    <div class="upgrade-icon-box bg-green"><i class="fa-solid fa-user-ninja"></i></div>
+                                    <div class="upgrade-info">
+                                        <h4 class="upgrade-name">Hire Waiters / Chefs</h4>
+                                        <p class="upgrade-desc">Speeds up waiter serve times (+15% passive speed)</p>
+                                        <span class="upgrade-level">Level <span class="level-val">0</span></span>
+                                    </div>
+                                    <button class="btn btn-amber upgrade-buy-btn" data-upgrade="staff">
+                                        Buy <span class="price-symbol">$</span><span class="price-val">300.00</span>
+                                    </button>
+                                </div>
+
+                                <!-- Tip Jars upgrade -->
+                                <div class="upgrade-item" id="upgrade-tipjar">
+                                    <div class="upgrade-icon-box bg-purple"><i class="fa-solid fa-jar"></i></div>
+                                    <div class="upgrade-info">
+                                        <h4 class="upgrade-name">Tip Jars</h4>
+                                        <p class="upgrade-desc">Increases passive tip rate per customer (+$0.50/sec base)</p>
+                                        <span class="upgrade-level">Level <span class="level-val">1</span></span>
+                                    </div>
+                                    <button class="btn btn-amber upgrade-buy-btn" data-upgrade="tipjar">
+                                        Buy <span class="price-symbol">$</span><span class="price-val">100.00</span>
+                                    </button>
+                                </div>
+
+                                <!-- Expansion Upgrade (Floor level milestones) -->
+                                <div class="upgrade-item item-floor-expansion" id="upgrade-floor">
+                                    <div class="upgrade-icon-box bg-gold"><i class="fa-solid fa-hotel"></i></div>
+                                    <div class="upgrade-info">
+                                        <h4 class="upgrade-name">Floor Expansion</h4>
+                                        <p class="upgrade-desc">Milestone upgrades unlocking harder word tiers and major cash boosts</p>
+                                        <span class="upgrade-level">Current: Floor <span class="level-val">1</span></span>
+                                    </div>
+                                    <button class="btn btn-gold upgrade-buy-btn" data-upgrade="floor">
+                                        Buy <span class="price-symbol">$</span><span class="price-val">1000.00</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Active Serving Customer Order Modal -->
+    <div class="modal-backdrop" id="serving-modal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-utensils text-amber"></i> Serving Customer Order</h3>
+                <button class="modal-close-btn" id="close-serving-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="serving-modal-desc">Answer the customer's vocab question correctly to secure the tip and cash multiplier bonus!</p>
+                <div class="timer-question-container">
+                    <!-- Answer word hidden — sentence/prompt are the only clues -->
+                    <div class="timer-question-word" id="serve-modal-word" style="display:none;">Target Word</div>
+                    <div class="timer-question-prompt" id="serve-modal-prompt">Identify the synonym:</div>
+                    <div class="timer-question-sentence" id="serve-modal-sentence" style="display: none;">Context fill in the blank</div>
+                    
+                    <div class="study-options-grid" id="serve-modal-options">
+                        <!-- Option buttons -->
+                    </div>
+                </div>
+
+                <div class="serving-feedback" id="serve-modal-feedback" style="display: none;">
+                    <div class="feedback-heading">
+                        <i class="fa-solid fa-circle-check"></i> <span id="serve-modal-feedback-title">Success!</span>
+                    </div>
+                    <p id="serve-modal-feedback-text">Details about the rewards earned.</p>
+                </div>
+            </div>
+            <div class="modal-footer" id="serve-modal-footer" style="display: none;">
+                <button class="btn btn-amber" id="serve-modal-continue-btn">Complete Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Config + Auth (loaded before app scripts) -->
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+
+    <!-- Core App JS Scripts -->
+    <script src="vocabulary-pool.js"></script>
+    <script src="tycoon-engine.js"></script>
+    <script src="study-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
