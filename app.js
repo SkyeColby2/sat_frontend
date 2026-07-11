@@ -851,7 +851,7 @@ class AppController {
         return { headers, rows };
     }
 
-    async importWordsFromMappedColumn() {
+async importWordsFromMappedColumn() {
         const select = document.getElementById('word-column-select');
         const colIndex = parseInt(select.value);
         const statusMsg = document.getElementById('import-status-message');
@@ -925,18 +925,15 @@ class AppController {
                 continue;
             }
 
-            // ── Step 2: No DB match — try the dictionary API ──────────────────
-            console.warn(`[Import] ❌ No database entry found for: "${key}" — falling back to API.`);
-            statusMsg.textContent = `[${i + 1}/${words.length}] ❌ "${key}" not in local DB — fetching from API…`;
-            
-            console.warn(`[Import] ❌ No database entry found for: "${key}" — calling OpenAI API.`);
-            statusMsg.textContent = `[${i + 1}/${words.length}] 🧠 Asking AI to generate card for "${key}"…`;
+            // ── Step 2: No DB match — try the cloud cache/dictionary API ──────────────────
+            console.warn(`[Import] ❌ No database entry found for: "${key}" — calling Render Backend Proxy.`);
+            statusMsg.textContent = `[${i + 1}/${words.length}] 🧠 Syncing "${key}" through Cloud Pipeline…`;
             
             try {
-                // 1. Point this to your live Render public URL (or "http://localhost:3000/api/generate-word" for local testing)
-                const backendUrl = "https://sat-vocab-backend-fnrv.onrender.com";
+                // Point this to your live Render public endpoint
+                const backendUrl = "https://sat-vocab-backend-fnrv.onrender.com/api/generate-word";
 
-                // 2. Send the missing word data to your Render backend proxy
+                // Send the missing word data to your Render backend proxy
                 const backendResponse = await fetch(backendUrl, {
                     method: "POST",
                     headers: {
@@ -949,7 +946,7 @@ class AppController {
                 
                 const generatedCard = await backendResponse.json();
 
-                // 3. Sanitize fields and build the cards safely
+                // Sanitize fields and build the cards safely
                 const entry = AppController.sanitizeDBEntry(generatedCard, key);
 
                 importedPool.push(entry);
@@ -1023,7 +1020,6 @@ class AppController {
         this.studyEngine.loadNextStudyQuestion();
         this.studyEngine.loadFlashcards();
     }
-
     // Sync views
     syncDashboardProgress() {
         const total = this.vocabPool.length;
