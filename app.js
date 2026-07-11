@@ -39,7 +39,27 @@ class AppController {
         
         // Search filter in vocab pool
         document.getElementById('vocab-search').oninput = (e) => this.filterVocabPool(e.target.value);
-        
+        // Wire up dynamic vocabulary destruction pipeline
+        document.getElementById('wipe-vocab-btn').onclick = () => {
+            if (confirm("🚨 WARNING: Are you sure you want to delete ALL vocabulary words from your current pool? This will wipe your active deck completely.")) {
+                this.vocabPool = []; // Empty out the core in-memory array database pool
+                
+                // Save the empty state down to LocalStorage instantly
+                this.saveVocabularyPool();
+                
+                // Force the app to sync the structural metrics numbers across the view panels
+                this.syncDashboardProgress();
+                
+                // Notify the user via your toast notification system
+                this.showNotification("Deck Wiped", "All vocabulary words have been removed from your active pool.", "warning");
+                
+                // Force the learning engine to update so it shows the clean empty fallback displays
+                if (this.studyEngine) {
+                    this.studyEngine.loadNextStudyQuestion();
+                    this.studyEngine.loadFlashcards();
+                }
+            }
+        };
         // Preloaded defaults button
         document.getElementById('load-defaults-btn').onclick = () => {
             if (confirm("Are you sure you want to reload the default SAT word list? This will replace your current vocabulary pool.")) {
