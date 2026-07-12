@@ -416,7 +416,7 @@ class TycoonEngine {
     getUpgradeCost(type) {
         switch(type) {
             case 'multiplier':
-                return Math.round(50 * Math.pow(1.5, this.state.multiplierLevel - 1));
+                return Math.round(50 * Math.pow(1.15, this.state.multiplierLevel - 1));
             case 'tables':
                 const maxTablesForTotalFloors = this.state.currentFloor * 8;
                 if (this.state.tablesCount >= maxTablesForTotalFloors || this.state.tablesCount >= 32) return Infinity;
