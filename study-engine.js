@@ -654,7 +654,7 @@ class StudyEngine {
             container.querySelectorAll('button').forEach(btn => btn.disabled = true);
             
             setTimeout(() => {
-                this.loadNextTimerQuestion();
+                this.loadTimerQuestion();
             }, 800);
         } else {
             // 🛑 WRONG ANSWER: Reveal correct details and require a manual click to end game
