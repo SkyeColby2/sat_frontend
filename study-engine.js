@@ -613,28 +613,36 @@ class StudyEngine {
                 answer
             };
         } else {
-            // Context sentence fill-in-the-blank
+            // 📝 Context sentence fill-in-the-blank (Upgraded to a 10-Word Bank!)
             const word = pool[Math.floor(Math.random() * pool.length)];
             const answer = word.word;
+            
+            // Gather all other words from the pool to act as distractors
             let distractors = pool.filter(w => w.word !== word.word).map(w => w.word);
-            while (distractors.length < 3) {
+            
+            // Safeguard with dynamic dummy variables if the pool contains fewer than 9 other words
+            while (distractors.length < 9) {
                 distractors.push("dummy-" + Math.random().toString(36).substr(2, 3));
             }
+            
+            // Shuffle all available distractors and cleanly slice exactly 9 of them
             this.shuffleArray(distractors);
-            const finalOptions = [answer, ...distractors.slice(0, 3)];
+            const selectedDistractors = distractors.slice(0, 9);
+            
+            // Combine into a full 10-option layout and shuffle them together
+            const finalOptions = [answer, ...selectedDistractors];
             this.shuffleArray(finalOptions);
             
             return {
                 type: 'context',
                 word,
-                prompt: "Select the word that correctly fills the blank:",
+                prompt: "Select the word from the bank that correctly fills the blank:",
                 sentence: word.sentence,
-                options: finalOptions,
+                options: finalOptions, // 🎯 Now contains exactly 10 options!
                 answer
             };
         }
     }
-
     submitTimerAnswer(buttonEl, selectedOption) {
         if (!this.timerGameActive) return;
         
