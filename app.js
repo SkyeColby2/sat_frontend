@@ -45,6 +45,7 @@ class AppController {
         document.getElementById('reset-app-btn').onclick = () => this.resetAllData();
         // Wire up saved list hooks
         document.getElementById('create-list-btn').onclick = () => this.createNewSavedList();
+        document.getElementById('delete-list-btn').onclick = () => this.deleteActiveList();
         document.getElementById('active-list-select').onchange = (e) => this.switchActiveList(e.target.value);
             // Search filter in vocab pool
         document.getElementById('vocab-search').oninput = (e) => this.filterVocabPool(e.target.value);
@@ -693,32 +694,39 @@ class AppController {
         });
 
         // ── Add to Pool button ────────────────────────────────────────
+// ── Add to Pool button inside initAddWord() ──
         confirmBtn.addEventListener('click', () => {
             if (!selectedEntry) return;
 
             const key = AppController.cleanKey(selectedEntry.word);
 
-            // Duplicate check
+            // Duplicate check against the active deck container
             if (this.vocabPool.some(w => AppController.cleanKey(w.word) === key)) {
                 statusMsg.style.display = 'block';
                 statusMsg.className = 'import-status text-amber';
-                statusMsg.textContent = `"${selectedEntry.word}" is already in your pool.`;
+                statusMsg.textContent = `"${selectedEntry.word}" is already in your active pool.`;
                 return;
             }
 
-            // Sanitize and add a fresh copy with stage reset to 'A'
+            // Sanitize record format copy safely
             const entry = AppController.sanitizeDBEntry(selectedEntry, key);
+            
+            // 🚀 THE FIX: Push word directly to both tracking variables seamlessly
             this.vocabPool.push({ ...entry, stage: 'A' });
+            this.savedLists[this.activeListName] = this.vocabPool; 
+
+            // Save state, update storage layers, and rebuild dashboard views
             this.saveVocabularyPool();
             this.syncDashboardProgress();
+            this.updateListDropdownUI();
 
             this.showNotification(
                 'Word Added',
-                `"${selectedEntry.word}" has been added to your pool.`,
+                `"${selectedEntry.word}" has been added to your active deck.`,
                 'success'
             );
 
-            // Reset the widget
+            // Reset selection frame widgets
             input.value = '';
             hideAll();
             selectedEntry = null;
@@ -1269,7 +1277,34 @@ async importWordsFromMappedColumn() {
             this.showNotification("Reset Complete", "All progress has been wiped.", "warning");
         }
     }
+    deleteActiveList() {
+        if (this.activeListName === "Default Deck") {
+            alert("The 'Default Deck' cannot be deleted. You can clear its words instead using 'Delete All Words'.");
+            return;
+        }
 
+        if (confirm(`❌ Are you sure you want to completely delete the list "${this.activeListName}"? All words within this specific deck will be removed.`)) {
+            // Unlink current playlist target from your deck mapping lists collection entirely
+            delete this.savedLists[this.activeListName];
+            
+            // Auto fallback straight back down onto your master Default Deck baseline
+            this.activeListName = "Default Deck";
+            this.vocabPool = this.savedLists["Default Deck"] || [];
+            
+            // Commit mutations, force updates, and draw clean views elements boards instantly
+            this.saveAllListsToStorage();
+            this.updateListDropdownUI();
+            this.syncVocabPoolWithMasterProgress();
+            this.syncDashboardProgress();
+            
+            if (this.studyEngine) {
+                this.studyEngine.loadNextStudyQuestion();
+                this.studyEngine.loadFlashcards();
+            }
+            
+            this.showNotification("List Deleted", "Switched back to default deck baseline profile cleanly.", "warning");
+        }
+    }
     // Trigger toast notification
     showNotification(title, text, type = "success") {
         // Create dynamic toast overlay
@@ -1331,23 +1366,24 @@ async function generateAndAddWordFromAPI(wordToTrack) {
         if (!response.ok) throw new Error("Backend server error mapping card.");
         const generatedCard = await response.json();
         
-        // 1. Pull whatever is currently stored in localStorage
-        let currentPool = [];
-        const localData = localStorage.getItem('sat_vocab_pool');
-        if (localData) {
-            try { currentPool = JSON.parse(localData); } catch(e) {}
+        // Ensure app variables are reachable
+        if (window.app) {
+            const key = AppController.cleanKey(generatedCard.word);
+            const entry = AppController.sanitizeDBEntry(generatedCard, key);
+            
+            // Push directly onto active deck and active collection lane arrays
+            window.app.vocabPool.push({ ...entry, stage: 'A' });
+            window.app.savedLists[window.app.activeListName] = window.app.vocabPool;
+            
+            // Sync down instantly to storage layers
+            window.app.saveVocabularyPool();
+            window.app.syncDashboardProgress();
+            window.app.updateListDropdownUI();
         }
         
-        // 2. Add our shiny new word profile to the list array
-        currentPool.push(generatedCard);
-        
-        // 3. Save it back down immediately to localStorage
-        localStorage.setItem('sat_vocab_pool', JSON.stringify(currentPool));
-        
-        // 4. Update the UI text so you see the confirmation instantly
         if (textEl) {
             textEl.style.color = "#34D399"; // Success Green
-            textEl.innerHTML = `🎯 Added "${generatedCard.word}" to your study pool! Refresh to view.`;
+            textEl.innerHTML = `🎯 Added "${generatedCard.word}" to your study pool!`;
         }
 
     } catch (err) {
