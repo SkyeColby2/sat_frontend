@@ -827,24 +827,54 @@ class AppController {
     }
 
     async loadDefaultPool() {
-        // 🧼 Force the default pool list array to initialize completely empty
-        this.vocabPool = [];
+        try {
+            // Try to fetch your local master json file if it exists
+            const res = await fetch('vocabulary.json');
+            if (!res.ok) throw new Error("Failed to fetch vocabulary.json");
+            const data = await res.ok ? await res.json() : [];
+            this.vocabPool = data;
+        } catch (err) {
+            console.warn("Failed to load vocabulary.json, falling back to embedded spreadsheet preloads:", err);
+            // 🚀 THE FIX: Populate using the 249-word spreadsheet list from vocabulary-pool.js
+            if (typeof DEFAULT_VOCAB_POOL !== 'undefined') {
+                this.vocabPool = JSON.parse(JSON.stringify(DEFAULT_VOCAB_POOL));
+            } else {
+                this.vocabPool = []; // Ultimate fallback safety net
+            }
+        }
         
-        // Save the clean slate down to LocalStorage and refresh metrics
+        // Save the populated default deck straight into your new saved lists object layout
+        if (!this.savedLists) {
+            this.savedLists = {};
+        }
+        this.savedLists[this.activeListName || "Default Deck"] = this.vocabPool;
+        
         this.saveVocabularyPool();
         this.syncDashboardProgress();
+        this.showNotification("Default Pool Loaded", `Preloaded ${this.vocabPool.length} master SAT words cleanly.`, "success");
         
-        this.showNotification("Default Pool Reset", "The vocabulary pool has been initialized to empty.", "success");
-        
-        // Refresh active views to show the blank layout fallbacks
+        // Refresh active views if running
         if (this.studyEngine) {
             this.studyEngine.loadNextStudyQuestion();
             this.studyEngine.loadFlashcards();
         }
     }
-
     saveVocabularyPool() {
-        // Always save locally first (instant, works offline)
+        // 1. Keep the active list's array synchronized with the master index records tracking map
+        this.vocabPool.forEach(word => {
+            const key = AppController.cleanKey(word.word);
+            if (word.stage) {
+                this.masterProgressMap[key] = word.stage;
+            }
+        });
+
+        // 2. Commit universal progress map back into the master lists arrays channel collections
+        this.savedLists[this.activeListName] = this.vocabPool;
+
+        // 3. Flatten values down to LocalStorage records tracks smoothly
+        localStorage.setItem('sat_vocab_saved_lists', JSON.stringify(this.savedLists));
+        localStorage.setItem('sat_vocab_master_progress_map', JSON.stringify(this.masterProgressMap));
+        localStorage.setItem('sat_vocab_active_list_name', this.activeListName);
         localStorage.setItem('sat_vocab_pool', JSON.stringify(this.vocabPool));
         localStorage.setItem('sat_vocab_version', AppController.DATA_VERSION);
 
@@ -852,7 +882,6 @@ class AppController {
         if (authManager.isSignedIn) {
             this._setSyncStatus('syncing');
             authManager.scheduleSave(this._buildCloudSnapshot());
-            // Optimistically show synced after the debounce window
             setTimeout(() => this._setSyncStatus('saved'), 2500);
         }
     }
