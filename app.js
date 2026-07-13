@@ -2,11 +2,18 @@
 
 class AppController {
     constructor() {
-        this.vocabPool = [];
-        this.csvData = null; // Parsed CSV { headers, rows }
-        this.localDB = new Map(); // word (lowercase) -> full entry from vocabulary.json
-        this.authReady = false; // true once login flow resolves
+        this.vocabPool = []; // Becomes the copy of the active selected list's words
+        this.csvData = null;
+        this.localDB = new Map();
+        this.authReady = false;
         
+        // 📁 NEW STATE ARCHITECTURE FOR SAVED LISTS
+        this.savedLists = {
+            "Default Deck": [] // Start with one default array lane container
+        };
+        this.activeListName = "Default Deck";
+        this.masterProgressMap = {}; // Global dictionary mapping: word_name -> stage
+
         // Modules
         this.studyEngine = new StudyEngine(this);
         this.tycoonEngine = new TycoonEngine(this);
@@ -36,8 +43,10 @@ class AppController {
         
         // Wire up reset button
         document.getElementById('reset-app-btn').onclick = () => this.resetAllData();
-        
-        // Search filter in vocab pool
+        // Wire up saved list hooks
+        document.getElementById('create-list-btn').onclick = () => this.createNewSavedList();
+        document.getElementById('active-list-select').onchange = (e) => this.switchActiveList(e.target.value);
+            // Search filter in vocab pool
         document.getElementById('vocab-search').oninput = (e) => this.filterVocabPool(e.target.value);
         // Wire up dynamic vocabulary destruction pipeline
         document.getElementById('wipe-vocab-btn').onclick = () => {
@@ -163,7 +172,107 @@ class AppController {
             }));
         });
     }
+// Creates a new empty named playlist channel container lane
+    createNewSavedList() {
+        const titleInput = document.getElementById('new-list-title');
+        const title = titleInput.value.trim();
+        
+        if (!title) return;
+        if (this.savedLists[title]) {
+            alert("A list with that title already exists.");
+            return;
+        }
 
+        this.savedLists[title] = [];
+        titleInput.value = '';
+        
+        this.saveAllListsToStorage();
+        this.updateListDropdownUI();
+        this.switchActiveList(title);
+        this.showNotification("List Created", `"${title}" is now active and ready for imports.`, "success");
+    }
+
+    // Swaps the primary engine array mapping targets smoothly
+    switchActiveList(listName) {
+        if (!this.savedLists[listName]) return;
+        
+        this.activeListName = listName;
+        this.vocabPool = this.savedLists[listName];
+        
+        // Universal Stage Sync: Inject master dictionary tracking stages into words on display swap load
+        this.syncVocabPoolWithMasterProgress();
+        
+        localStorage.setItem('sat_vocab_active_list_name', listName);
+        this.updateListDropdownUI();
+        this.syncDashboardProgress();
+        
+        if (this.studyEngine) {
+            this.studyEngine.loadNextStudyQuestion();
+            this.studyEngine.loadFlashcards();
+        }
+    }
+
+    // Enforces state consistency across disconnected lists
+    syncVocabPoolWithMasterProgress() {
+        this.vocabPool.forEach(word => {
+            const key = AppController.cleanKey(word.word);
+            // If the global map has tracking logs, pull it. Otherwise initialize at 'A'.
+            if (this.masterProgressMap[key]) {
+                word.stage = this.masterProgressMap[key];
+            } else {
+                this.masterProgressMap[key] = word.stage || 'A';
+                word.stage = this.masterProgressMap[key];
+            }
+        });
+    }
+
+    // Renders matching values inside your drop-down options selection node field
+    updateListDropdownUI() {
+        const select = document.getElementById('active-list-select');
+        if (!select) return;
+        
+        select.innerHTML = '';
+        Object.keys(this.savedLists).forEach(name => {
+            const opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = `${name} (${this.savedLists[name].length} words)`;
+            if (name === this.activeListName) opt.selected = true;
+            select.appendChild(opt);
+        });
+    }
+
+    // Intercepts saveVocabularyPool to serialize structural modifications seamlessly
+    saveVocabularyPool() {
+        // 1. Keep the active list's array synchronized with the master index records tracking map
+        this.vocabPool.forEach(word => {
+            const key = AppController.cleanKey(word.word);
+            if (word.stage) {
+                this.masterProgressMap[key] = word.stage;
+            }
+        });
+
+        // 2. Commit universal progress map back into the master lists arrays channel collections
+        this.savedLists[this.activeListName] = this.vocabPool;
+        this.syncVocabPoolWithMasterProgress();
+
+        // 3. Flatten values down to LocalStorage records tracks smoothly
+        this.saveAllListsToStorage();
+        
+        if (authManager.isSignedIn) {
+            this._setSyncStatus('syncing');
+            authManager.scheduleSave(this._buildCloudSnapshot());
+            setTimeout(() => this._setSyncStatus('saved'), 2500);
+        }
+    }
+
+    saveAllListsToStorage() {
+        localStorage.setItem('sat_vocab_saved_lists', JSON.stringify(this.savedLists));
+        localStorage.setItem('sat_vocab_master_progress_map', JSON.stringify(this.masterProgressMap));
+        localStorage.setItem('sat_vocab_active_list_name', this.activeListName);
+        // Fallback backward compatibility insurance matching
+        localStorage.setItem('sat_vocab_pool', JSON.stringify(this.vocabPool));
+        localStorage.setItem('sat_vocab_version', AppController.DATA_VERSION);
+    }
     /** Update sidebar user panel with Google account info. */
     _applyUserToSidebar(user) {
         document.getElementById('sidebar-user-panel').style.display = 'block';
@@ -674,44 +783,31 @@ class AppController {
     static get DATA_VERSION() { return "2"; }
 
     async loadVocabPool() {
-        const savedVersion = localStorage.getItem('sat_vocab_version');
-        const saved = localStorage.getItem('sat_vocab_pool');
+        const savedListsRaw = localStorage.getItem('sat_vocab_saved_lists');
+        const savedMapRaw = localStorage.getItem('sat_vocab_master_progress_map');
+        const savedActiveName = localStorage.getItem('sat_vocab_active_list_name');
 
-        // Detect stale cache: version mismatch OR presence of old placeholder sentences
-        const isStale = (savedVersion !== AppController.DATA_VERSION) || this._hasPlaceholderData(saved);
-
-        if (saved && !isStale) {
+        if (savedListsRaw && savedMapRaw) {
             try {
-                const parsed = JSON.parse(saved);
+                this.savedLists = JSON.parse(savedListsRaw);
+                this.masterProgressMap = JSON.parse(savedMapRaw);
+                this.activeListName = savedActiveName || Object.keys(this.savedLists)[0];
+                this.vocabPool = this.savedLists[this.activeListName] || [];
 
-                // ── On-load re-sanitization pass ────────────────────────────
-                // Cleans up any stale placeholder sentences / bad fields that
-                // were stored in localStorage before the sanitizer existed,
-                // or that slipped through an older version of the check.
-                // If localDB is already loaded, we try to get the real entry
-                // from vocabulary.json first; otherwise we just sanitize in-place.
-                this.vocabPool = parsed.map(entry => {
-                    const key = AppController.cleanKey(entry.word);
-                    const dbEntry = this.localDB.size > 0
-                        ? (this.localDB.get(key) || entry)  // prefer real JSON data
-                        : entry;                             // DB not loaded yet — sanitize what we have
-                    return AppController.sanitizeDBEntry(dbEntry, key);
-                });
-
-                // Persist the cleaned version back immediately so next load is instant
-                localStorage.setItem('sat_vocab_pool', JSON.stringify(this.vocabPool));
-                console.info(`[Load] ✅ Pool loaded & re-sanitized: ${this.vocabPool.length} words.`);
+                this.syncVocabPoolWithMasterProgress();
+                this.updateListDropdownUI();
+                console.info(`[Load] Hydrated saved collections successfully across lists.`);
                 return;
             } catch(e) {
-                console.error("Failed to parse vocab pool:", e);
+                console.error("Failed parsing composite structural deck maps layouts:", e);
             }
         }
-
-        // Cache is missing, stale, or corrupt — reload from source
-        if (isStale && saved) {
-            console.info("Data version mismatch or stale cache detected — reloading from vocabulary.json.");
-        }
+        // Fallback default setup route if fresh cache block initialization pass catches
+        this.savedLists = { "Default Deck": [] };
+        this.activeListName = "Default Deck";
+        this.masterProgressMap = {};
         await this.loadDefaultPool();
+        this.updateListDropdownUI();
     }
 
     /** Quick check: does the JSON string contain a known bad placeholder sentence? */

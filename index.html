@@ -262,7 +262,26 @@
                             <div class="import-status" id="add-word-status" style="display:none;"></div>
                         </div>
                     </div>
+                    <!-- 📁 Saved Lists Management Widget -->
+                    <div class="saved-lists-manager" style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px;">
+                        <h3 style="font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">
+                            <i class="fa-solid fa-folder-open"></i> Saved Lists
+                        </h3>
+                        
+                        <!-- Create List Form -->
+                        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                            <input type="text" id="new-list-title" placeholder="List Title (e.g. June SAT Prep)" style="flex: 1; padding: 8px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: white; font-size: 0.8rem; font-family: inherit;">
+                            <button id="create-list-btn" class="btn btn-indigo" style="padding: 8px 14px; font-size: 0.8rem; font-weight: 600; border-radius: 6px; cursor: pointer;">Create</button>
+                        </div>
 
+                        <!-- Active List Selector Dropdown -->
+                        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
+                            <label style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">ACTIVE STUDY LIST:</label>
+                            <select id="active-list-select" style="width: 100%; padding: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: white; font-family: inherit; font-size: 0.85rem; cursor: pointer;">
+                                <!-- Options dynamically filled -->
+                            </select>
+                        </div>
+                    </div>
                     <!-- Statistics Card -->
                     <div class="glass-card stats-card">
                         <div class="card-header">
