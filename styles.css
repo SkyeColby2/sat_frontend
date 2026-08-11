@@ -1481,6 +1481,294 @@ body {
     }
 }
 
+/* Global Mobile Top Header Style */
+.mobile-top-header {
+    display: none;
+}
+
+/* Static SEO Section Styling */
+.seo-crawl-section {
+    margin-top: 4rem;
+    padding: 3rem 1.5rem;
+    background: rgba(10, 14, 25, 0.4);
+    border-top: 1px solid var(--border-color);
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.seo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seo-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.seo-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #fff 40%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.seo-header p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.seo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.seo-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.seo-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #818cf8;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.seo-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .seo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .seo-crawl-section {
+        margin-top: 2rem;
+        padding: 2rem 1rem;
+    }
+
+    .mobile-top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: var(--bg-sidebar);
+        border-bottom: 1px solid var(--border-color);
+        height: 55px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .mobile-brand .brand-icon {
+        font-size: 1.4rem;
+        color: var(--color-indigo);
+    }
+    .mobile-brand-title {
+        font-size: 1.15rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .mobile-stats {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .mobile-cash-display {
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        padding: 0.35rem 0.65rem;
+        border-radius: 99px;
+        font-size: 0.85rem;
+        font-weight: 750;
+        color: var(--color-amber);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        cursor: pointer;
+    }
+    .mobile-user-avatar-btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Layout Adjustments */
+    .app-layout {
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        width: 100% !important;
+        background-color: var(--bg-sidebar);
+        border-top: 1px solid var(--border-color);
+        border-bottom: none;
+        border-right: none;
+        z-index: 1000;
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible;
+    }
+    .sidebar-brand,
+    .sidebar-tycoon-widget,
+    .sidebar-user-panel,
+    .sidebar-footer {
+        display: none !important;
+    }
+    .sidebar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center;
+        padding: 0 0.25rem !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        height: 100%;
+        gap: 0 !important;
+    }
+    .nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.15rem !important;
+        padding: 0.5rem 0.15rem !important;
+        font-size: 0.65rem !important;
+        font-weight: 600;
+        border-left: none !important;
+        border-radius: 0 !important;
+        text-align: center !important;
+        color: var(--text-secondary);
+        background: transparent !important;
+        height: 100%;
+        min-height: 48px; /* Touch target */
+        margin: 0 !important;
+        white-space: nowrap;
+    }
+    .nav-item i {
+        font-size: 1.1rem;
+    }
+    .nav-item.active {
+        color: #818cf8;
+        background: rgba(99, 102, 241, 0.08) !important;
+        border-top: 3px solid var(--color-indigo);
+        padding-top: calc(0.5rem - 3px) !important;
+    }
+    
+    .main-content {
+        padding-top: 55px !important;
+        padding-bottom: 65px !important;
+        height: 100vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden !important;
+    }
+    
+    .view-panel {
+        padding: 1rem 0.5rem !important;
+    }
+    
+    /* Touch Target Sizing (all inputs & buttons at least 48px) */
+    .btn,
+    .btn-option,
+    .btn-bank-item,
+    .form-control,
+    .upgrade-buy-btn {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-option {
+        padding: 0.75rem 1rem !important;
+    }
+    .btn-bank-item {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Grids & Cards spacing */
+    .dashboard-grid,
+    .tycoon-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    .span-cols-2 {
+        grid-column: span 1 !important;
+    }
+    
+    /* Modal Card Responsiveness */
+    .modal-card {
+        width: 95% !important;
+        max-width: 95% !important;
+        margin: 10px auto !important;
+        padding: 1.25rem !important;
+    }
+    
+    /* Flashcard Scaling */
+    .flashcard-deck-container {
+        max-width: 100% !important;
+        padding: 0 0.5rem;
+        margin: 1rem auto !important;
+    }
+    .flashcard-wrapper {
+        height: 280px !important;
+    }
+    .flashcard-face {
+        padding: 1.25rem !important;
+    }
+    .card-word {
+        font-size: 2rem !important;
+    }
+    
+    /* Timer Game Stats */
+    .gameover-stats {
+        gap: 1.5rem !important;
+    }
+    
+    /* Active Pool Table horizontal scroll */
+    .scroll-table-container {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .pool-table {
+        min-width: 600px; /* Allows horizontal scrolling rather than squishing */
+    }
+}
+
 /* Toast Notifications */
 .toast-notification {
     position: fixed;

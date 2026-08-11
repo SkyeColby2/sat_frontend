@@ -279,11 +279,20 @@ class AppController {
         document.getElementById('sidebar-user-panel').style.display = 'block';
         document.getElementById('user-display-name').textContent = user.displayName || 'Student';
         const avatarEl = document.getElementById('user-avatar');
+        const mobileAvatarEl = document.getElementById('mobile-avatar');
+        
         if (user.photoURL) {
             avatarEl.src = user.photoURL;
             avatarEl.style.display = 'block';
+            if (mobileAvatarEl) {
+                mobileAvatarEl.src = user.photoURL;
+                mobileAvatarEl.style.display = 'block';
+            }
         } else {
             avatarEl.style.display = 'none';
+            if (mobileAvatarEl) {
+                mobileAvatarEl.style.display = 'none';
+            }
         }
     }
 
@@ -746,39 +755,70 @@ class AppController {
         const navItems = document.querySelectorAll('.nav-item');
         const viewPanels = document.querySelectorAll('.view-panel');
         
+        this.switchView = (target) => {
+            // Toggle active menu class
+            navItems.forEach(nav => {
+                if (nav.getAttribute('data-target') === target) {
+                    nav.classList.add('active');
+                } else {
+                    nav.classList.remove('active');
+                }
+            });
+            
+            // Toggle views
+            viewPanels.forEach(panel => {
+                if (panel.id === target) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+
+            // Custom view triggers
+            if (target === 'study-view') {
+                this.studyEngine.loadNextStudyQuestion();
+            } else if (target === 'flashcard-view') {
+                this.studyEngine.loadFlashcards();
+            } else if (target === 'tycoon-view') {
+                this.tycoonEngine.renderVisuals();
+                this.tycoonEngine.updateUI();
+            }
+            
+            // Stop timer game if leaving timer view
+            if (target !== 'timer-view') {
+                this.studyEngine.exitTimerGame();
+            }
+
+            // Scroll main content to top on view change
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) mainContent.scrollTop = 0;
+        };
+        
         navItems.forEach(item => {
             item.onclick = () => {
                 const target = item.getAttribute('data-target');
-                
-                // Toggle active menu class
-                navItems.forEach(nav => nav.classList.remove('active'));
-                item.classList.add('active');
-                
-                // Toggle views
-                viewPanels.forEach(panel => {
-                    if (panel.id === target) {
-                        panel.classList.add('active');
-                    } else {
-                        panel.classList.remove('active');
-                    }
-                });
-
-                // Custom view triggers
-                if (target === 'study-view') {
-                    this.studyEngine.loadNextStudyQuestion();
-                } else if (target === 'flashcard-view') {
-                    this.studyEngine.loadFlashcards();
-                } else if (target === 'tycoon-view') {
-                    this.tycoonEngine.renderVisuals();
-                    this.tycoonEngine.updateUI();
-                }
-                
-                // Stop timer game if leaving timer view
-                if (target !== 'timer-view') {
-                    this.studyEngine.exitTimerGame();
-                }
+                this.switchView(target);
             };
         });
+
+        // Wire up mobile top bar headers
+        const mobileCashBtn = document.getElementById('mobile-cash-btn');
+        if (mobileCashBtn) {
+            mobileCashBtn.onclick = () => this.switchView('tycoon-view');
+        }
+
+        const mobileProfileBtn = document.getElementById('mobile-profile-btn');
+        if (mobileProfileBtn) {
+            mobileProfileBtn.onclick = () => {
+                if (authManager.currentUser) {
+                    if (confirm(`Logged in as ${authManager.currentUser.displayName || 'Student'}. Would you like to sign out?`)) {
+                        authManager.signOut();
+                    }
+                } else {
+                    this.switchView('dashboard-view');
+                }
+            };
+        }
     }
 
     // Vocabulary pool getters/setters
@@ -1266,7 +1306,14 @@ async importWordsFromMappedColumn() {
 
     syncSidebarTycoon() {
         if (this.tycoonEngine) {
-            document.getElementById('sidebar-cash').textContent = this.tycoonEngine.state.cash.toFixed(2);
+            const cashStr = this.tycoonEngine.state.cash.toFixed(2);
+            document.getElementById('sidebar-cash').textContent = cashStr;
+            
+            const mobileCashEl = document.getElementById('mobile-cash');
+            if (mobileCashEl) {
+                mobileCashEl.textContent = cashStr;
+            }
+            
             document.getElementById('sidebar-income-rate').textContent = this.tycoonEngine.getPassiveIncomeRate().toFixed(2);
             document.getElementById('widget-floor-badge').textContent = `Floor ${this.tycoonEngine.state.currentFloor}`;
         }

@@ -3,7 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAT Vocab Quest & Restaurant Tycoon</title>
+    <title>DoVocab | Free SAT Vocabulary Game & Restaurant Tycoon</title>
+    <meta name="description" content="Master SAT vocabulary words with DoVocab! Learn terms through gamified flashcards, beat the speed timer, and expand your Restaurant Tycoon empire with correct answers.">
+    <meta name="keywords" content="free SAT vocabulary game, vocabulary tycoon, SAT vocab practice, SAT vocab prep, educational games, vocab cards, SAT study tool">
+    <meta name="author" content="DoVocab">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dovocab.com/">
+    <meta property="og:title" content="DoVocab | Free SAT Vocabulary Game & Restaurant Tycoon">
+    <meta property="og:description" content="Master SAT vocabulary words with DoVocab! Learn terms through gamified flashcards, beat the speed timer, and expand your Restaurant Tycoon empire with correct answers.">
+    <meta property="og:image" content="https://dovocab.com/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dovocab.com/">
+    <meta property="twitter:title" content="DoVocab | Free SAT Vocabulary Game & Restaurant Tycoon">
+    <meta property="twitter:description" content="Master SAT vocabulary words with DoVocab! Learn terms through gamified flashcards, beat the speed timer, and expand your Restaurant Tycoon empire with correct answers.">
+    <meta property="twitter:image" content="https://dovocab.com/assets/og-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "DoVocab",
+      "operatingSystem": "All",
+      "applicationCategory": "EducationalApplication",
+      "genre": "Educational Game",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "A gamified educational vocabulary app that helps high school students prepare for standardized testing (SAT) using flashcards, speed quizzes, and a restaurant tycoon simulation.",
+      "featureList": [
+        "Interactive Vocabulary Learning Loop (Synonyms, Fill-in-the-blank, Word Banks)",
+        "Beat the Timer speed game with compound speed boosts",
+        "Restaurant Tycoon simulator where answering vocabulary questions serves customers and generates passive tips",
+        "Custom CSV and Spreadsheet uploader to learn custom decks"
+      ]
+    }
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +72,7 @@
                 <div class="login-brand-icon">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h1 class="login-brand-title">Vocab Quest</h1>
+                <h1 class="login-brand-title">DoVocab</h1>
                 <p class="login-brand-sub">SAT &amp; Restaurant Tycoon</p>
             </div>
 
@@ -92,13 +133,30 @@
         </div>
     </div>
 
+    <!-- Mobile Top Header (Visible only on screens < 768px) -->
+    <header class="mobile-top-header">
+        <div class="mobile-brand">
+            <i class="fa-solid fa-graduation-cap brand-icon"></i>
+            <span class="mobile-brand-title">DoVocab</span>
+        </div>
+        <div class="mobile-stats">
+            <div class="mobile-cash-display" id="mobile-cash-btn">
+                <i class="fa-solid fa-coins text-amber"></i>
+                <span id="mobile-cash">0.00</span>
+            </div>
+            <div class="mobile-user-avatar-btn" id="mobile-profile-btn">
+                <img id="mobile-avatar" class="user-avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Avatar" style="display: none;">
+            </div>
+        </div>
+    </header>
+
     <div class="app-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <i class="fa-solid fa-graduation-cap brand-icon"></i>
                 <div class="brand-text">
-                    <span class="brand-title">Vocab Quest</span>
+                    <span class="brand-title">DoVocab</span>
                     <span class="brand-subtitle">SAT & Tycoon</span>
                 </div>
             </div>
@@ -721,6 +779,32 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- Static SEO Crawlability Section -->
+            <section class="seo-crawl-section">
+                <div class="seo-container">
+                    <div class="seo-header">
+                        <h2>Master Standardized Vocab with DoVocab</h2>
+                        <p>The ultimate free educational suite for SAT & ACT vocabulary preparation.</p>
+                    </div>
+                    <div class="seo-grid">
+                        <div class="seo-card">
+                            <h3><i class="fa-solid fa-brain"></i> Dynamic Learning Loop</h3>
+                            <p>DoVocab structures your study sessions through three distinct stages of mastery. First, identify synonyms; second, fill in context sentence blanks; and third, select words from an advanced word bank. This progressive cognitive reinforcement ensures long-term vocabulary retention.</p>
+                        </div>
+                        <div class="seo-card">
+                            <h3><i class="fa-solid fa-stopwatch"></i> Beat the Timer</h3>
+                            <p>Test your recall speed under pressure. Answering correctly grants speed bonuses, helping students build fast automatic retrieval. High scores are saved to keep you motivated.</p>
+                        </div>
+                        <div class="seo-card">
+                            <h3><i class="fa-solid fa-store"></i> Restaurant Tycoon Simulation</h3>
+                            <p>Apply your knowledge to earn rewards! Correct answers allow you to serve dishes to clients, generating cash, tip multipliers, and restaurant upgrades. Passive income waitstaff and chefs help automate earnings as you expand floors and build your restaurant empire.</p>
+                        </div>
+                        <div class="seo-card">
+                            <h3><i class="fa-solid fa-file-csv"></i> Custom List & CSV Imports</h3>
+                            <p>Create your custom study playlists, import CSV lists, and sync progress automatically across your devices with cloud backup. Learn exactly what you need at your own pace.</p>
                         </div>
                     </div>
                 </div>
