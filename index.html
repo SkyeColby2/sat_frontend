@@ -47,6 +47,7 @@
       ]
     }
     </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230F172A'/><rect x='130' y='120' width='40' height='272' rx='20' fill='%236366F1'/><path d='M 170 120 H 270 C 360 120, 400 180, 400 256 C 400 332, 340 392, 250 392 L 170 392' fill='none' stroke='%236366F1' stroke-width='40' stroke-linecap='round'/><path d='M 230 200 L 300 320 L 370 200' fill='none' stroke='%2334D399' stroke-width='32' stroke-linecap='round' stroke-linejoin='round'/></svg>">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,14 +156,30 @@
     <div class="app-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <div class="sidebar-brand">
-                <!-- 💎 SVG Logo Icon Wrapper -->
-                <div class="brand-logo-img" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <img src="favicon.svg" alt="DoVocab Logo" style="width: 100%; height: 100%; border-radius: 8px;" />
-                </div>
-                <div class="brand-text">
-                    <span class="brand-title">DoVocab</span>
-                    <span class="brand-subtitle">SAT &amp; Tycoon</span>
+            <div class="sidebar-brand" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px;">
+                <!-- Inline Diamond DV SVG Logo -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px;">
+                  <defs>
+                    <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#1E1B4B" />
+                      <stop offset="100%" stop-color="#0F172A" />
+                    </linearGradient>
+                    <linearGradient id="dv-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#38BDF8" />
+                      <stop offset="50%" stop-color="#6366F1" />
+                      <stop offset="100%" stop-color="#10B981" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="512" height="512" rx="112" fill="url(#bg-grad-2)" />
+                  <rect x="130" y="120" width="40" height="272" rx="20" fill="url(#dv-grad-2)" />
+                  <path d="M 170 120 H 270 C 360 120, 400 180, 400 256 C 400 332, 340 392, 250 392 L 170 392" fill="none" stroke="url(#dv-grad-2)" stroke-width="40" stroke-linecap="round" />
+                  <path d="M 230 200 L 300 320 L 370 200" fill="none" stroke="url(#dv-grad-2)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <!-- Brand Typography -->
+                <div class="brand-text" style="display: flex; flex-direction: column;">
+                    <span class="brand-title" style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; line-height: 1.1;">DoVocab</span>
+                    <span class="brand-subtitle" style="font-size: 0.68rem; font-weight: 700; color: #6366F1; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;">SAT &amp; TYCOON</span>
                 </div>
             </div>
             <!-- Tycoon Mini-Widget in Sidebar -->
