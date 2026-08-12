@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    
+    <linearGradient id="dv-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad-2)" />
+
+  <!-- D Stem -->
+  <rect x="130" y="120" width="40" height="272" rx="20" fill="url(#dv-grad-2)" />
+
+  <!-- Curved D Loop that tapers down into a sharp V -->
+  <path d="M 170 120
+           H 270
+           C 360 120, 400 180, 400 256
+           C 400 332, 340 392, 250 392
+           L 170 392" 
+        fill="none" 
+        stroke="url(#dv-grad-2)" 
+        stroke-width="40" 
+        stroke-linecap="round" />
+
+  <!-- Integrated V Slash -->
+  <path d="M 230 200 L 300 320 L 370 200" 
+        fill="none" 
+        stroke="url(#dv-grad-2)" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+</svg>
