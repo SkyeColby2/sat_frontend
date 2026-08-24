@@ -1461,6 +1461,40 @@ async function generateAndAddWordFromAPI(wordToTrack) {
         }
     }
 }
+async function claimUsername(rawUsername, user) {
+    const cleanUsername = rawUsername.trim().toLowerCase();
+    
+    // Validate format (3-20 alphanumeric characters or underscores)
+    const regex = /^[a-zA-Z0-9_]{3,20}$/;
+    if (!regex.test(cleanUsername)) {
+        throw new Error("Username must be 3-20 characters and contain only letters, numbers, or underscores.");
+    }
+
+    const usernameRef = window.db.collection('usernames').doc(cleanUsername);
+    const userProfileRef = window.db.collection('users').doc(user.uid);
+
+    await window.db.runTransaction(async (transaction) => {
+        const usernameDoc = await transaction.get(usernameRef);
+        
+        if (usernameDoc.exists) {
+            throw new Error("This username is already taken. Please choose another.");
+        }
+
+        // 1. Reserve the handle globally
+        transaction.set(usernameRef, {
+            uid: user.uid,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        // 2. Attach username to user profile
+        transaction.set(userProfileRef, {
+            username: cleanUsername,
+            displayName: rawUsername.trim()
+        }, { merge: true });
+    });
+
+    return cleanUsername;
+}
 // ⚡ FIX: Remove imports and pull standard auth straight from your project's instance
 // (Assumes authManager or a global firebase/auth instance is already working in your project environment)
 
