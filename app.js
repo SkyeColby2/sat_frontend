@@ -40,6 +40,17 @@ class AppController {
         this.syncDashboardProgress();
         this.initFileUploader();
         this.initAddWord();
+        this.initCommunityPublishing();
+        
+        // Listen to subsequent auth changes (e.g. sign out)
+        authManager.onAuthChange((user) => {
+            if (!user) {
+                document.getElementById('sidebar-user-panel').style.display = 'none';
+                document.getElementById('login-overlay').style.display = 'flex';
+                this.currentUsername = null;
+                this.updateUsernameDisplay();
+            }
+        });
         
         // Wire up reset button
         document.getElementById('reset-app-btn').onclick = () => this.resetAllData();
@@ -135,6 +146,7 @@ class AppController {
             authManager.onAuthChange(once(async (user) => {
                 if (user) {
                     this._applyUserToSidebar(user);
+                    await this._loadCloudData();
                     dismissOverlay();
                 } else {
                     // Not signed in — show the overlay
@@ -211,6 +223,8 @@ class AppController {
             this.studyEngine.loadNextStudyQuestion();
             this.studyEngine.loadFlashcards();
         }
+        
+        this.syncPublishButtonVisibility();
     }
 
     // Enforces state consistency across disconnected lists
@@ -299,6 +313,15 @@ class AppController {
     /** Load cloud save data and merge into localStorage + in-memory state. */
     async _loadCloudData() {
         const data = await authManager.loadUserData();
+        
+        // Cache current username and trigger onboarding if missing
+        if (data && data.username) {
+            this.currentUsername = data.username;
+            this.updateUsernameDisplay();
+        } else if (authManager.isSignedIn) {
+            this.showUsernameModal();
+        }
+        
         if (!data) return;
 
         // Vocab pool — cloud wins over localStorage if it exists
@@ -1396,7 +1419,198 @@ async importWordsFromMappedColumn() {
         setTimeout(() => {
             toast.classList.add('fade-out');
             setTimeout(() => toast.remove(), 400);
-        }, 3000);
+    }
+
+    showUsernameModal() {
+        const modal = document.getElementById('username-modal');
+        if (!modal) return;
+        modal.style.display = 'flex';
+
+        const submitBtn = document.getElementById('username-submit-btn');
+        const input = document.getElementById('username-input');
+        const errorEl = document.getElementById('username-error');
+
+        submitBtn.onclick = async () => {
+            const rawUsername = input.value;
+            submitBtn.disabled = true;
+            errorEl.style.display = 'none';
+
+            try {
+                const cleanUsername = await this.claimUsername(rawUsername);
+                this.currentUsername = cleanUsername;
+                this.updateUsernameDisplay();
+                modal.style.display = 'none';
+                this.showNotification("Username Claimed", `@${cleanUsername} is now yours!`, "success");
+            } catch (err) {
+                errorEl.textContent = err.message;
+                errorEl.style.display = 'block';
+                submitBtn.disabled = false;
+            }
+        };
+    }
+
+    async claimUsername(rawUsername) {
+        const user = authManager.user;
+        if (!user) throw new Error("You must be logged in to claim a username.");
+
+        const cleanUsername = rawUsername.trim().toLowerCase();
+        
+        // Validate format (3-20 alphanumeric characters or underscores)
+        const regex = /^[a-zA-Z0-9_]{3,20}$/;
+        if (!regex.test(cleanUsername)) {
+            throw new Error("Username must be 3-20 characters and contain only letters, numbers, or underscores.");
+        }
+
+        // Dynamically load modular Firestore helpers
+        const { runTransaction, doc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+        const db = authManager.db;
+
+        const usernameRef = doc(db, 'usernames', cleanUsername);
+        const userProfileRef = doc(db, 'users', user.uid);
+
+        await runTransaction(db, async (transaction) => {
+            const usernameSnap = await transaction.get(usernameRef);
+            if (usernameSnap.exists()) {
+                throw new Error("This username is already taken. Please choose another.");
+            }
+
+            // 1. Reserve handle
+            transaction.set(usernameRef, {
+                uid: user.uid,
+                createdAt: serverTimestamp()
+            });
+
+            // 2. Attach handle to user
+            transaction.set(userProfileRef, {
+                username: cleanUsername
+            }, { merge: true });
+        });
+
+        return cleanUsername;
+    }
+
+    updateUsernameDisplay() {
+        const username = this.currentUsername || "";
+        const sidebarDisplay = document.getElementById('user-username-display');
+        const mobileDisplay = document.getElementById('mobile-username');
+
+        if (username) {
+            if (sidebarDisplay) {
+                sidebarDisplay.textContent = `@${username}`;
+                sidebarDisplay.style.display = 'block';
+            }
+            if (mobileDisplay) {
+                mobileDisplay.textContent = `@${username}`;
+                mobileDisplay.style.display = 'inline';
+            }
+        } else {
+            if (sidebarDisplay) sidebarDisplay.style.display = 'none';
+            if (mobileDisplay) mobileDisplay.style.display = 'none';
+        }
+        this.syncPublishButtonVisibility();
+    }
+
+    syncPublishButtonVisibility() {
+        const publishBtn = document.getElementById('publish-list-btn');
+        if (!publishBtn) return;
+
+        // Show button only if user is logged in, has username, and active list is custom (not Default Deck)
+        const canPublish = authManager.isSignedIn && this.currentUsername && this.activeListName !== "Default Deck";
+        publishBtn.style.display = canPublish ? 'flex' : 'none';
+    }
+
+    initCommunityPublishing() {
+        const publishListBtn = document.getElementById('publish-list-btn');
+        const publishModal = document.getElementById('publish-deck-modal');
+        const closePublishBtn = document.getElementById('close-publish-modal-btn');
+        const submitPublishBtn = document.getElementById('publish-deck-submit-btn');
+
+        if (publishListBtn) {
+            publishListBtn.onclick = () => {
+                if (this.activeListName === "Default Deck") {
+                    this.showNotification("Default Deck", "You cannot publish the built-in default deck.", "warning");
+                    return;
+                }
+                const deckWords = this.savedLists[this.activeListName] || [];
+                if (deckWords.length === 0) {
+                    this.showNotification("Empty List", "Cannot publish an empty word list.", "warning");
+                    return;
+                }
+
+                // Pre-fill Title
+                document.getElementById('publish-deck-title').value = this.activeListName;
+                document.getElementById('publish-deck-desc').value = "";
+                document.getElementById('publish-deck-tags').value = "";
+                document.getElementById('publish-deck-error').style.display = 'none';
+                
+                publishModal.style.display = 'flex';
+            };
+        }
+
+        if (closePublishBtn) {
+            closePublishBtn.onclick = () => {
+                publishModal.style.display = 'none';
+            };
+        }
+
+        if (submitPublishBtn) {
+            submitPublishBtn.onclick = async () => {
+                const title = document.getElementById('publish-deck-title').value.trim();
+                const desc = document.getElementById('publish-deck-desc').value.trim();
+                const tagsRaw = document.getElementById('publish-deck-tags').value.trim();
+                const errorEl = document.getElementById('publish-deck-error');
+
+                if (!desc) {
+                    errorEl.textContent = "Please provide a short description.";
+                    errorEl.style.display = 'block';
+                    return;
+                }
+
+                submitPublishBtn.disabled = true;
+                errorEl.style.display = 'none';
+
+                try {
+                    const tags = tagsRaw.split(',')
+                        .map(t => t.trim())
+                        .filter(t => t.length > 0);
+
+                    // Generate search keywords for query indexes
+                    const keywords = new Set();
+                    title.toLowerCase().split(/\s+/).forEach(w => keywords.add(w));
+                    tags.forEach(t => keywords.add(t.toLowerCase()));
+                    if (this.currentUsername) {
+                        keywords.add(this.currentUsername.toLowerCase());
+                    }
+
+                    const deckWords = this.savedLists[this.activeListName] || [];
+
+                    const { collection, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+                    const db = authManager.db;
+
+                    await addDoc(collection(db, 'public_decks'), {
+                        title: title,
+                        description: desc,
+                        tags: tags,
+                        authorUid: authManager.user.uid,
+                        authorUsername: this.currentUsername,
+                        wordCount: deckWords.length,
+                        words: deckWords,
+                        downloadsCount: 0,
+                        searchKeywords: Array.from(keywords),
+                        createdAt: serverTimestamp()
+                    });
+
+                    this.showNotification("Published Successfully", `"${title}" has been published to the community!`, "success");
+                    publishModal.style.display = 'none';
+                } catch (err) {
+                    console.error("Publication error:", err);
+                    errorEl.textContent = "Failed to publish deck: " + err.message;
+                    errorEl.style.display = 'block';
+                } finally {
+                    submitPublishBtn.disabled = false;
+                }
+            };
+        }
     }
 }
 

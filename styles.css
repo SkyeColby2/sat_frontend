@@ -2326,3 +2326,19 @@ body {
 .user-sync-status.syncing { color: var(--color-amber); }
 .user-sync-status.error   { color: var(--color-danger); }
 
+/* Username & Community Publish Modals Custom Styles */
+#username-input:focus,
+#publish-deck-title:focus,
+#publish-deck-desc:focus,
+#publish-deck-tags:focus {
+    border-color: var(--color-indigo) !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+}
+
+.modal-body textarea.form-control {
+    background-color: #0b101c;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+}
+

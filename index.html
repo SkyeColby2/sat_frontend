@@ -147,6 +147,7 @@
                 <i class="fa-solid fa-coins text-amber"></i>
                 <span id="mobile-cash">0.00</span>
             </div>
+            <span id="mobile-username" style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600; display: none; margin-right: 4px; align-self: center;"></span>
             <div class="mobile-user-avatar-btn" id="mobile-profile-btn">
                 <img id="mobile-avatar" class="user-avatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Avatar" style="display: none;">
             </div>
@@ -225,6 +226,7 @@
                     <img id="user-avatar" class="user-avatar" src="" alt="Avatar" onerror="this.style.display='none'">
                     <div class="user-info">
                         <span class="user-name" id="user-display-name">Student</span>
+                        <span class="user-username" id="user-username-display" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500; display: block; margin-top: -2px;"></span>
                         <span class="user-sync-status" id="user-sync-status">
                             <i class="fa-solid fa-cloud-arrow-up"></i> Synced
                         </span>
@@ -375,6 +377,9 @@
                                         <i class="fa-solid fa-trash-can"></i> Delete List
                                     </button>
                                 </div>
+                                <button id="publish-list-btn" class="btn btn-outline" style="width: 100%; display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; border-color: rgba(99, 102, 241, 0.4); color: #a5b4fc; height: 48px;">
+                                    <i class="fa-solid fa-globe"></i> Publish to Community
+                                </button>
                             </div>
 
                         </div>
@@ -862,6 +867,58 @@
             </div>
             <div class="modal-footer" id="serve-modal-footer" style="display: none;">
                 <button class="btn btn-amber" id="serve-modal-continue-btn">Complete Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Username Onboarding Modal -->
+    <div class="modal-backdrop" id="username-modal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-user-tag text-indigo"></i> Claim Your Username</h3>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+                    Please choose a unique username to personalize your profile and publish decks to the community. Usernames must be between 3 and 20 characters and contain only letters, numbers, and underscores.
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="position: relative; display: flex; align-items: center;">
+                        <span style="position: absolute; left: 12px; color: var(--text-muted); font-weight: 700; font-family: var(--font-sans);">@</span>
+                        <input type="text" id="username-input" class="form-control" placeholder="username" style="padding-left: 28px; width: 100%; height: 48px;" autocomplete="off" spellcheck="false">
+                    </div>
+                    <div id="username-error" style="color: var(--color-danger); font-size: 0.8rem; display: none; margin-top: 4px;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-indigo btn-block" id="username-submit-btn">Claim Username</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publish Deck Modal -->
+    <div class="modal-backdrop" id="publish-deck-modal" style="display: none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-globe text-indigo"></i> Publish to Community</h3>
+                <button class="modal-close-btn" id="close-publish-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body" style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label for="publish-deck-title" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Deck Title</label>
+                    <input type="text" id="publish-deck-title" class="form-control" placeholder="e.g. High-Yield SAT Vocab" readonly>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label for="publish-deck-desc" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Description</label>
+                    <textarea id="publish-deck-desc" class="form-control" style="min-height: 80px; resize: vertical; font-family: inherit; padding: 10px;" placeholder="Describe what makes this list special (e.g. 50 transition words repeatedly found in SAT reading)..."></textarea>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label for="publish-deck-tags" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);">Tags (comma-separated)</label>
+                    <input type="text" id="publish-deck-tags" class="form-control" placeholder="e.g. SAT, Hard, Literature">
+                </div>
+                <div id="publish-deck-error" style="color: var(--color-danger); font-size: 0.8rem; display: none;"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-indigo btn-block" id="publish-deck-submit-btn">Publish Publicly</button>
             </div>
         </div>
     </div>
