@@ -867,20 +867,11 @@ class AppController {
     }
 
     async loadDefaultPool() {
-        try {
-            // Try to fetch your local master json file if it exists
-            const res = await fetch('vocabulary.json');
-            if (!res.ok) throw new Error("Failed to fetch vocabulary.json");
-            const data = await res.ok ? await res.json() : [];
-            this.vocabPool = data;
-        } catch (err) {
-            console.warn("Failed to load vocabulary.json, falling back to embedded spreadsheet preloads:", err);
-            // 🚀 THE FIX: Populate using the 249-word spreadsheet list from vocabulary-pool.js
-            if (typeof DEFAULT_VOCAB_POOL !== 'undefined') {
-                this.vocabPool = JSON.parse(JSON.stringify(DEFAULT_VOCAB_POOL));
-            } else {
-                this.vocabPool = []; // Ultimate fallback safety net
-            }
+        // Load the curated Digital SAT focus words from vocabulary-pool.js directly
+        if (typeof DEFAULT_VOCAB_POOL !== 'undefined') {
+            this.vocabPool = JSON.parse(JSON.stringify(DEFAULT_VOCAB_POOL));
+        } else {
+            this.vocabPool = []; // Ultimate fallback safety net
         }
         
         // Save the populated default deck straight into your new saved lists object layout
