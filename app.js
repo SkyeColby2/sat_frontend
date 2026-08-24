@@ -1419,6 +1419,7 @@ async importWordsFromMappedColumn() {
         setTimeout(() => {
             toast.classList.add('fade-out');
             setTimeout(() => toast.remove(), 400);
+        }, 3000);
     }
 
     showUsernameModal() {
