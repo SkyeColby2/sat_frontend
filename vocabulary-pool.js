@@ -2,3864 +2,4463 @@
 
 const DEFAULT_VOCAB_POOL = [
     {
-        "word": "copious",
+        "word": "abate",
         "synonyms": [
-            "profusion",
-            "abundant",
-            "fecundity"
+            "diminish",
+            "reduce",
+            "lessen"
         ],
-        "definition": "Abundant in supply or quantity; plentiful.",
-        "sentence": "The researcher took ______ notes during the three-hour lecture, filling every page of her notebook.",
+        "definition": "To decrease in intensity or amount; to lessen or diminish.",
+        "sentence": "As the storm began to ______, the townspeople emerged from their shelters to assess the damage.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "fecundity",
-        "synonyms": [
-            "profusion",
-            "copious",
-            "fertileness",
-            "abundant"
-        ],
-        "definition": "The ability to produce an abundance of offspring or growth.",
-        "sentence": "______ declines rapidly after the age of 40.",
-        "difficulty": "medium",
-        "distractors": [
-            "iconoclasm",
-            "expediency",
-            "animosity"
+            "curtail",
+            "quell",
+            "espouse"
         ]
     },
     {
         "word": "abundant",
         "synonyms": [
-            "overflowing",
-            "teeming",
-            "exuberant",
-            "profusion"
+            "plentiful",
+            "ample",
+            "bountiful"
         ],
-        "definition": "Existing or available in large quantities; overflowing.",
-        "sentence": "Plant fossils are ______ in some types of rock.",
+        "definition": "Existing or occurring in large amounts; more than enough.",
+        "sentence": "During the harvest season, the fields were ______ with crops, providing food for the entire community.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "extant",
+            "salient",
+            "conciliatory"
         ]
     },
     {
-        "word": "profusion",
+        "word": "accentuate",
         "synonyms": [
-            "copious",
-            "fecundity",
-            "abundant"
+            "emphasize",
+            "highlight",
+            "stress"
         ],
-        "definition": "An abundance or large quantity of something.",
-        "sentence": "The book teems with a Flemish ______ of detail.",
+        "definition": "To make something more noticeable or prominent.",
+        "sentence": "The teacher used colorful markers to ______ the important points on the board during her lesson.",
         "difficulty": "medium",
         "distractors": [
-            "iconoclasm",
-            "expediency",
-            "animosity"
+            "placate",
+            "foster",
+            "elaborate"
         ]
     },
     {
-        "word": "operative",
-        "synonyms": [],
-        "definition": "Functioning or having effect.",
-        "sentence": "The station will be ______ again in January.",
+        "word": "activate",
+        "synonyms": [
+            "start",
+            "turn on",
+            "engage"
+        ],
+        "definition": "To make something active or operational, enabling it to function or perform its intended task.",
+        "sentence": "In order to use the new software, you must first ______ your account by clicking the link sent to your email.",
         "difficulty": "medium",
         "distractors": [
-            "prestige",
-            "attenuate",
-            "repertory"
+            "deface",
+            "defer",
+            "compensate"
         ]
     },
     {
-        "word": "elasticity",
-        "synonyms": [],
-        "definition": "Adaptability; the ability to change or stretch based on context.",
-        "sentence": "As the skin grows older it loses its ______.",
-        "difficulty": "hard",
+        "word": "adept",
+        "synonyms": [
+            "skilled",
+            "proficient",
+            "expert"
+        ],
+        "definition": "Having a high level of skill or proficiency in a particular area or task.",
+        "sentence": "Though she was new to the game, her previous experience made her an ______ player in no time.",
+        "difficulty": "medium",
         "distractors": [
-            "oblique",
+            "obscure",
+            "ostensible",
+            "winsome"
+        ]
+    },
+    {
+        "word": "adhere to",
+        "synonyms": [
+            "follow",
+            "stick to",
+            "obey"
+        ],
+        "definition": "To hold firmly to a belief, policy, or rule, or to remain attached to something.",
+        "sentence": "In order to ensure safety on the construction site, all workers must ______ the safety regulations set forth by the management.",
+        "difficulty": "medium",
+        "distractors": [
+            "burnish",
+            "augment",
+            "manifest"
+        ]
+    },
+    {
+        "word": "adorn",
+        "synonyms": [
+            "decorate",
+            "embellish",
+            "enhance"
+        ],
+        "definition": "To enhance the appearance of something by adding decorative elements or features.",
+        "sentence": "The bride's dress was beautifully ______ with intricate lace and sparkling jewels.",
+        "difficulty": "medium",
+        "distractors": [
+            "elicited",
+            "forsake",
+            "transgress"
+        ]
+    },
+    {
+        "word": "amalgam",
+        "synonyms": [
+            "blend",
+            "mixture",
+            "combination"
+        ],
+        "definition": "A mixture or blend of different elements, often referring to a combination of metals or diverse ideas.",
+        "sentence": "The artist's latest work is an ______ of traditional techniques and modern styles, creating something truly unique and fascinating.",
+        "difficulty": "medium",
+        "distractors": [
             "demarcation",
-            "restitution"
+            "laceration",
+            "bias"
         ]
     },
     {
-        "word": "annotate",
-        "synonyms": [],
-        "definition": "To add explanatory notes to a text or diagram.",
-        "sentence": "Students were required to ______ each passage in the novel with textual evidence supporting their interpretations.",
+        "word": "amass",
+        "synonyms": [
+            "collect",
+            "gather",
+            "accumulate"
+        ],
+        "definition": "To gather or accumulate a large amount of something over time.",
+        "sentence": "Over the years, the scientist was able to ______ a vast collection of rare minerals from around the world.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "preclude"
-        ]
-    },
-    {
-        "word": "adhere",
-        "synonyms": [
-            "cleave",
-            "stick",
-            "cling"
-        ],
-        "definition": "To firmly stick to a practice, belief, rule, or tradition.",
-        "sentence": "The eggs of these fish ______ to plant leaves.",
-        "difficulty": "easy",
-        "distractors": [
-            "refute",
-            "assert",
-            "preclude"
-        ]
-    },
-    {
-        "word": "acquiesced",
-        "synonyms": [
-            "go along with",
-            "consent",
-            "consensus",
-            "accept"
-        ],
-        "definition": "Accepted something reluctantly but without protest.",
-        "sentence": "Though she disagreed with the decision, she ______ rather than prolong the argument further.",
-        "difficulty": "hard",
-        "distractors": [
-            "alleviate",
-            "reprieve",
-            "circumvent"
-        ]
-    },
-    {
-        "word": "concede",
-        "synonyms": [
-            "let in",
-            "come around",
-            "give way",
-            "acquiesced"
-        ],
-        "definition": "To admit that something is true or valid after first denying it.",
-        "sentence": "After reviewing the data, the scientist was forced to ______ that his original hypothesis was flawed.",
-        "difficulty": "medium",
-        "distractors": [
-            "alleviate",
-            "reprieve",
-            "circumvent"
-        ]
-    },
-    {
-        "word": "consensus",
-        "synonyms": [
-            "concede",
-            "acquiesced"
-        ],
-        "definition": "A general agreement among a group.",
-        "sentence": "The committee finally reached a ______ that the budget should be increased by fifteen percent.",
-        "difficulty": "medium",
-        "distractors": [
-            "oblique",
-            "demarcation",
-            "restitution"
-        ]
-    },
-    {
-        "word": "equivocal",
-        "synonyms": [
-            "nebulous",
-            "opaque",
-            "doubtful",
-            "double entendre"
-        ],
-        "definition": "Open to more than one interpretation; ambiguous or uncertain.",
-        "sentence": "The results of the police enquiry were ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
+            "monetize",
+            "disperse",
+            "annul"
         ]
     },
     {
         "word": "ambiguous",
         "synonyms": [
-            "nebulous",
-            "opaque",
-            "arcane",
-            "indecipherable"
+            "unclear",
+            "vague",
+            "indefinite"
         ],
-        "definition": "Open to more than one interpretation; inexact or unclear.",
-        "sentence": "The statutory language was deliberately ______, allowing courts discretion in applying it to novel situations.",
+        "definition": "Open to more than one interpretation; not having one obvious meaning.",
+        "sentence": "The instructions for assembling the furniture were so ______ that I ended up putting the pieces together incorrectly.",
         "difficulty": "medium",
         "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
+            "devious",
+            "tortuous",
+            "innocuous"
         ]
     },
     {
-        "word": "indecipherable",
+        "word": "ambivalent",
         "synonyms": [
-            "nebulous",
-            "opaque",
-            "arcane",
-            "undecipherable"
+            "uncertain",
+            "conflicted",
+            "undecided"
         ],
-        "definition": "Not able to be read, decoded, or understood.",
-        "sentence": "The ancient manuscript was written in an ______ script that no modern linguist could decode.",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "nebulous",
-        "synonyms": [
-            "opaque",
-            "arcane",
-            "indecipherable",
-            "mystifying"
-        ],
-        "definition": "In the form of a cloud or haze; hazy, vague, or ill-defined.",
-        "sentence": "So - called truth is a ______ thing at best.",
+        "definition": "Having mixed feelings or contradictory ideas about something or someone.",
+        "sentence": "As she stood at the crossroads of her career, Sarah felt ______ about whether to pursue her passion for art or follow a more stable job in finance.",
         "difficulty": "medium",
         "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
+            "tremulous",
+            "penultimate",
+            "putrid"
         ]
     },
     {
-        "word": "opaque",
+        "word": "ameliorate",
         "synonyms": [
-            "nebulous",
-            "cloud",
-            "arcane",
-            "indecipherable"
+            "improve",
+            "enhance",
+            "better"
         ],
-        "definition": "Not able to be seen through; hard to understand.",
-        "sentence": "The report was written in long, ______ sentences.",
-        "difficulty": "easy",
-        "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "arcane",
-        "synonyms": [
-            "nebulous",
-            "opaque",
-            "clandestine",
-            "enigmatic"
-        ],
-        "definition": "Understood by few; mysterious or secret.",
-        "sentence": "The triple jump is certainly an ______ discipline.",
-        "difficulty": "easy",
-        "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "mystifying",
-        "synonyms": [
-            "nebulous",
-            "opaque",
-            "arcane",
-            "indecipherable"
-        ],
-        "definition": "Utterly bewildering or perplexing.",
-        "sentence": "The thing was shown with ______ certitude.",
+        "definition": "To make something better or more tolerable; to alleviate a problem or condition.",
+        "sentence": "The new policies were designed to ______ the living conditions of the city's underprivileged citizens.",
         "difficulty": "hard",
         "distractors": [
-            "diminutive",
-            "perceptible",
-            "counterintuitive"
+            "bilk",
+            "subjugate",
+            "vindicate"
         ]
     },
     {
-        "word": "placate",
+        "word": "analogous",
         "synonyms": [
-            "conciliate",
-            "satisfy",
-            "propitiate",
-            "appease"
+            "similar",
+            "comparable",
+            "alike"
         ],
-        "definition": "To make someone less angry or hostile; appease.",
-        "sentence": "Management offered a modest pay raise in an attempt to ______ the frustrated workforce.",
+        "definition": "Having similarities or likenesses that allow for comparison; showing a resemblance to something else, often in a way that helps clarify or explain.",
+        "sentence": "The structure of the human brain can be considered ______ to that of certain advanced computer systems, as both perform complex tasks efficiently.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "preclude"
-        ]
-    },
-    {
-        "word": "contentious",
-        "synonyms": [
-            "animosity",
-            "antagonistic"
-        ],
-        "definition": "Causing or likely to cause an argument; highly controversial.",
-        "sentence": "Logging on public lands is a ______ issue.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "timorous",
+            "latent",
+            "ingenuous"
         ]
     },
     {
         "word": "animosity",
         "synonyms": [
-            "opposition",
-            "contentious",
-            "acrimony",
-            "hatred"
+            "hostility",
+            "hatred",
+            "resentment"
         ],
-        "definition": "Strong hostility or friction.",
-        "sentence": "She felt a certain amount of ______ towards him.",
+        "definition": "A strong feeling of dislike or hatred that often leads to conflict.",
+        "sentence": "Despite their long-standing ______, they decided to work together for the common good of the community.",
+        "difficulty": "hard",
+        "distractors": [
+            "sagacity",
+            "larceny",
+            "insurgent"
+        ]
+    },
+    {
+        "word": "annihilate",
+        "synonyms": [
+            "destroy",
+            "obliterate",
+            "extinguish"
+        ],
+        "definition": "To completely destroy or eliminate something, leaving no trace behind.",
+        "sentence": "The scientists were concerned that the experimental virus could potentially ______ all life in the region if not contained.",
+        "difficulty": "hard",
+        "distractors": [
+            "disparage",
+            "reprobate",
+            "promulgate"
+        ]
+    },
+    {
+        "word": "annotate",
+        "synonyms": [
+            "comment",
+            "explain",
+            "note"
+        ],
+        "definition": "To add notes or comments to a text or diagram for the purpose of explanation or clarification.",
+        "sentence": "As we read the novel, our teacher encouraged us to ______ important passages to enhance our understanding of the themes.",
         "difficulty": "medium",
         "distractors": [
-            "oblique",
-            "demarcation",
-            "restitution"
+            "recant",
+            "rail",
+            "procure"
         ]
     },
     {
         "word": "antagonistic",
         "synonyms": [
-            "animosity",
-            "contentious"
+            "hostile",
+            "oppositional",
+            "adversarial"
         ],
-        "definition": "Showing or feeling active opposition or hostility toward something.",
-        "sentence": "He's extremely ______ towards all critics.",
-        "difficulty": "hard",
+        "definition": "Showing or feeling active opposition or hostility towards someone or something.",
+        "sentence": "The two rival teams had an ______ relationship, often clashing during matches and exchanging heated words.",
+        "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "ecstatic",
+            "insincere",
+            "frugal"
+        ]
+    },
+    {
+        "word": "apex",
+        "synonyms": [
+            "summit",
+            "peak",
+            "pinnacle"
+        ],
+        "definition": "The highest point or top of something, especially one of a characteristic or significant feature.",
+        "sentence": "After hours of climbing, the hikers finally reached the ______ of the mountain, where the view was breathtaking.",
+        "difficulty": "medium",
+        "distractors": [
+            "dearth",
+            "inclination",
+            "intercourse"
         ]
     },
     {
         "word": "appraised",
         "synonyms": [
-            "calibration"
+            "evaluated",
+            "assessed",
+            "rated"
         ],
-        "definition": "Assessed the value, quality, or proficiency of something.",
-        "sentence": "The auctioneer ______ the painting at nearly two million dollars, shocking its unsuspecting owner.",
+        "definition": "To have evaluated the worth, significance, or quality of something.",
+        "sentence": "Before making a final decision on the property's value, the bank ______ it to ensure the loan amount was appropriate.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "preclude"
+            "vacillate",
+            "comprise",
+            "dispatch"
         ]
     },
     {
-        "word": "calibration",
+        "word": "apprise",
         "synonyms": [
-            "appraised"
+            "inform",
+            "notify"
         ],
-        "definition": "The adjustment or precise marking of an instrument or plan.",
-        "sentence": "The ______ of the laboratory instruments must be verified before each experiment to ensure accuracy.",
+        "definition": "To inform someone about something; to make someone aware of a situation or development.",
+        "sentence": "Before making a decision, the manager wanted to ______ the team about the recent changes in policy.",
+        "difficulty": "medium",
+        "distractors": [
+            "reprove",
+            "evince",
+            "allocate"
+        ]
+    },
+    {
+        "word": "archetypal",
+        "synonyms": [
+            "typical",
+            "standard",
+            "representative"
+        ],
+        "definition": "Serving as a very typical example of a certain person or thing; embodying the essential characteristics of a particular category.",
+        "sentence": "In literature, the hero's journey is often considered an ______ narrative that reflects universal themes and experiences.",
+        "difficulty": "medium",
+        "distractors": [
+            "meticulous",
+            "obsequious",
+            "primeval"
+        ]
+    },
+    {
+        "word": "arduous",
+        "synonyms": [
+            "difficult",
+            "strenuous",
+            "challenging"
+        ],
+        "definition": "Involving or requiring strenuous effort; difficult and tiring to accomplish.",
+        "sentence": "The hikers faced an ______ trek up the mountain, but they were rewarded with an amazing view at the top.",
         "difficulty": "hard",
         "distractors": [
-            "oblique",
-            "demarcation",
-            "restitution"
+            "propitious",
+            "irascible",
+            "obdurate"
         ]
     },
     {
         "word": "ascribe",
         "synonyms": [
             "attribute",
-            "impute"
+            "credit",
+            "assign"
         ],
-        "definition": "To attribute something to a specific cause, source, or author.",
-        "sentence": "One may ______ these problems to the federal government; however, at this stage it is unclear what caused them.",
+        "definition": "To regard something as being caused by someone or something; to assign a quality or characteristic to a particular source.",
+        "sentence": "Many critics ______ the novel's success to its unique narrative style and compelling characters, highlighting the author's extraordinary talent.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "preclude"
+            "berate",
+            "monetize",
+            "supersede"
         ]
     },
     {
-        "word": "eschew",
-        "synonyms": [],
-        "definition": "Deliberately avoid using; abstain from or shun.",
-        "sentence": "We should obviously ______ political fanaticism.",
-        "difficulty": "easy",
-        "distractors": [
-            "refute",
-            "assert",
-            "preclude"
-        ]
-    },
-    {
-        "word": "preclude",
+        "word": "assert",
         "synonyms": [
-            "circumvent",
-            "obviated",
-            "hampered",
-            "stymie"
+            "declare",
+            "state",
+            "affirm"
         ],
-        "definition": "To prevent from happening; make impossible.",
-        "sentence": "A prior engagement will ______ me from coming.",
+        "definition": "To state or express positively; to maintain or defend a position with confidence.",
+        "sentence": "During the debate, she chose to ______ her opinion on climate change, despite opposition from her peers.",
         "difficulty": "medium",
         "distractors": [
-            "substantiate",
-            "alleviate",
-            "attrition"
+            "disperse",
+            "insinuate",
+            "reprove"
         ]
     },
     {
-        "word": "circumvent",
+        "word": "attenuate",
         "synonyms": [
-            "stymie",
-            "obviated",
-            "preclude",
-            "hampered"
+            "diminish",
+            "reduce",
+            "weaken"
         ],
-        "definition": "To find a way around an obstacle or rule.",
-        "sentence": "The concept of ______ is demonstrated when to find a way around an obstacle or rule, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "substantiate",
-            "alleviate",
-            "attrition"
-        ]
-    },
-    {
-        "word": "stymie",
-        "synonyms": [
-            "block",
-            "circumvent",
-            "obviated",
-            "thwart"
-        ],
-        "definition": "To prevent or hinder the progress of an action or plan.",
-        "sentence": "I was completely ______ by her refusal to help.",
-        "difficulty": "easy",
-        "distractors": [
-            "substantiate",
-            "alleviate",
-            "attrition"
-        ]
-    },
-    {
-        "word": "hampered",
-        "synonyms": [
-            "hinder",
-            "inveigle",
-            "encumber",
-            "circumvent"
-        ],
-        "definition": "Hindered or impeded the movement or progress of.",
-        "sentence": "Competition pigeons are ______ for the truck trip to the point of release where the race back starts.",
+        "definition": "To lessen the force, effect, or value of something; to weaken or dilute.",
+        "sentence": "The new law is expected to ______ the impact of pollution by introducing stricter regulations.",
         "difficulty": "medium",
         "distractors": [
-            "prestige",
-            "attenuate",
-            "repertory"
+            "appease",
+            "curtailed",
+            "embezzle"
         ]
     },
     {
-        "word": "obviated",
+        "word": "atypical",
         "synonyms": [
-            "circumvent",
-            "preclude",
-            "hampered",
-            "stymie"
+            "unusual",
+            "abnormal",
+            "irregular"
         ],
-        "definition": "Removed a need or difficulty; avoided.",
-        "sentence": "The concept of ______ is demonstrated when removed a need or difficulty; avoided, as evident in many academic texts.",
+        "definition": "Not representative of a type, group, or class; deviating from the norm.",
+        "sentence": "The scientist noted that the results of the experiment were ______, prompting further investigation into the unexpected findings.",
         "difficulty": "medium",
         "distractors": [
-            "substantiate",
-            "alleviate",
-            "attrition"
+            "pallid",
+            "sedentary",
+            "judicious"
         ]
     },
     {
-        "word": "rudimentary",
-        "synonyms": [],
-        "definition": "Involving or limited to basic or undeveloped principles.",
-        "sentence": "The classroom equipment is pretty ______.",
-        "difficulty": "hard",
+        "word": "augment",
+        "synonyms": [
+            "increase",
+            "enhance",
+            "boost"
+        ],
+        "definition": "To make something greater by adding to it; to increase or improve in size, value, or amount.",
+        "sentence": "The artist decided to ______ her painting by adding more vibrant colors and intricate details.",
+        "difficulty": "medium",
         "distractors": [
-            "prestige",
-            "attenuate",
-            "repertory"
+            "deride",
+            "appraise",
+            "consign"
+        ]
+    },
+    {
+        "word": "auxiliary",
+        "synonyms": [
+            "additional",
+            "supplementary",
+            "backup"
+        ],
+        "definition": "Providing supplementary or additional help or support.",
+        "sentence": "The school hired an ______ teacher to assist the regular staff during the busy exam season.",
+        "difficulty": "medium",
+        "distractors": [
+            "despondent",
+            "copious",
+            "disparate"
         ]
     },
     {
         "word": "banal",
         "synonyms": [
-            "tedious",
-            "prosaic",
-            "everyday"
+            "ordinary",
+            "commonplace",
+            "trite"
         ],
-        "definition": "So lacking in originality as to be obvious and boring.",
-        "sentence": "The speech was technically accomplished but ultimately ______, filled with familiar sentiments that no one in the audience would remember.",
-        "difficulty": "easy",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "tedious",
-        "synonyms": [
-            "banal"
-        ],
-        "definition": "Too long, slow, or dull; tiresome or monotonous.",
-        "sentence": "Her visits were starting to get a bit ______.",
+        "definition": "Lacking in originality or freshness; dull and uninteresting due to overuse.",
+        "sentence": "The critic dismissed the movie as ______, unable to bring anything new to the genre.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "fatuous",
+            "trite",
+            "dwindling"
         ]
     },
     {
-        "word": "demarcation",
+        "word": "belie",
         "synonyms": [
-            "circumscription"
+            "contradict",
+            "disprove",
+            "deny"
         ],
-        "definition": "The action of fixing a boundary, limit, or distinction.",
-        "sentence": "The concept of ______ is demonstrated when the action of fixing a boundary, limit, or distinction, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "iconoclasm",
-            "expediency",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "circumscription",
-        "synonyms": [
-            "demarcation"
-        ],
-        "definition": "The act of restricting or bounding something within limits.",
-        "sentence": "The ______ in the APG system of the family Malvaceae includes the former families Bombacaceae, Sterculiaceae and Tiliaceae.",
-        "difficulty": "hard",
-        "distractors": [
-            "iconoclasm",
-            "expediency",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "discretion",
-        "synonyms": [
-            "prudently",
-            "discerning",
-            "shrewd"
-        ],
-        "definition": "The quality of behaving or speaking with careful judgment.",
-        "sentence": "______ is the better part of valor.",
-        "difficulty": "hard",
-        "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "discerning",
-        "synonyms": [
-            "ken",
-            "distinguish",
-            "prudently",
-            "shrewd"
-        ],
-        "definition": "Having or showing good judgment and sharp perception.",
-        "sentence": "A ______ reader recognizes when an author is using emotional language to bypass rather than support rational argument.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "prudently",
-        "synonyms": [
-            "discretion",
-            "discerning",
-            "shrewd"
-        ],
-        "definition": "In a way that shows care and thought for the future.",
-        "sentence": "The concept of ______ is demonstrated when in a way that shows care and thought for the future, as evident in many academic texts.",
+        "definition": "To show something to be false or to contradict an intended or expressed meaning.",
+        "sentence": "Her calm demeanor seemed to ______ the turmoil she was feeling inside.",
         "difficulty": "medium",
         "distractors": [
-            "foment",
-            "extrapolate",
-            "concede"
+            "blemish",
+            "forage",
+            "assess"
         ]
     },
     {
-        "word": "shrewd",
+        "word": "beneficiary",
         "synonyms": [
-            "discretion",
-            "prudently",
-            "discerning"
+            "heir",
+            "recipient"
         ],
-        "definition": "Having or showing sharp powers of judgment.",
-        "sentence": "The ______ negotiator waited until the other party had committed to a deadline before revealing her leverage.",
-        "difficulty": "easy",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "scrupulous",
-        "synonyms": [
-            "scrutinized",
-            "vigilance",
-            "deliberation",
-            "meticulous"
-        ],
-        "definition": "Diligent, thorough, and extremely attentive to details.",
-        "sentence": "The accountant was ______ in her documentation, maintaining records that could withstand scrutiny even years after the fact.",
-        "difficulty": "hard",
-        "distractors": [
-            "quintessential",
-            "incipient",
-            "unpretentious"
-        ]
-    },
-    {
-        "word": "meticulous",
-        "synonyms": [
-            "scrutinized",
-            "scrupulous",
-            "vigilance",
-            "deliberation"
-        ],
-        "definition": "Showing great attention to detail; very careful and precise.",
-        "sentence": "My father was ______ about his appearance.",
-        "difficulty": "hard",
-        "distractors": [
-            "quintessential",
-            "incipient",
-            "unpretentious"
-        ]
-    },
-    {
-        "word": "deliberation",
-        "synonyms": [
-            "scrutinized",
-            "scrupulous",
-            "vigilance",
-            "meticulous"
-        ],
-        "definition": "Long and careful consideration or discussion.",
-        "sentence": "After much ______, a decision was reached.",
-        "difficulty": "hard",
-        "distractors": [
-            "quintessential",
-            "incipient",
-            "unpretentious"
-        ]
-    },
-    {
-        "word": "scrutinized",
-        "synonyms": [
-            "vigilance",
-            "scrupulous",
-            "deliberation",
-            "meticulous"
-        ],
-        "definition": "Examined or inspected closely and thoroughly.",
-        "sentence": "The concept of ______ is demonstrated when examined or inspected closely and thoroughly, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "quintessential",
-            "incipient",
-            "unpretentious"
-        ]
-    },
-    {
-        "word": "vigilance",
-        "synonyms": [
-            "scrutinized",
-            "scrupulous",
-            "deliberation",
-            "meticulous"
-        ],
-        "definition": "The action or state of keeping careful watch for danger.",
-        "sentence": "The concept of ______ is demonstrated when the action or state of keeping careful watch for danger, as evident in many academic texts.",
+        "definition": "A person or entity entitled to receive benefits, particularly from a will, trust, or insurance policy.",
+        "sentence": "After the lawyer read the will, it became clear that her brother was the sole ______ of their late father's estate.",
         "difficulty": "medium",
         "distractors": [
-            "quintessential",
-            "incipient",
-            "unpretentious"
+            "wrath",
+            "salutation",
+            "arbitration"
         ]
     },
     {
-        "word": "perfunctory",
+        "word": "buttress",
         "synonyms": [
-            "facile"
+            "support",
+            "prop",
+            "reinforcement"
         ],
-        "definition": "Carried out with a minimum of effort, care, or reflection.",
-        "sentence": "A 6-3 third set lasted only 26 ______ minutes.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "facile",
-        "synonyms": [
-            "perfunctory"
-        ],
-        "definition": "Appearing neat only by ignoring true complexities; superficial.",
-        "sentence": "Her ______ nature adapted itself to any company.",
-        "difficulty": "easy",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "engender",
-        "synonyms": [
-            "foment",
-            "catalyze"
-        ],
-        "definition": "To cause or give rise to a specific feeling, situation, or condition.",
-        "sentence": "The minister's speech did not ______ confidence in his judgment.",
+        "definition": "A structure built against a wall to support or reinforce it, typically used in architecture; can also refer to any form of support or strength given to an argument or concept.",
+        "sentence": "The architects designed the building with a strong ______ to ensure it could withstand the storms that frequented the area.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
+            "abate",
+            "enumerate",
+            "instigate"
+        ]
+    },
+    {
+        "word": "calibration",
+        "synonyms": [
+            "adjustment",
+            "standardization",
+            "measurement"
+        ],
+        "definition": "The process of adjusting and setting the accuracy of a measuring instrument or device in order to ensure precise and accurate results.",
+        "sentence": "Before the experiment could begin, the researchers conducted a thorough ______ of the equipment to guarantee reliable data.",
+        "difficulty": "medium",
+        "distractors": [
+            "partition",
+            "cadence",
+            "variable"
+        ]
+    },
+    {
+        "word": "capacious",
+        "synonyms": [
+            "spacious",
+            "roomy",
+            "ample"
+        ],
+        "definition": "Having a lot of space inside; able to hold much.",
+        "sentence": "The suitcase was so ______ that it could easily fit all of her clothes for the month-long trip.",
+        "difficulty": "medium",
+        "distractors": [
+            "auspicious",
+            "zealous",
+            "vigilant"
         ]
     },
     {
         "word": "catalyze",
         "synonyms": [
-            "engender",
-            "foment"
+            "spark",
+            "stimulate",
+            "incite"
         ],
-        "definition": "To cause or accelerate a reaction or change.",
-        "sentence": "The concept of ______ is demonstrated when to cause or accelerate a reaction or change, as evident in many academic texts.",
+        "definition": "To cause or accelerate a reaction or change in a process, often by introducing a catalyst.",
+        "sentence": "The scientist hoped to ______ the reaction by adding a specific enzyme to the mixture.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
+            "elucidate",
+            "impute",
+            "inoculate"
         ]
     },
     {
-        "word": "foment",
+        "word": "circumscription",
         "synonyms": [
-            "engender",
-            "catalyze"
+            "limitation",
+            "restraint",
+            "restriction"
         ],
-        "definition": "Instigate or stir up an undesirable or violent course of action.",
-        "sentence": "The rebels know the truth and seek to ______ revolution.",
-        "difficulty": "easy",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "irrefutable",
-        "synonyms": [
-            "infallible"
-        ],
-        "definition": "Impossible to deny or disprove.",
-        "sentence": "Only truth that is tested by practice is ______.",
+        "definition": "The act of defining or limiting something within specific boundaries or confines.",
+        "sentence": "The ______ of the park ensured that no construction could take place within its designated area, preserving the natural habitat for local wildlife.",
         "difficulty": "hard",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "potentate",
+            "animosity",
+            "metamorphosis"
         ]
     },
     {
-        "word": "infallible",
+        "word": "circumvent",
         "synonyms": [
-            "irrefutable"
+            "avoid",
+            "bypass",
+            "dodge"
         ],
-        "definition": "Incapable of making mistakes or being wrong.",
-        "sentence": "Although he was experienced, he was not ______.",
+        "definition": "To find a way around an obstacle or to overcome a problem in a clever manner, typically by avoiding a direct route or method.",
+        "sentence": "To succeed in his plan, he had to ______ the strict regulations that were in place.",
+        "difficulty": "medium",
+        "distractors": [
+            "allege",
+            "exhort",
+            "knell"
+        ]
+    },
+    {
+        "word": "clandestine",
+        "synonyms": [
+            "secret",
+            "hidden",
+            "covert"
+        ],
+        "definition": "Characterized by secrecy or concealment, often for illicit purposes.",
+        "sentence": "The spies conducted their operations in a ______ manner to avoid detection by the authorities.",
         "difficulty": "hard",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "variable",
-        "synonyms": [
-            "variable quantity",
-            "changeable",
-            "parameter",
-            "alterable",
-            "flexible"
-        ],
-        "definition": "Not consistent or having a fixed pattern; liable to change.",
-        "sentence": "The speed of the windscreen wipers is ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "attenuate",
-            "repertory"
-        ]
-    },
-    {
-        "word": "vindicate",
-        "synonyms": [],
-        "definition": "To clear someone of blame or suspicion; prove to be right.",
-        "sentence": "The petitioner asks whether Seia can ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "attenuate",
-            "repertory"
-        ]
-    },
-    {
-        "word": "manifest",
-        "synonyms": [
-            "palpable",
-            "perceptible",
-            "explicable",
-            "unequivocal"
-        ],
-        "definition": "(adj) Clear or obvious to the eye or mind; easy to perceive (v.) to reveal, demonstrate",
-        "sentence": "The anger he felt is ______ in his paintings.",
-        "difficulty": "medium",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "unequivocal",
-        "synonyms": [
-            "palpable",
-            "perceptible",
-            "explicable",
-            "manifest"
-        ],
-        "definition": "Leaving no doubt; clear, unambiguous, and plain.",
-        "sentence": "The answer to our request was an ______ \"no\".",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "palpable",
-        "synonyms": [
-            "perceptible",
-            "explicable",
-            "manifest",
-            "unequivocal"
-        ],
-        "definition": "So intense as to seem almost tangible; plain to see or feel.",
-        "sentence": "The concept of ______ is demonstrated when so intense as to seem almost tangible; plain to see or feel, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "conspicuous",
-        "synonyms": [
-            "palpable",
-            "perceptible",
-            "explicable",
-            "manifest"
-        ],
-        "definition": "Standing out so as to be clearly visible; attracting notice.",
-        "sentence": "The stain on her dress was horribly ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "discern",
-        "synonyms": [
-            "palpable",
-            "perceptible",
-            "explicable",
-            "manifest"
-        ],
-        "definition": "To distinguish, perceive, or recognize clearly.",
-        "sentence": "I could just ______ a figure in the darkness.",
-        "difficulty": "medium",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "perceptible",
-        "synonyms": [
-            "palpable",
-            "explicable",
-            "manifest",
-            "unequivocal"
-        ],
-        "definition": "Able to be seen, noticed, or detected by the mind.",
-        "sentence": "Her voice was barely ______ over the noise, but her gestures made her meaning clear.",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "explicable",
-        "synonyms": [
-            "palpable",
-            "perceptible",
-            "manifest",
-            "unequivocal"
-        ],
-        "definition": "Able to be accounted for or understood.",
-        "sentence": "The concept of ______ is demonstrated when able to be accounted for or understood, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "variable",
-            "counterintuitive"
-        ]
-    },
-    {
-        "word": "repertory",
-        "synonyms": [],
-        "definition": "A stock of skills, items, or behaviors habitually used.",
-        "sentence": "Jane weighed down her ______ with these plays.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "attenuate",
-            "explicable"
-        ]
-    },
-    {
-        "word": "conflate",
-        "synonyms": [
-            "coalesce",
-            "amalgam",
-            "cohesion"
-        ],
-        "definition": "To combine two or more separate text ideas or concepts into one.",
-        "sentence": "The concept of ______ is demonstrated when to combine two or more separate text ideas or concepts into one, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "amalgam",
-        "synonyms": [
-            "cohesion",
-            "coalesce",
-            "conflate"
-        ],
-        "definition": "A mixture or blend of different elements.",
-        "sentence": "The film script is an ______ of all three books.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "inextricable",
+            "erudite",
+            "impregnable"
         ]
     },
     {
         "word": "coalesce",
         "synonyms": [
-            "amalgam",
+            "merge",
             "unite",
-            "amalgamate",
-            "merge"
+            "combine"
         ],
-        "definition": "To come together to form one mass or whole.",
-        "sentence": "Particles do not ______ with other particles.",
+        "definition": "To come together to form one whole; to unite or blend into a single entity.",
+        "sentence": "As the storm clouds gathered, the smaller ones began to ______, darkening the sky even further.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "eschew"
+            "permeate",
+            "dither",
+            "cavort"
         ]
     },
     {
         "word": "cohesion",
         "synonyms": [
-            "coalesce",
-            "amalgam",
-            "conflate"
+            "unity",
+            "togetherness",
+            "bonding"
         ],
-        "definition": "The action or fact of forming a united whole.",
-        "sentence": "The Bears will have to find ______ in a hurry.",
+        "definition": "The action or fact of forming a united whole, often referring to the ability of elements to stick together.",
+        "sentence": "The students worked collaboratively to create a project that showcased their ______, emphasizing their teamwork and shared goals.",
         "difficulty": "medium",
         "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "dictate",
-        "synonyms": [
-            "prescribed"
-        ],
-        "definition": "To lay down authoritatively; prescribe or determine.",
-        "sentence": "The concept of ______ is demonstrated when to lay down authoritatively; prescribe or determine, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "alleviate",
-            "reprieve",
-            "eschew"
-        ]
-    },
-    {
-        "word": "prescribed",
-        "synonyms": [
-            "dictate"
-        ],
-        "definition": "Stated authoritatively as a rule or course of action.",
-        "sentence": "The doctor ______ aspirin.",
-        "difficulty": "hard",
-        "distractors": [
-            "alleviate",
-            "reprieve",
-            "eschew"
-        ]
-    },
-    {
-        "word": "analogous",
-        "synonyms": [
-            "correspondence",
-            "tantamount",
-            "similar",
-            "comparable"
-        ],
-        "definition": "Comparable in certain respects, typically to make a clearer explanation.",
-        "sentence": "The concept of ______ is demonstrated when comparable in certain respects, typically to make a clearer explanation, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "tantamount",
-        "synonyms": [
-            "correspondence",
-            "analogous",
-            "analogy"
-        ],
-        "definition": "Equivalent in seriousness to; virtually the same as.",
-        "sentence": "The concept of ______ is demonstrated when equivalent in seriousness to; virtually the same as, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "analogy",
-        "synonyms": [
-            "correspondence",
-            "analogous",
-            "tantamount"
-        ],
-        "definition": "A comparison between two things, typically for clarification.",
-        "sentence": "The concept of ______ is demonstrated when a comparison between two things, typically for clarification, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "iconoclasm",
-            "expediency",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "correspondence",
-        "synonyms": [
-            "analogous",
-            "analogy",
-            "tantamount"
-        ],
-        "definition": "A close similarity, connection, or equivalence between things.",
-        "sentence": "The concept of ______ is demonstrated when a close similarity, connection, or equivalence between things, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "iconoclasm",
-            "expediency",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "intricate",
-        "synonyms": [
-            "nuanced"
-        ],
-        "definition": "Very complicated, detailed, or interconnected.",
-        "sentence": "A good defense lawyer has an ______ network.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "nuanced",
-        "synonyms": [
-            "intricate"
-        ],
-        "definition": "Characterized by subtle shades of meaning or expression.",
-        "sentence": "The concept of ______ is demonstrated when characterized by subtle shades of meaning or expression, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "exhaustive",
-        "synonyms": [
-            "all-encompassing",
-            "tiring",
-            "weariful",
-            "thorough"
-        ],
-        "definition": "Fully comprehensive, leaving no elements or stone unturned.",
-        "sentence": "The report represented an ______ survey of the existing literature, leaving readers with no reason to doubt the breadth of the authors' research.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "attenuate",
-            "explicable"
+            "prowess",
+            "stymie",
+            "largess"
         ]
     },
     {
         "word": "comprise",
         "synonyms": [
-            "form",
-            "make up",
-            "encompass"
+            "include",
+            "contain",
+            "consist of"
         ],
-        "definition": "To consist of; be made up of.",
-        "sentence": "The concept of ______ is demonstrated when to consist of; be made up of, as evident in many academic texts.",
+        "definition": "To consist of or be made up of; to contain as part of a whole.",
+        "sentence": "The committee was formed to oversee the project's development, and it will _____ experts from various fields such as engineering and marketing.",
         "difficulty": "medium",
         "distractors": [
-            "alleviate",
-            "reprieve",
-            "eschew"
+            "burnish",
+            "augment",
+            "validate"
         ]
     },
     {
-        "word": "encompass",
+        "word": "concede",
         "synonyms": [
-            "embrace",
-            "comprise",
-            "comprehend"
+            "admit",
+            "acknowledge",
+            "yield"
         ],
-        "definition": "To surround and hold within; include comprehensively.",
-        "sentence": "The course will ______ physics, chemistry and biology.",
+        "definition": "To accept something as true, valid, or inevitable, often after a struggle or dispute; to surrender or give up a position or right.",
+        "sentence": "After a long debate, he had to ______ that his opponent had presented the strongest argument.",
         "difficulty": "medium",
         "distractors": [
-            "alleviate",
-            "reprieve",
-            "eschew"
+            "palliate",
+            "compensate",
+            "condone"
         ]
     },
     {
-        "word": "paradoxically",
-        "synonyms": [],
-        "definition": "In a seemingly absurd or self-contradictory way.",
-        "sentence": "______, the more strictly the curfew was enforced, the more teenagers seemed determined to break it.",
+        "word": "conflate",
+        "synonyms": [
+            "combine",
+            "merge",
+            "fuse"
+        ],
+        "definition": "To combine two or more different ideas, concepts, or texts into one, often resulting in confusion or misunderstanding.",
+        "sentence": "When discussing the two theories, it is essential not to ______ them, as they have distinct foundations and implications.",
+        "difficulty": "medium",
+        "distractors": [
+            "allay",
+            "exasperate",
+            "wane"
+        ]
+    },
+    {
+        "word": "conjecture",
+        "synonyms": [
+            "guess",
+            "hypothesis",
+            "theory"
+        ],
+        "definition": "An opinion or conclusion formed on the basis of incomplete information; a supposition.",
+        "sentence": "While the scientist had strong evidence, her final conclusion remained a mere ______ until more data could be gathered.",
+        "difficulty": "medium",
+        "distractors": [
+            "dialect",
+            "infamy",
+            "variable"
+        ]
+    },
+    {
+        "word": "consensus",
+        "synonyms": [
+            "agreement",
+            "harmony",
+            "accord"
+        ],
+        "definition": "A general agreement among a group of people, typically reached after discussion and consideration of different opinions.",
+        "sentence": "After hours of deliberation, the committee finally reached a ______ on the proposed changes to the policy that everyone could support.",
+        "difficulty": "medium",
+        "distractors": [
+            "anxiety",
+            "mass",
+            "affront"
+        ]
+    },
+    {
+        "word": "conspicuous",
+        "synonyms": [
+            "obvious",
+            "noticeable",
+            "prominent"
+        ],
+        "definition": "Easily seen or noticed; attracting special attention.",
+        "sentence": "The bright red dress she wore was so ______ that everyone at the party noticed her as soon as she arrived.",
+        "difficulty": "medium",
+        "distractors": [
+            "venerable",
+            "innocuous",
+            "tortuous"
+        ]
+    },
+    {
+        "word": "contentious",
+        "synonyms": [
+            "controversial",
+            "argumentative",
+            "disputatious"
+        ],
+        "definition": "Causing or likely to cause disagreement or controversy.",
+        "sentence": "The committee faced a __________ debate over the proposed budget changes that left members divided.",
+        "difficulty": "medium",
+        "distractors": [
+            "whimsical",
+            "wizened",
+            "ostentatious"
+        ]
+    },
+    {
+        "word": "contrived",
+        "synonyms": [
+            "forced",
+            "artificial",
+            "fake"
+        ],
+        "definition": "Deliberately created rather than arising naturally; artificial and lacking in authenticity or spontaneity.",
+        "sentence": "The plot of the movie felt so _______, as the events seemed unlikely and clearly staged.",
+        "difficulty": "medium",
+        "distractors": [
+            "illicit",
+            "convivial",
+            "cunning"
+        ]
+    },
+    {
+        "word": "convene",
+        "synonyms": [
+            "gather",
+            "assemble",
+            "meet"
+        ],
+        "definition": "To come together formally for a meeting or gathering, often for a specific purpose.",
+        "sentence": "The committee decided to ______ in order to discuss the new policy changes.",
+        "difficulty": "medium",
+        "distractors": [
+            "itemize",
+            "elicited",
+            "allay"
+        ]
+    },
+    {
+        "word": "copious",
+        "synonyms": [
+            "abundant",
+            "plentiful",
+            "ample"
+        ],
+        "definition": "Large in quantity; overflowing or excessive in amount or degree.",
+        "sentence": "The researcher took ______ notes during the lecture, ensuring that she understood every detail of the complex topic.",
+        "difficulty": "medium",
+        "distractors": [
+            "analogous",
+            "daunting",
+            "elusive"
+        ]
+    },
+    {
+        "word": "correspondence",
+        "synonyms": [
+            "communication",
+            "connection",
+            "exchange"
+        ],
+        "definition": "The act of exchanging letters, messages, or information; a written communication between parties.",
+        "sentence": "The two friends maintained their ______ over the years, sharing news and updates about their lives through letters.",
+        "difficulty": "medium",
+        "distractors": [
+            "commendation",
+            "hiatus",
+            "prudence"
+        ]
+    },
+    {
+        "word": "corroborate",
+        "synonyms": [
+            "confirm",
+            "validate",
+            "support"
+        ],
+        "definition": "To provide evidence or information that supports or strengthens a claim or statement.",
+        "sentence": "The scientist was able to ________ his theory with extensive research and additional data that proved its accuracy.",
         "difficulty": "hard",
         "distractors": [
-            "vigilance",
-            "intricate",
-            "premeditated"
+            "vindicate",
+            "annihilate",
+            "aggrandize"
+        ]
+    },
+    {
+        "word": "counterfactual",
+        "synonyms": [
+            "hypothetical",
+            "unrealistic",
+            "speculative"
+        ],
+        "definition": "Relating to or expressing what has not happened or is not the case; concerned with conditions or events that are contrary to fact.",
+        "sentence": "If I had chosen a different career path, the ______ of my life could have been vastly different.",
+        "difficulty": "hard",
+        "distractors": [
+            "opulent",
+            "inimical",
+            "ethereal"
         ]
     },
     {
         "word": "counterintuitive",
-        "synonyms": [],
-        "definition": "Contrary to intuition or common-sense expectation.",
-        "sentence": "When we do that are often quite ______ results.",
+        "synonyms": [
+            "unorthodox",
+            "unexpected",
+            "paradoxical"
+        ],
+        "definition": "Contrary to what one would intuitively expect; not aligning with common sense or intuition.",
+        "sentence": "Although it seemed ____, the team\u2019s unusual strategy led to a surprising victory that no one had anticipated.",
         "difficulty": "hard",
         "distractors": [
-            "prestige",
-            "attenuate",
-            "explicable"
+            "unequivocal",
+            "concomitant",
+            "reclusive"
         ]
     },
     {
-        "word": "rectify",
-        "synonyms": [],
-        "definition": "To put something right; correct a mistake or issue.",
-        "sentence": "The concept of ______ is demonstrated when to put something right; correct a mistake or issue, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "detractor",
+        "word": "curtailed",
         "synonyms": [
-            "mudslinger",
-            "cynic",
-            "defamer",
-            "libeler"
+            "reduced",
+            "limited",
+            "shortened"
         ],
-        "definition": "A person who disparages someone or something, casting doubt.",
-        "sentence": "She put up a game fight against her ______.",
+        "definition": "To cut short, diminish, or reduce something in extent or duration.",
+        "sentence": "The school decided to ______ the summer program due to budget constraints, disappointing many students eager to participate.",
         "difficulty": "medium",
         "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
+            "venerate",
+            "divulge",
+            "surmise"
         ]
     },
     {
-        "word": "disparage",
+        "word": "dearth",
         "synonyms": [
-            "decry",
-            "denigrate"
+            "lack",
+            "shortage",
+            "scarcity"
         ],
-        "definition": "To regard or represent as being of little worth; deprecate.",
-        "sentence": "V : Now, now. Do not ______ the noble hexagon.",
+        "definition": "A scarcity or insufficient amount of something.",
+        "sentence": "The sudden ______ of clean water after the drought led to significant health problems in the community.",
         "difficulty": "medium",
         "distractors": [
-            "extol",
-            "assuage",
-            "repudiate"
+            "crescendo",
+            "intercourse",
+            "derivative"
         ]
     },
     {
         "word": "decry",
         "synonyms": [
-            "disparage",
-            "denigrate"
+            "protest",
+            "disapprove",
+            "denounce"
         ],
-        "definition": "To publicly denounce or condemn.",
-        "sentence": "The concept of ______ is demonstrated when to publicly denounce or condemn, as evident in many academic texts.",
-        "difficulty": "easy",
+        "definition": "To publicly criticize or express strong disapproval of something.",
+        "sentence": "The critics were quick to ______ the new policy, calling it unfair and ineffective.",
+        "difficulty": "medium",
         "distractors": [
-            "extol",
-            "assuage",
-            "repudiate"
+            "prioritize",
+            "accentuate",
+            "venerate"
+        ]
+    },
+    {
+        "word": "deliberation",
+        "synonyms": [
+            "discussion",
+            "consideration",
+            "reflection"
+        ],
+        "definition": "The process of carefully thinking about or discussing something before making a decision.",
+        "sentence": "After much ______, the committee decided to change the location of the event to better accommodate the attendees.",
+        "difficulty": "medium",
+        "distractors": [
+            "manifold",
+            "tome",
+            "agnostic"
+        ]
+    },
+    {
+        "word": "demarcation",
+        "synonyms": [
+            "boundary",
+            "division",
+            "separation"
+        ],
+        "definition": "The act of establishing a boundary or dividing line; the point or process of marking limits.",
+        "sentence": "The engineers worked late into the night to finalize the ______ between the two properties, ensuring both sides understood their respective rights.",
+        "difficulty": "medium",
+        "distractors": [
+            "utopia",
+            "wrath",
+            "veneer"
         ]
     },
     {
         "word": "denigrate",
         "synonyms": [
             "disparage",
-            "decry"
+            "belittle",
+            "criticize"
         ],
-        "definition": "To criticize unfairly; disparage.",
-        "sentence": "The campaign's strategy was to ______ its opponents rather than present a coherent policy platform.",
-        "difficulty": "medium",
-        "distractors": [
-            "extol",
-            "assuage",
-            "repudiate"
-        ]
-    },
-    {
-        "word": "adorn",
-        "synonyms": [
-            "grace",
-            "beautify",
-            "ornament",
-            "prettify"
-        ],
-        "definition": "To make more beautiful or attractive; decorate.",
-        "sentence": "The concept of ______ is demonstrated when to make more beautiful or attractive; decorate, as evident in many academic texts.",
-        "difficulty": "easy",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "ornamental",
-        "synonyms": [
-            "beautifying",
-            "embellishing",
-            "decorative",
-            "adorn"
-        ],
-        "definition": "Serving as an aesthetic decoration rather than a function.",
-        "sentence": "There was a tray on an ______ garden table.",
+        "definition": "To criticize or speak of someone or something in a derogatory manner, often unjustly or unfairly.",
+        "sentence": "Though many sought to ______ his achievements, he remained confident in his abilities and continued to excel in his field.",
         "difficulty": "hard",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "abate",
-        "synonyms": [
-            "soothe",
-            "pacify",
-            "cut short",
-            "depress"
-        ],
-        "definition": "To become less intense, active, or widespread; subside.",
-        "sentence": "City officials hoped the new zoning law would ______ the rapid spread of overdevelopment in the neighborhood.",
-        "difficulty": "easy",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
-        ]
-    },
-    {
-        "word": "mitigate",
-        "synonyms": [
-            "assuage",
-            "diminish",
-            "check",
-            "attrition"
-        ],
-        "definition": "To make less severe, serious, painful, or sharp.",
-        "sentence": "Governments should endeavour to ______ distress.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
-        ]
-    },
-    {
-        "word": "attrition",
-        "synonyms": [
-            "assuage",
-            "attrit",
-            "depleted",
-            "natural wastage"
-        ],
-        "definition": "The process of gradually reducing the strength or effectiveness of something.",
-        "sentence": "The concept of ______ is demonstrated when the process of gradually reducing the strength or effectiveness of something, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
-        ]
-    },
-    {
-        "word": "assuage",
-        "synonyms": [
-            "attrition",
-            "depleted",
-            "alleviate",
-            "abate"
-        ],
-        "definition": "To make an unpleasant feeling less intense.",
-        "sentence": "His reply did little to ______ my suspicions.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
-        ]
-    },
-    {
-        "word": "attenuate",
-        "synonyms": [
-            "assuage",
-            "attrition",
-            "depleted",
-            "alleviate"
-        ],
-        "definition": "To reduce the force, effect, value, or thickness of.",
-        "sentence": "In a forest, wet wood and needles ______ the signals.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "alleviate",
-        "synonyms": [
-            "assuage",
-            "relieve",
-            "attrition",
-            "depleted"
-        ],
-        "definition": "To make suffering or a problem less severe.",
-        "sentence": "The pain medication did little to ______ the patient's chronic discomfort.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
-        ]
-    },
-    {
-        "word": "curtailed",
-        "synonyms": [
-            "assuage",
-            "restrain",
-            "behedge",
-            "attrition"
-        ],
-        "definition": "Reduced in extent or quantity; imposed a restriction on.",
-        "sentence": "The concept of ______ is demonstrated when reduced in extent or quantity; imposed a restriction on, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "convene",
-            "substantiate"
+            "corroborate",
+            "usurp",
+            "promulgate"
         ]
     },
     {
         "word": "depleted",
         "synonyms": [
-            "assuage",
-            "attrition",
-            "alleviate",
-            "abate"
+            "exhausted",
+            "drained",
+            "emptied"
         ],
-        "definition": "Diminished in number or quantity.",
-        "sentence": "The concept of ______ is demonstrated when diminished in number or quantity, as evident in many academic texts.",
+        "definition": "Having been used up or diminished in quantity, often referring to resources or energy.",
+        "sentence": "After weeks of intense studying, Sarah felt completely ______ and unable to focus on her final exams.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "dwindling",
-        "synonyms": [
-            "assuage",
-            "attrition",
-            "depleted",
-            "alleviate"
-        ],
-        "definition": "Gradually diminishing in size, amount, or strength.",
-        "sentence": "The number of wild animals on the earth is ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "profound",
-        "synonyms": [],
-        "definition": "Having or showing great insight, intensity, or depth.",
-        "sentence": "Her speech made a ______ impact on everyone.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "reprieve",
-        "synonyms": [],
-        "definition": "A cancellation or postponement of an undesirable event.",
-        "sentence": "The concept of ______ is demonstrated when a cancellation or postponement of an undesirable event, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "annihilate",
-        "synonyms": [],
-        "definition": "To destroy utterly; obliterate.",
-        "sentence": "The heavy bombing almost ______ the town.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "resolute",
-        "synonyms": [],
-        "definition": "Admirably purposeful, determined, and unwavering.",
-        "sentence": "She's utterly ______ in her refusal to apologise.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "arduous",
-        "synonyms": [
-            "grapple",
-            "insurmountable"
-        ],
-        "definition": "Involving or requiring strenuous effort; difficult and tiring.",
-        "sentence": "The concept of ______ is demonstrated when involving or requiring strenuous effort; difficult and tiring, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "insurmountable",
-        "synonyms": [
-            "arduous",
-            "grapple"
-        ],
-        "definition": "Too great to be overcome or resolved.",
-        "sentence": "It would not constitute an ______ problem.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "grapple",
-        "synonyms": [
-            "arduous",
-            "insurmountable"
-        ],
-        "definition": "To struggle to deal with or understand a difficult problem.",
-        "sentence": "______ up there and you'll find two Riddler trophies.http://",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "partition",
-        "synonyms": [],
-        "definition": "The action of dividing or separating something into distinct parts.",
-        "sentence": "The workers ______ a room into three parts.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "elicited",
-        "synonyms": [],
-        "definition": "Evoked or drew out a reaction or response from someone.",
-        "sentence": "At that time, behavior is ______ by stimulation.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "preliminary",
-        "synonyms": [],
-        "definition": "Denoting an action or event preceding something more important.",
-        "sentence": "The concept of ______ is demonstrated when denoting an action or event preceding something more important, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "efficacy",
-        "synonyms": [],
-        "definition": "The ability to produce a desired or intended result.",
-        "sentence": "Recent medical studies confirm the ______ of a healthier lifestyle.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "accentuate",
-        "synonyms": [],
-        "definition": "To make more noticeable or prominent; emphasize.",
-        "sentence": "It helps ______ my curls, and It'smells great.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "foster",
-        "synonyms": [],
-        "definition": "To encourage or promote the development of something.",
-        "sentence": "Mr ______ is a tower of strength to his party.",
-        "difficulty": "easy",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "indulge",
-        "synonyms": [],
-        "definition": "Allow oneself to enjoy the pleasure of.",
-        "sentence": "The concept of ______ is demonstrated when allow oneself to enjoy the pleasure of, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "entrenched",
-        "synonyms": [
-            "trench",
-            "consolidate",
-            "dig in"
-        ],
-        "definition": "Firmly established and difficult or unlikely to change.",
-        "sentence": "Bureaucratic resistance to change is often most ______ in organizations that have operated without external competition.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "ubiquitous",
-        "synonyms": [
-            "pervasive"
-        ],
-        "definition": "Present, appearing, or found everywhere at once.",
-        "sentence": "______ skylarks sang madly in the blue above.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "pervasive",
-        "synonyms": [
-            "ubiquitous"
-        ],
-        "definition": "Spreading widely throughout an area, group, or system.",
-        "sentence": "First(), it is not so ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "epitomize",
-        "synonyms": [
-            "quintessential",
-            "archetypal"
-        ],
-        "definition": "To serve as a perfect, definitive example of a quality or type.",
-        "sentence": "The architect's final design came to ______ the modernist principle that form must follow function.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "quintessential",
-        "synonyms": [
-            "archetypal",
-            "epitomize"
-        ],
-        "definition": "Representing the most perfect or typical example of a class.",
-        "sentence": "This was ______ Midwestern farming country.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "archetypal",
-        "synonyms": [
-            "quintessential",
-            "epitomize"
-        ],
-        "definition": "Very typical of a certain kind of person or thing; original model.",
-        "sentence": "Da Vinci was an ______ Renaissance figure.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "marginalize",
-        "synonyms": [
-            "alienate",
-            "invisibilize",
-            "peripheralize"
-        ],
-        "definition": "To treat a person or group as insignificant or peripheral.",
-        "sentence": "We must not ______ the poor in our society.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "expound",
-        "synonyms": [
-            "spell out"
-        ],
-        "definition": "To present and explain a theory or idea systematically and in detail.",
-        "sentence": "The policy brief gave the economist a platform to ______ at length on the implications of the proposed tariffs.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "extrapolate",
-        "synonyms": [],
-        "definition": "To extend application of a method/conclusion to an unknown context.",
-        "sentence": "Economists attempted to ______ future unemployment trends from the current quarter's labor data.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "spurious",
-        "synonyms": [
-            "counterfactual",
-            "contrived",
-            "belie"
-        ],
-        "definition": "Not being what it purports to be; false, fake, or illegitimate.",
-        "sentence": "He demolished the Opposition's ______ arguments.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "contrived",
-        "synonyms": [
-            "becast",
-            "hatch",
-            "plot",
-            "staged"
-        ],
-        "definition": "Deliberately created or forced rather than arising naturally; artificial.",
-        "sentence": "The concept of ______ is demonstrated when deliberately created or forced rather than arising naturally; artificial, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "belie",
-        "synonyms": [
-            "counterfactual",
-            "contrived",
-            "spurious"
-        ],
-        "definition": "To fail to give a true notion or impression of something; disguise or contradict.",
-        "sentence": "The concept of ______ is demonstrated when to fail to give a true notion or impression of something; disguise or contradict, as evident in many academic texts.",
-        "difficulty": "easy",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "counterfactual",
-        "synonyms": [
-            "contrived",
-            "spurious",
-            "belie"
-        ],
-        "definition": "Expressing what has not happened or is contrary to stated fact.",
-        "sentence": "Predicting the future is a form of forward ______ thinking.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "latitude",
-        "synonyms": [],
-        "definition": "Scope for freedom of action or thought.",
-        "sentence": "His parents gave him a great deal of ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "saturated",
-        "synonyms": [
-            "drenched",
-            "sodden"
-        ],
-        "definition": "Thoroughly soaked; containing maximum threshold.",
-        "sentence": "The sittingroom was ______ with perfume.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "convene",
-        "synonyms": [
-            "congregate",
-            "unite",
-            "convoke",
-            "meet"
-        ],
-        "definition": "To come or bring together for a meeting or activity; assemble.",
-        "sentence": "With no parliament, the board can not ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "succumb",
-        "synonyms": [],
-        "definition": "Fail to resist pressure, temptation, or some other negative force.",
-        "sentence": "Gandhi did not often ______ to that temptation.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "forfeiture",
-        "synonyms": [
-            "waive"
-        ],
-        "definition": "The loss or giving up of something as a penalty or choice.",
-        "sentence": "The concept of ______ is demonstrated when the loss or giving up of something as a penalty or choice, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "waive",
-        "synonyms": [
-            "forfeiture"
-        ],
-        "definition": "To refrain from insisting on or using a right or claim.",
-        "sentence": "If you ______ the right to be silent, anything you say can be used against you in a court of law.",
-        "difficulty": "easy",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "conjecture",
-        "synonyms": [
-            "supposition",
-            "halseny",
-            "presuppose"
-        ],
-        "definition": "An opinion or conclusion formed on the basis of incomplete information.",
-        "sentence": "What the real cause was is open to ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "presuppose",
-        "synonyms": [
-            "supposition",
-            "conjecture"
-        ],
-        "definition": "To assume at the beginning of a line of argument.",
-        "sentence": "The argument seems to ______ that all voters have access to reliable information, which is rarely the case.",
-        "difficulty": "hard",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "supposition",
-        "synonyms": [
-            "conjecture",
-            "presuppose"
-        ],
-        "definition": "A belief held without proof or certain knowledge; assumption.",
-        "sentence": "His version of the events is pure ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "oblique",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "elusive",
-        "synonyms": [
-            "intangible"
-        ],
-        "definition": "Difficult to find, catch, or achieve.",
-        "sentence": "Eric, as ______ as ever, was nowhere to be found.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "intangible",
-        "synonyms": [
-            "elusive"
-        ],
-        "definition": "Unable to be touched or physically grasped; vague.",
-        "sentence": "The island has an ______ quality of holiness.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "detrimental",
-        "synonyms": [
-            "inimical",
-            "harmful",
-            "injurious"
-        ],
-        "definition": "Tending to cause harm; damaging.",
-        "sentence": "Sugar is positively ______ to bodybuilding.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "inimical",
-        "synonyms": [
-            "inimic",
-            "inimicable",
-            "detrimental",
-            "antagonistic"
-        ],
-        "definition": "Tending to obstruct or harm; unfriendly or hostile.",
-        "sentence": "His policies are ______ to academic freedom.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "accessory",
-        "synonyms": [
-            "subsidiary",
-            "accompanying",
-            "acceding",
-            "subservient"
-        ],
-        "definition": "Contributing to or aiding a secondary activity or function.",
-        "sentence": "She was ______ to the riot.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "auxiliary",
-        "synonyms": [
-            "motorsailer",
-            "ancillary",
-            "accessory"
-        ],
-        "definition": "Providing supplementary or additional help and support.",
-        "sentence": "Science and technology are ______ to each other.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "inconspicuous",
-        "synonyms": [
-            "unobtrusive",
-            "latent",
-            "clandestine",
-            "invisible"
-        ],
-        "definition": "Not clearly visible or attracting attention; subtle.",
-        "sentence": "The concept of ______ is demonstrated when not clearly visible or attracting attention; subtle, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "entrenched",
-            "incipient",
-            "indispensable"
-        ]
-    },
-    {
-        "word": "clandestine",
-        "synonyms": [
-            "furtive",
-            "inconspicuous",
-            "unobtrusive",
-            "covert"
-        ],
-        "definition": "Kept secret or done secretively, especially because illicit.",
-        "sentence": "______ military operations",
-        "difficulty": "hard",
-        "distractors": [
-            "entrenched",
-            "incipient",
-            "indispensable"
-        ]
-    },
-    {
-        "word": "latent",
-        "synonyms": [
-            "inconspicuous",
-            "unobtrusive",
-            "clandestine",
-            "dormant"
-        ],
-        "definition": "Existing but not yet developed or manifest; hidden.",
-        "sentence": "The concept of ______ is demonstrated when existing but not yet developed or manifest; hidden, as evident in many academic texts.",
-        "difficulty": "easy",
-        "distractors": [
-            "entrenched",
-            "incipient",
-            "indispensable"
-        ]
-    },
-    {
-        "word": "unobtrusive",
-        "synonyms": [
-            "latent",
-            "inconspicuous",
-            "clandestine"
-        ],
-        "definition": "Not conspicuous or attracting attention.",
-        "sentence": "Personally he was quiet, modest and ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "entrenched",
-            "incipient",
-            "indispensable"
-        ]
-    },
-    {
-        "word": "encrypt",
-        "synonyms": [],
-        "definition": "Convert information or data into a cipher or code to prevent access.",
-        "sentence": "The concept of ______ is demonstrated when convert information or data into a cipher or code to prevent access, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "misanthropic",
-        "synonyms": [],
-        "definition": "Disliking humankind and avoiding human society.",
-        "sentence": "The concept of ______ is demonstrated when disliking humankind and avoiding human society, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "ameliorate",
-        "synonyms": [
-            "optimize"
-        ],
-        "definition": "To make something bad or unsatisfactory better; improve.",
-        "sentence": "Nothing can be done to ______ the situation.",
-        "difficulty": "hard",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "optimize",
-        "synonyms": [
-            "perfect",
-            "improve",
-            "enhance",
-            "ameliorate"
-        ],
-        "definition": "To make the best or most effective use of a resource.",
-        "sentence": "What can you do to ______ your family situation?",
-        "difficulty": "medium",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "extemporaneous",
-        "synonyms": [
-            "improvised",
-            "extemporal",
-            "off-the-cuff"
-        ],
-        "definition": "Spoken or done without preparation; improvised.",
-        "sentence": "\"The lovely words of a prepared speech however cannot erase ______ words and deeds — thousands of them — that have run contrary to those aspirations.”",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "augment",
-        "synonyms": [
-            "amass"
-        ],
-        "definition": "To make something greater by adding to it; increase.",
-        "sentence": "Why settle for reality when you can ______ it?",
-        "difficulty": "medium",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "amass",
-        "synonyms": [
-            "heap up",
-            "mound",
-            "augment",
-            "accumulate"
-        ],
-        "definition": "To gather together or accumulate a large quantity of valuable material.",
-        "sentence": "She has ______ a huge fortune from her novels.",
-        "difficulty": "easy",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "oblique",
-        "synonyms": [
-            "solidus",
-            "forward slash",
-            "diagonal",
-            "slash mark"
-        ],
-        "definition": "Not explicit or direct in addressing a point.",
-        "sentence": "Both conventional and ______ viewing are possible.",
-        "difficulty": "medium",
-        "distractors": [
-            "supposition",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "ineffectual",
-        "synonyms": [
-            "futile"
-        ],
-        "definition": "Not producing any or the desired effect.",
-        "sentence": "Our group leader proved highly ______, caving to every whim put forth by the other members.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "apprise",
-        "synonyms": [
-            "abreast",
-            "up to date",
-            "up-to-date"
-        ],
-        "definition": "To inform or tell someone.",
-        "sentence": "I shall not fail to ______ you of my arrival.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "interjected",
-        "synonyms": [
-            "insert",
-            "interpose",
-            "intervene"
-        ],
-        "definition": "Said something abruptly, especially as an interruption.",
-        "sentence": "The concept of ______ is demonstrated when said something abruptly, especially as an interruption, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "intercede",
-        "synonyms": [],
-        "definition": "Intervene on behalf of another.",
-        "sentence": "He had occasionally tried to ______ for me.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "extraneous",
-        "synonyms": [
-            "tangential",
-            "peripheral"
-        ],
-        "definition": "Irrelevant or unrelated to the subject being dealt with.",
-        "sentence": "______ substances were found on my cup of water.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "tangential",
-        "synonyms": [
-            "extraneous",
-            "peripheral"
-        ],
-        "definition": "Hardly touching upon a matter; peripheral or divergent.",
-        "sentence": "What ______ Factors Might Influence A Jury?",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "peripheral",
-        "synonyms": [
-            "tangential",
-            "extraneous"
-        ],
-        "definition": "Situated on the edge or margin of something; secondary.",
-        "sentence": "The men are somewhat ______ to this society.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "enumerate",
-        "synonyms": [
-            "itemize"
-        ],
-        "definition": "To mention a number of things one by one; list systematically.",
-        "sentence": "The concept of ______ is demonstrated when to mention a number of things one by one; list systematically, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "itemize",
-        "synonyms": [
-            "enumerate"
-        ],
-        "definition": "Present as a list of individual items.",
-        "sentence": "______ every element of fears that have you scared.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "protracted",
-        "synonyms": [
-            "prolong",
-            "long-drawn-out"
-        ],
-        "definition": "Lasting for a long time or longer than expected.",
-        "sentence": "The mandible is ______ and retracted in chewing.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "misconstrue",
-        "synonyms": [
-            "misinterpret",
-            "misunderstand"
-        ],
-        "definition": "To interpret a statement, action, or context wrongly.",
-        "sentence": "She said Harris had ______ her comments.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "ambivalent",
-        "synonyms": [
-            "fluctuating",
-            "vacillating",
-            "wavering",
-            "conflicted",
-            "uncertain"
-        ],
-        "definition": "Having mixed feelings or contradictory ideas about something or someone.",
-        "sentence": "She seems to feel ______ about her new job.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "unpretentious",
-        "synonyms": [],
-        "definition": "Not attempting to impress others with an appearance of importance.",
-        "sentence": "The concept of ______ is demonstrated when not attempting to impress others with an appearance of importance, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "indispensable",
-        "synonyms": [
-            "integral"
-        ],
-        "definition": "Absolutely necessary.",
-        "sentence": "The law was moral and ______. -Bp. Burnet",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "integral",
-        "synonyms": [
-            "indispensable"
-        ],
-        "definition": "Necessary to make a whole complete; essential.",
-        "sentence": "The ______ of x\\mapsto x^2 on [0,1] is \\frac{1}{3}.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "novel",
-        "synonyms": [
-            "unusual"
-        ],
-        "definition": "New, original, or unusual in an interesting way.",
-        "sentence": "The ______ is written from personal experience.",
-        "difficulty": "easy",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "empirical",
-        "synonyms": [
-            "empiric"
-        ],
-        "definition": "Verifiable by observation or experience rather than theory.",
-        "sentence": "A related issue concerns ______ methodology.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "defunct",
-        "synonyms": [
-            "anachronistic",
-            "dormant"
-        ],
-        "definition": "No longer existing or functioning; obsolete.",
-        "sentence": "Any hope of heading off with the Kaika was ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "anachronistic",
-        "synonyms": [
-            "defunct",
-            "dormant"
-        ],
-        "definition": "Belonging or appropriate to a period other than that in which it exists.",
-        "sentence": "If you know where to look in the movie, you can spot an ______ wrist watch on one of the Roman soldiers.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "dormant",
-        "synonyms": [
-            "defunct",
-            "anachronistic"
-        ],
-        "definition": "Having normal physical functions suspended or slowed down.",
-        "sentence": "Grass goes ______ during the winter, waiting for spring before it grows again.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "adept",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "sanguine",
-        "synonyms": [
-            "animated",
-            "assured",
-            "bright",
-            "bullish",
-            "buoyant"
-        ],
-        "definition": "Optimistic or positive, especially in a bad situation.",
-        "sentence": "a ______ bodily temperament",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "incongruous",
-        "synonyms": [
-            "incongruitous"
-        ],
-        "definition": "Not in harmony or keeping with the surroundings or expectations.",
-        "sentence": "All because of this burning, ______ passion.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "intersect",
-        "synonyms": [],
-        "definition": "To pass or lie across each other; overlap.",
-        "sentence": "The two roads ______ at the suburb of the city.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "apex",
-        "synonyms": [
-            "peak",
-            "summit",
-            "top",
-            "acme",
-            "culmination"
-        ],
-        "definition": "The highest point of something; peak or vertex.",
-        "sentence": "the ______ of the building",
-        "difficulty": "easy",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "premeditated",
-        "synonyms": [],
-        "definition": "Thought out or planned beforehand.",
-        "sentence": "They were neither ______ nor authorised.",
-        "difficulty": "hard",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "feasible",
-        "synonyms": [
-            "workable",
-            "possible",
-            "practicable",
-            "achievable"
-        ],
-        "definition": "Possible to do easily or conveniently.",
-        "sentence": "His plan to rid Trafalgar Square of pigeons by bringing in peregrine falcons to eat them was dismissed as not ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "prestige",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "expediency",
-        "synonyms": [
-            "expedience"
-        ],
-        "definition": "Being convenient and practical despite possibly being improper.",
-        "sentence": "The concept of ______ is demonstrated when being convenient and practical despite possibly being improper, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "supposition",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "extol",
-        "synonyms": [
-            "prestige",
-            "esteem",
-            "flatter",
-            "belaud"
-        ],
-        "definition": "To praise enthusiastically or highly.",
-        "sentence": "The teacher was ______ her work to the skies.",
-        "difficulty": "easy",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "esteem",
-        "synonyms": [
-            "respect",
-            "cherish",
-            "extol",
-            "revere"
-        ],
-        "definition": "Respect and admiration.",
-        "sentence": "I ______ it an honour to visit your university.",
-        "difficulty": "easy",
-        "distractors": [
-            "attrition",
-            "alleviate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "prestige",
-        "synonyms": [
-            "extol",
-            "esteem"
-        ],
-        "definition": "Widespread respect and admiration given on the basis of quality.",
-        "sentence": "Oxford has a university of very high ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "lucrative",
-        "synonyms": [
-            "monetize"
-        ],
-        "definition": "Producing a great deal of profit.",
-        "sentence": "The partnership opened access to an extraordinarily ______ market that the company had previously been unable to enter.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "monetize",
-        "synonyms": [
-            "lucrative"
-        ],
-        "definition": "To convert an asset into or express it in terms of currency.",
-        "sentence": "So I've put a lot of blame on the Fed because they ______ these debts.",
-        "difficulty": "medium",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "haphazard",
-        "synonyms": [
-            "discontinuous",
-            "chaotic",
-            "erratic",
-            "random"
-        ],
-        "definition": "Lacking any obvious principle of organization; random.",
-        "sentence": "The town had grown in a somewhat ______ way.",
-        "difficulty": "medium",
-        "distractors": [
-            "entrenched",
-            "incipient",
-            "protracted"
+            "negligent",
+            "epistolary",
+            "orthodox"
         ]
     },
     {
         "word": "desultory",
         "synonyms": [
-            "quodlibetical",
-            "discontinuous",
-            "haphazard",
-            "disconnected"
+            "disorganized",
+            "random",
+            "irregular"
         ],
-        "definition": "Lacking a plan, purpose, enthusiasm, or directional focus.",
-        "sentence": "He wandered round, cleaning up in a ______ way.",
+        "definition": "Characterized by a lack of a definite plan, purpose, or enthusiasm; marked by a jumping from one thing to another without a coherent focus.",
+        "sentence": "Her study habits were so ______ that she often jumped from one subject to another without fully engaging in any.",
+        "difficulty": "hard",
+        "distractors": [
+            "frenetic",
+            "solipsistic",
+            "sovereign"
+        ]
+    },
+    {
+        "word": "detractor",
+        "synonyms": [
+            "critic",
+            "opponent",
+            "adversary"
+        ],
+        "definition": "A person who disparages or belittles the worth of something or someone; a critic or faultfinder.",
+        "sentence": "Although she received many compliments on her art, her most vocal ______ remained focused on its flaws rather than its beauty.",
         "difficulty": "medium",
         "distractors": [
-            "entrenched",
-            "incipient",
-            "protracted"
+            "utopia",
+            "empathy",
+            "dirge"
+        ]
+    },
+    {
+        "word": "detrimental",
+        "synonyms": [
+            "harmful",
+            "damaging",
+            "injurious"
+        ],
+        "definition": "Causing harm or damage to something; having a negative effect.",
+        "sentence": "The excessive use of plastic is ______ to the environment, contributing to pollution and harming wildlife.",
+        "difficulty": "medium",
+        "distractors": [
+            "malleable",
+            "solicitous",
+            "forlorn"
+        ]
+    },
+    {
+        "word": "dictate",
+        "synonyms": [
+            "command",
+            "control",
+            "direct"
+        ],
+        "definition": "To say or read aloud something for someone else to write down or to strongly influence or determine the course of events.",
+        "sentence": "The teacher would often ______ the spelling words for the students to write in their notebooks.",
+        "difficulty": "medium",
+        "distractors": [
+            "carouse",
+            "forsake",
+            "appraised"
+        ]
+    },
+    {
+        "word": "diminutive",
+        "synonyms": [
+            "tiny",
+            "small",
+            "petite"
+        ],
+        "definition": "Denoting a small size, especially in comparison to the average size of something of its kind.",
+        "sentence": "Despite his ______ stature, he had a commanding presence that captivated everyone's attention.",
+        "difficulty": "medium",
+        "distractors": [
+            "nominal",
+            "cloying",
+            "maudlin"
+        ]
+    },
+    {
+        "word": "discern",
+        "synonyms": [
+            "detect",
+            "notice",
+            "identify"
+        ],
+        "definition": "To perceive or recognize something clearly; to distinguish or discriminate between different things or ideas.",
+        "sentence": "Even in the puzzling maze of information, she could easily ______ the truth from the deception.",
+        "difficulty": "medium",
+        "distractors": [
+            "apprise",
+            "amass",
+            "elicit"
+        ]
+    },
+    {
+        "word": "discerning",
+        "synonyms": [
+            "perceptive",
+            "insightful",
+            "inspective"
+        ],
+        "definition": "Having or showing good judgment, understanding, or ability to distinguish; keenly observant.",
+        "sentence": "Her ______ taste in art allowed her to appreciate subtle details that others often overlooked.",
+        "difficulty": "medium",
+        "distractors": [
+            "audacious",
+            "wistful",
+            "dubious"
         ]
     },
     {
         "word": "discontinuous",
         "synonyms": [
-            "haphazard",
-            "erratic",
-            "patchy",
-            "spasmodic"
+            "intermittent",
+            "broken",
+            "irregular"
         ],
-        "definition": "Having intervals or gaps; not continuous.",
-        "sentence": "The concept of ______ is demonstrated when having intervals or gaps; not continuous, as evident in many academic texts.",
-        "difficulty": "hard",
+        "definition": "Characterized by intervals or breaks; not continuous in time, space, or sequence.",
+        "sentence": "The lecture was ______, with several long pauses that disrupted the flow of information.",
+        "difficulty": "medium",
         "distractors": [
-            "entrenched",
-            "incipient",
-            "protracted"
+            "terrestrial",
+            "timorous",
+            "tractable"
         ]
     },
     {
-        "word": "erratic",
+        "word": "disparage",
         "synonyms": [
+            "belittle",
+            "degrade",
+            "mock"
+        ],
+        "definition": "To regard or represent as being of little worth; to speak of in a way that shows a lack of respect.",
+        "sentence": "Despite his skill, she often chose to ______ his contributions to the project, leaving him feeling undervalued.",
+        "difficulty": "hard",
+        "distractors": [
+            "debauch",
+            "promulgate",
+            "desecrate"
+        ]
+    },
+    {
+        "word": "disparate",
+        "synonyms": [
+            "different",
+            "dissimilar",
+            "distinct"
+        ],
+        "definition": "Essentially different in kind; not allowing comparison.",
+        "sentence": "The two cultures were so ______ that they seemed to inhabit entirely different worlds.",
+        "difficulty": "medium",
+        "distractors": [
+            "lethargic",
+            "nomadic",
+            "analogous"
+        ]
+    },
+    {
+        "word": "disseminate",
+        "synonyms": [
+            "spread",
+            "distribute",
+            "broadcast"
+        ],
+        "definition": "To spread or distribute information or ideas widely, especially to a large audience.",
+        "sentence": "The teacher aimed to ______ information about climate change to her students, ensuring they understood its importance.",
+        "difficulty": "medium",
+        "distractors": [
+            "delegate",
+            "mollify",
+            "reconstituted"
+        ]
+    },
+    {
+        "word": "dogmatic",
+        "synonyms": [
+            "opinionated",
+            "rigid",
+            "inflexible"
+        ],
+        "definition": "Related to or characterized by a strong adherence to established beliefs or principles, often without consideration for opposing ideas.",
+        "sentence": "The professor's ______ approach made it difficult for students to express their own viewpoints during class discussions.",
+        "difficulty": "hard",
+        "distractors": [
             "desultory",
-            "discontinuous",
-            "haphazard",
-            "dropstone"
+            "harrowing",
+            "infallible"
+        ]
+    },
+    {
+        "word": "dormant",
+        "synonyms": [
+            "inactive",
+            "quiescent",
+            "sleeping"
         ],
-        "definition": "Not even or regular in pattern or movement; unpredictable.",
-        "sentence": "The scientists pulling his strings are ______.",
+        "definition": "Describing a state in which an organism or object is temporarily inactive or not exhibiting vital signs, particularly used in biology to refer to a period of reduced metabolic activity.",
+        "sentence": "During the winter months, many plants enter a ______ state, conserving energy and waiting for warmer temperatures to return.",
         "difficulty": "medium",
         "distractors": [
-            "entrenched",
-            "incipient",
-            "protracted"
+            "torpid",
+            "obsolete",
+            "consonant"
         ]
     },
     {
-        "word": "prioritize",
-        "synonyms": [],
-        "definition": "Designate or treat something as being more important than others.",
-        "sentence": "Rank and ______ your district's prospects.",
-        "difficulty": "hard",
-        "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "iconoclasm",
-        "synonyms": [],
-        "definition": "The rejection or destruction of cherished beliefs or institutions.",
-        "sentence": "______ became a prominent feature of jewelry design.",
-        "difficulty": "hard",
-        "distractors": [
-            "supposition",
-            "calibration",
-            "restitution"
-        ]
-    },
-    {
-        "word": "subversive",
+        "word": "dwindling",
         "synonyms": [
-            "revolutionary",
-            "subverter",
-            "seditious",
-            "insurgent"
+            "shrinking",
+            "declining",
+            "lessening"
         ],
-        "definition": "Seeking or intended to subvert or undermine an institution.",
-        "sentence": "The concept of ______ is demonstrated when seeking or intended to subvert or undermine an institution, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "reconstituted",
-        "synonyms": [
-            "refurbish",
-            "restitution"
-        ],
-        "definition": "Built up again from parts; reconstructed.",
-        "sentence": "The concept of ______ is demonstrated when built up again from parts; reconstructed, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "refurbish",
-        "synonyms": [
-            "reconstituted",
-            "restitution"
-        ],
-        "definition": "Renovate and redecorate something to restore its function.",
-        "sentence": "A developer wants to ______ the Green Street Hotel.",
+        "definition": "Gradually diminishing in size, amount, or strength.",
+        "sentence": "As winter progressed, the supply of fresh vegetables began ______, forcing the chef to get creative with preserved ingredients.",
         "difficulty": "medium",
         "distractors": [
-            "refute",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "restitution",
-        "synonyms": [
-            "indemnification",
-            "reconstituted",
-            "recompense",
-            "refurbish"
-        ],
-        "definition": "The restoration of something lost or stolen to its proper owner.",
-        "sentence": "Opinion polls repeatedly showed that ______ was unpopular.",
-        "difficulty": "hard",
-        "distractors": [
-            "supposition",
-            "calibration",
-            "iconoclasm"
-        ]
-    },
-    {
-        "word": "beneficiary",
-        "synonyms": [],
-        "definition": "A person who derives advantage from something.",
-        "sentence": "You are the lucky ______ of this special offer.",
-        "difficulty": "hard",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "repudiate",
-        "synonyms": [
-            "contradict",
-            "gainsay",
-            "deny",
-            "renunciation"
-        ],
-        "definition": "To refuse to accept or be associated with; reject validity.",
-        "sentence": "The concept of ______ is demonstrated when to refuse to accept or be associated with; reject validity, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "optimize",
-            "abate",
-            "monetize"
-        ]
-    },
-    {
-        "word": "refute",
-        "synonyms": [
-            "disprove",
-            "debunk",
-            "rebut",
-            "gainsay"
-        ],
-        "definition": "To prove a statement, theory, or claim to be wrong.",
-        "sentence": "The attorney called a forensic expert to the stand specifically to ______ the prosecution's theory.",
-        "difficulty": "easy",
-        "distractors": [
-            "optimize",
-            "abate",
-            "monetize"
-        ]
-    },
-    {
-        "word": "recant",
-        "synonyms": [
-            "renunciation",
-            "repudiate",
-            "take back",
-            "recall"
-        ],
-        "definition": "To formally reject a previously held opinion or belief.",
-        "sentence": "White House officials ordered Williams to ______.",
-        "difficulty": "easy",
-        "distractors": [
-            "optimize",
-            "abate",
-            "monetize"
-        ]
-    },
-    {
-        "word": "renunciation",
-        "synonyms": [
-            "refute",
-            "repudiate",
-            "recant"
-        ],
-        "definition": "The formal rejection of a belief, claim, or action.",
-        "sentence": "The concept of ______ is demonstrated when the formal rejection of a belief, claim, or action, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "supposition",
-            "calibration",
-            "iconoclasm"
-        ]
-    },
-    {
-        "word": "supersede",
-        "synonyms": [
-            "transcending",
-            "replace",
-            "supplant",
-            "outstrip"
-        ],
-        "definition": "To take the place of a person or thing previously in use.",
-        "sentence": "Any one could ______ you as manager in my office.",
-        "difficulty": "medium",
-        "distractors": [
-            "substantiate",
-            "abate",
-            "decry"
+            "amiable",
+            "palatable",
+            "obsequious"
         ]
     },
     {
         "word": "eclipse",
         "synonyms": [
-            "outstrip",
-            "transcending",
-            "supersede"
+            "obscuration",
+            "covering",
+            "concealment"
         ],
-        "definition": "To obscure, surpass, or block out the importance of another thing.",
-        "sentence": "One cloud is enough to ______ all the sun.&nbsp;",
+        "definition": "An astronomical event in which one celestial body moves into the shadow of another celestial body, temporarily obscuring it from view.",
+        "sentence": "During the rare celestial event, many people gathered to witness the _____ of the sun, casting a brief shadow across the landscape.",
         "difficulty": "medium",
         "distractors": [
-            "substantiate",
-            "abate",
-            "decry"
+            "eschew",
+            "vex",
+            "catalyze"
         ]
     },
     {
-        "word": "outstrip",
+        "word": "efficacy",
         "synonyms": [
-            "transcending",
-            "overgo",
-            "supersede",
+            "effectiveness",
+            "potency",
+            "capability"
+        ],
+        "definition": "The ability to produce a desired or intended result.",
+        "sentence": "The study aimed to measure the ______ of the new drug in treating the disease, comparing its outcomes to those of existing treatments.",
+        "difficulty": "medium",
+        "distractors": [
+            "zephyr",
+            "precipice",
+            "sobriety"
+        ]
+    },
+    {
+        "word": "elasticity",
+        "synonyms": [
+            "flexibility",
+            "stretch",
+            "rebound"
+        ],
+        "definition": "The quality of being able to stretch and return to its original shape; in economics, it refers to the degree to which demand or supply changes in response to price changes.",
+        "sentence": "The ______ of the rubber band allows it to stretch significantly without breaking, making it perfect for various uses.",
+        "difficulty": "medium",
+        "distractors": [
+            "yoke",
+            "vocation",
+            "infusion"
+        ]
+    },
+    {
+        "word": "elicited",
+        "synonyms": [
+            "evoked",
+            "brought out",
+            "drawn out"
+        ],
+        "definition": "To draw forth or bring out a response, answer, or feeling from someone.",
+        "sentence": "The teacher's questions were carefully designed to ______ thoughtful responses from her students.",
+        "difficulty": "medium",
+        "distractors": [
+            "satiate",
+            "reciprocate",
+            "encompass"
+        ]
+    },
+    {
+        "word": "elusive",
+        "synonyms": [
+            "hard to catch",
+            "difficult to find",
+            "evasive"
+        ],
+        "definition": "Difficult to locate, understand, or define; often escaping perception or comprehension.",
+        "sentence": "The missing book remained ______, despite everyone's efforts to track it down.",
+        "difficulty": "medium",
+        "distractors": [
+            "lethargic",
+            "adept",
+            "submissive"
+        ]
+    },
+    {
+        "word": "emissary",
+        "synonyms": [
+            "delegate",
+            "messenger",
+            "agent"
+        ],
+        "definition": "A representative sent on a specific mission, often to negotiate or convey information.",
+        "sentence": "The king sent an ______ to the neighboring realm to discuss terms of peace and alliance.",
+        "difficulty": "medium",
+        "distractors": [
+            "utopia",
+            "bane",
+            "vigilance"
+        ]
+    },
+    {
+        "word": "empirical",
+        "synonyms": [
+            "observational",
+            "experiential",
+            "evidential"
+        ],
+        "definition": "Based on observation or experience rather than theory or pure logic.",
+        "sentence": "The scientist relied on ______ evidence gathered from her experiments to support her hypothesis.",
+        "difficulty": "hard",
+        "distractors": [
+            "punctilious",
+            "indefatigable",
+            "unequivocal"
+        ]
+    },
+    {
+        "word": "encompass",
+        "synonyms": [
+            "include",
+            "cover",
+            "contain"
+        ],
+        "definition": "To include or cover a wide range of elements or aspects; to surround and hold within.",
+        "sentence": "The new policy aims to ______ a diverse array of cultural perspectives in its implementation.",
+        "difficulty": "medium",
+        "distractors": [
+            "waive",
+            "implicate",
+            "appraised"
+        ]
+    },
+    {
+        "word": "endorse",
+        "synonyms": [
+            "support",
+            "approve",
+            "back"
+        ],
+        "definition": "To declare one's public approval or support for someone or something, often in a formal manner.",
+        "sentence": "The celebrity decided to ______ a new charity initiative to help underprivileged children.",
+        "difficulty": "medium",
+        "distractors": [
+            "ascribe",
+            "foment",
+            "efface"
+        ]
+    },
+    {
+        "word": "engender",
+        "synonyms": [
+            "create",
+            "produce",
+            "generate"
+        ],
+        "definition": "To cause or give rise to a feeling, situation, or condition.",
+        "sentence": "The new policy is expected to ______ a sense of community among the residents.",
+        "difficulty": "hard",
+        "distractors": [
+            "corroborate",
+            "ruminate",
+            "aggrandize"
+        ]
+    },
+    {
+        "word": "entrenched",
+        "synonyms": [
+            "established",
+            "rooted",
+            "firm"
+        ],
+        "definition": "Firmly established and difficult or unlikely to change; ingrained.",
+        "sentence": "Despite many efforts to implement new policies, the old practices remained deeply ______ within the organization.",
+        "difficulty": "medium",
+        "distractors": [
+            "wizened",
+            "spurious",
+            "vivacious"
+        ]
+    },
+    {
+        "word": "enumerate",
+        "synonyms": [
+            "list",
+            "count",
+            "itemize"
+        ],
+        "definition": "To mention a number of things one by one; to specify or name individually.",
+        "sentence": "In her presentation, she decided to ______ the reasons why the project was successful, ensuring that each point was clearly articulated.",
+        "difficulty": "medium",
+        "distractors": [
+            "avenge",
+            "allocate",
+            "eclipse"
+        ]
+    },
+    {
+        "word": "epitomize",
+        "synonyms": [
+            "represent",
+            "embody",
+            "illustrate"
+        ],
+        "definition": "To serve as a typical example or to embody the essence of something.",
+        "sentence": "In her daring speech, she sought to ______ the spirit of the entire movement, capturing its hopes and struggles.",
+        "difficulty": "medium",
+        "distractors": [
+            "chastise",
+            "elicited",
             "transgress"
+        ]
+    },
+    {
+        "word": "equivocal",
+        "synonyms": [
+            "ambiguous",
+            "uncertain",
+            "vague"
         ],
-        "definition": "To move faster than and overtake; exceed or surpass.",
-        "sentence": "The concept of ______ is demonstrated when to move faster than and overtake; exceed or surpass, as evident in many academic texts.",
+        "definition": "Open to more than one interpretation; not having one obvious meaning.",
+        "sentence": "The manager's response was so ______ that it left the employees confused about their responsibilities.",
         "difficulty": "medium",
         "distractors": [
-            "substantiate",
-            "abate",
-            "decry"
+            "unobtrusive",
+            "cumulative",
+            "strenuous"
         ]
     },
     {
-        "word": "transcending",
+        "word": "erratic",
         "synonyms": [
-            "surpass",
-            "overgo",
-            "supersede",
-            "outstrip"
+            "unpredictable",
+            "inconsistent",
+            "irregular"
         ],
-        "definition": "Surpassing or going beyond the range or limits of.",
-        "sentence": "The concept of ______ is demonstrated when surpassing or going beyond the range or limits of, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "substantiate",
-            "abate",
-            "decry"
-        ]
-    },
-    {
-        "word": "dogmatic",
-        "synonyms": [],
-        "definition": "Inclined to lay down principles as absolute truths.",
-        "sentence": "The most dangerous thinkers are often those who are most ______, convinced that their frameworks require no revision.",
+        "definition": "Characterized by a lack of regularity or consistency; prone to sudden and unpredictable changes.",
+        "sentence": "The weather in the mountains can be quite ______, changing from sunny to stormy within minutes.",
         "difficulty": "medium",
         "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
+            "shrewd",
+            "vivacious",
+            "innocuous"
         ]
     },
     {
-        "word": "homogeneous",
+        "word": "eschew",
         "synonyms": [
-            "uniform"
+            "avoid",
+            "shun",
+            "reject"
         ],
-        "definition": "Of the same kind; alike or uniform throughout.",
-        "sentence": "The concept of ______ is demonstrated when of the same kind; alike or uniform throughout, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "uniform",
-        "synonyms": [
-            "regular",
-            "stable",
-            "of a piece",
-            "homogeneous"
-        ],
-        "definition": "Remaining the same in all cases and at all times; unchanging.",
-        "sentence": "The rows of houses were ______ in appearance.",
+        "definition": "To deliberately avoid using, engaging in, or adopting something.",
+        "sentence": "In an effort to maintain a healthy lifestyle, she chose to ______ processed foods and sugary drinks.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "superficial",
-            "tenuous"
+            "insinuate",
+            "upbraid",
+            "ascribe"
         ]
     },
     {
-        "word": "dearth",
+        "word": "esteem",
         "synonyms": [
-            "paucity",
-            "famine",
-            "scarcity",
-            "shortage"
+            "admiration",
+            "respect",
+            "regard"
         ],
-        "definition": "A scarcity or lack of something.",
-        "sentence": "Farmers have long griped about a ______ of competition.",
-        "difficulty": "easy",
-        "distractors": [
-            "oblique",
-            "supposition",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "paucity",
-        "synonyms": [
-            "scantiness",
-            "scarcity",
-            "dearth"
-        ],
-        "definition": "The presence of something only in insufficient quantities.",
-        "sentence": "The report highlighted the ______ of reliable data available on the long-term effects of the new drug.",
+        "definition": "A favorable opinion or judgement about someone or something; an individual's valuing of themselves or others.",
+        "sentence": "Despite her many achievements, she still struggled with low ______, often doubting her own abilities.",
         "difficulty": "medium",
         "distractors": [
-            "oblique",
-            "supposition",
-            "elasticity"
-        ]
-    },
-    {
-        "word": "diverge",
-        "synonyms": [],
-        "definition": "To separate from another route or go a different direction.",
-        "sentence": "I'm afraid our opinions ______ from each other.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "superficial",
-        "synonyms": [
-            "surficial"
-        ],
-        "definition": "Existing or occurring at or on the surface; lacking depth.",
-        "sentence": "The concept of ______ is demonstrated when existing or occurring at or on the surface; lacking depth, as evident in many academic texts.",
-        "difficulty": "hard",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "amorphous",
-        "synonyms": [
-            "formless",
-            "shapeless"
-        ],
-        "definition": "Without a clearly defined shape or form.",
-        "sentence": "I really can't understand his ______ ideas.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
+            "cobbler",
+            "cadence",
+            "crescendo"
         ]
     },
     {
         "word": "evince",
-        "synonyms": [],
-        "definition": "To reveal the presence of a quality or feeling; indicate clearly.",
-        "sentence": "Her meticulous attention to detail throughout the project served to ______ her deep commitment to excellence.",
-        "difficulty": "easy",
+        "synonyms": [
+            "show",
+            "reveal",
+            "demonstrate"
+        ],
+        "definition": "To make (a feeling or quality) evident or known; to display or indicate clearly.",
+        "sentence": "Her calm demeanor in the face of adversity seemed to ______ a strong sense of resilience.",
+        "difficulty": "medium",
         "distractors": [
-            "repudiate",
-            "assert",
-            "eschew"
+            "activate",
+            "delegate",
+            "enumerate"
+        ]
+    },
+    {
+        "word": "exacerbate",
+        "synonyms": [
+            "intensify",
+            "aggravate",
+            "amplify"
+        ],
+        "definition": "To make a problem, situation, or feeling worse or more severe.",
+        "sentence": "The new policy changes only served to ______ the existing tensions between the community and the local government.",
+        "difficulty": "hard",
+        "distractors": [
+            "blandish",
+            "subjugate",
+            "exculpate"
+        ]
+    },
+    {
+        "word": "exhaustive",
+        "synonyms": [
+            "comprehensive",
+            "thorough",
+            "complete"
+        ],
+        "definition": "Including all elements or aspects; fully covering the subject matter without leaving anything out.",
+        "sentence": "The researcher provided an ______ analysis of the survey results, ensuring that every possible angle was considered.",
+        "difficulty": "hard",
+        "distractors": [
+            "clairvoyant",
+            "effulgent",
+            "inextricable"
+        ]
+    },
+    {
+        "word": "expediency",
+        "synonyms": [
+            "convenience",
+            "suitability",
+            "practicality"
+        ],
+        "definition": "The quality of being convenient and practical despite possibly being improper or immoral; the act of doing something because it is advantageous rather than right.",
+        "sentence": "In times of crisis, leaders often prioritize ______ over ethical considerations to achieve quick results.",
+        "difficulty": "medium",
+        "distractors": [
+            "artifact",
+            "nuance",
+            "parsimony"
+        ]
+    },
+    {
+        "word": "explicable",
+        "synonyms": [
+            "explainable",
+            "accountable",
+            "justifiable"
+        ],
+        "definition": "Capable of being explained or understood; able to be accounted for.",
+        "sentence": "The scientist's theory was complex, yet it remained ______ due to the extensive research backing it up.",
+        "difficulty": "medium",
+        "distractors": [
+            "tedious",
+            "prosaic",
+            "zealous"
+        ]
+    },
+    {
+        "word": "exploit",
+        "synonyms": [
+            "utilize",
+            "capitalize",
+            " leverage"
+        ],
+        "definition": "To make full use of and benefit from a resource or situation, often in a way that is considered unethical or unfair.",
+        "sentence": "The company sought to ______ the new technology to increase its market share significantly.",
+        "difficulty": "medium",
+        "distractors": [
+            "covet",
+            "foster",
+            "amalgamate"
+        ]
+    },
+    {
+        "word": "expound",
+        "synonyms": [
+            "explain",
+            "clarify",
+            "interpret"
+        ],
+        "definition": "To present and explain in detail, usually in a systematic manner.",
+        "sentence": "During the lecture, the professor sought to ______ her theories on social behavior by providing numerous examples from contemporary studies.",
+        "difficulty": "medium",
+        "distractors": [
+            "modulate",
+            "rail",
+            "catalyze"
+        ]
+    },
+    {
+        "word": "extol",
+        "synonyms": [
+            "praise",
+            "laud",
+            "celebrate"
+        ],
+        "definition": "To express great approval or admiration for something or someone, often in an enthusiastic manner.",
+        "sentence": "The coach would often ______ the players' hard work during practice, motivating them to keep pushing their limits.",
+        "difficulty": "medium",
+        "distractors": [
+            "monetize",
+            "wallow",
+            "reconstituted"
+        ]
+    },
+    {
+        "word": "extraneous",
+        "synonyms": [
+            "unrelated",
+            "irrelevant",
+            "unnecessary"
+        ],
+        "definition": "Not essential or relevant to the subject at hand; additional or excessive in nature.",
+        "sentence": "During the debate, the speaker's argument was undermined by numerous ______ points that distracted from the main issue.",
+        "difficulty": "medium",
+        "distractors": [
+            "ornate",
+            "nascent",
+            "dormant"
+        ]
+    },
+    {
+        "word": "extrapolate",
+        "synonyms": [
+            "infer",
+            "deduce",
+            "conjecture"
+        ],
+        "definition": "To extend or project the known information to an unknown situation in order to form a conclusion or prediction.",
+        "sentence": "Given the current trends in climate change, scientists are trying to ______ future weather patterns.",
+        "difficulty": "medium",
+        "distractors": [
+            "cherish",
+            "intersect",
+            "forage"
+        ]
+    },
+    {
+        "word": "facile",
+        "synonyms": [
+            "easy",
+            "smooth",
+            "simple"
+        ],
+        "definition": "Achieved with minimal effort; exhibiting ease or simplicity, sometimes to the point of being superficial or lacking depth.",
+        "sentence": "Despite the project\u2019s apparent complexity, she completed it with a ______ grace that left everyone amazed.",
+        "difficulty": "medium",
+        "distractors": [
+            "phlegmatic",
+            "ostensible",
+            "intangible"
+        ]
+    },
+    {
+        "word": "feasible",
+        "synonyms": [
+            "possible",
+            "practical",
+            "achievable"
+        ],
+        "definition": "Capable of being done or carried out; achievable under the current circumstances.",
+        "sentence": "After reviewing the project requirements, the team concluded that implementing the new software was entirely ______.",
+        "difficulty": "medium",
+        "distractors": [
+            "somnolent",
+            "meticulous",
+            "torrid"
+        ]
+    },
+    {
+        "word": "fecundity",
+        "synonyms": [
+            "fruitfulness",
+            "fertility",
+            "abundance"
+        ],
+        "definition": "The quality of being able to produce abundant offspring or new growth; the reproductive capacity of an organism.",
+        "sentence": "The researchers were amazed by the __________ of the plant species, which thrived in the rich soil and produced hundreds of seeds each season.",
+        "difficulty": "hard",
+        "distractors": [
+            "effrontery",
+            "collusion",
+            "debacle"
+        ]
+    },
+    {
+        "word": "foment",
+        "synonyms": [
+            "instigate",
+            "provoke",
+            "incite"
+        ],
+        "definition": "To instigate or stir up (an undesirable or violent sentiment or course of action).",
+        "sentence": "The political activist sought to ______ unrest among the populace, believing that change could only come through upheaval.",
+        "difficulty": "medium",
+        "distractors": [
+            "emote",
+            "delegate",
+            "excavate"
+        ]
+    },
+    {
+        "word": "forfeiture",
+        "synonyms": [
+            "relinquishment",
+            "loss",
+            "surrender"
+        ],
+        "definition": "The act of losing or giving up something, typically as a penalty for a breach of contract or a violation of law.",
+        "sentence": "After failing to meet the terms of the agreement, the company faced a significant ______ of their assets as stipulated in the contract.",
+        "difficulty": "medium",
+        "distractors": [
+            "veneer",
+            "elegy",
+            "conformist"
+        ]
+    },
+    {
+        "word": "foster",
+        "synonyms": [
+            "nurture",
+            "encourage",
+            "support"
+        ],
+        "definition": "To promote the growth or development of something; to care for or help someone in a way that supports their well-being.",
+        "sentence": "The nonprofit organization aims to ______ the talents of young artists by providing them with free lessons and access to resources.",
+        "difficulty": "medium",
+        "distractors": [
+            "undermine",
+            "transgress",
+            "curtailed"
+        ]
+    },
+    {
+        "word": "grapple with",
+        "synonyms": [
+            "struggle with",
+            "wrestle with",
+            "contend with"
+        ],
+        "definition": "To engage in a close, often intense struggle or debate over a difficult issue or problem.",
+        "sentence": "As she prepared for the final exam, Jenna had to ______ not only with the complex material but also with her anxiety about the test.",
+        "difficulty": "medium",
+        "distractors": [
+            "peripheral",
+            "maxim",
+            "neophyte"
+        ]
+    },
+    {
+        "word": "hampered",
+        "synonyms": [
+            "hindered",
+            "obstructed",
+            "impeded"
+        ],
+        "definition": "To restrict or interfere with the movement or progress of something; to create obstacles that limit effectiveness or efficiency.",
+        "sentence": "The heavy rain _____ the progress of the construction, causing delays and frustration among the workers.",
+        "difficulty": "medium",
+        "distractors": [
+            "vindicate",
+            "comprise",
+            "inure"
+        ]
+    },
+    {
+        "word": "haphazard",
+        "synonyms": [
+            "random",
+            "unplanned",
+            "disorganized"
+        ],
+        "definition": "Characterized by a lack of order or planning; done in a spontaneous or chaotic manner.",
+        "sentence": "The project was completed in a ______ manner, with no clear strategy or guidelines in place, leading to numerous mistakes.",
+        "difficulty": "medium",
+        "distractors": [
+            "contrite",
+            "whimsical",
+            "banal"
         ]
     },
     {
         "word": "harbinger",
         "synonyms": [
-            "forewarning",
             "omen",
-            "sign",
-            "signal"
+            "forerunner",
+            "precursor"
         ],
-        "definition": "A person or thing that signals the approach of another; forerunner.",
-        "sentence": "The crowing of the cock is a ______ of dawn.",
+        "definition": "A person or thing that announces or signals the approach of another; a precursor.",
+        "sentence": "The dark clouds gathering on the horizon were a ______ of the storm that was about to hit the town.",
         "difficulty": "medium",
         "distractors": [
-            "repudiate",
-            "assert",
-            "eschew"
+            "trepidation",
+            "palette",
+            "vigilance"
         ]
     },
     {
-        "word": "antecedent",
+        "word": "heterogeneous",
         "synonyms": [
-            "forefather",
-            "progenitor",
-            "forebear",
-            "precedent"
+            "diverse",
+            "mixed",
+            "varied"
         ],
-        "definition": "A thing or event that existed before or logically precedes another.",
-        "sentence": "Those were events ______ to the revolution.",
+        "definition": "Consisting of different or diverse elements or components; not uniform.",
+        "sentence": "The science fair showcased a ______ group of projects, ranging from robotics to environmental studies.",
+        "difficulty": "medium",
+        "distractors": [
+            "disheartened",
+            "irrefutable",
+            "truculent"
+        ]
+    },
+    {
+        "word": "homogeneous",
+        "synonyms": [
+            "uniform",
+            "consistent",
+            "similar"
+        ],
+        "definition": "Of the same kind or nature; essentially alike; composed of parts or elements that are all of the same type.",
+        "sentence": "The researchers were excited to find a ______ group of participants for their study, as it ensured more reliable results.",
+        "difficulty": "medium",
+        "distractors": [
+            "rife",
+            "benevolent",
+            "dwindling"
+        ]
+    },
+    {
+        "word": "idiosyncratic",
+        "synonyms": [
+            "peculiar",
+            "unique",
+            "individual"
+        ],
+        "definition": "Relating to a characteristic, habit, or mannerism that is unique to an individual; eccentric or distinctive in nature.",
+        "sentence": "Her ____, often unconventional approach to solving problems made her stand out among her peers.",
         "difficulty": "hard",
         "distractors": [
-            "incipient",
-            "homogeneous",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "precursor",
-        "synonyms": [
-            "antecedent",
-            "harbinger"
-        ],
-        "definition": "A person or thing that comes before another of the same kind.",
-        "sentence": "The concept of ______ is demonstrated when a person or thing that comes before another of the same kind, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "incipient",
-            "homogeneous",
-            "tenuous"
+            "defamatory",
+            "vitriolic",
+            "clairvoyant"
         ]
     },
     {
         "word": "inane",
         "synonyms": [
             "silly",
-            "fatuous",
-            "vapid"
+            "foolish",
+            "void"
         ],
-        "definition": "Lacking sense or meaning; silly.",
-        "sentence": "There are so many ______ television quiz shows.",
-        "difficulty": "easy",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "adept",
-        "synonyms": [],
-        "definition": "Very skilled or proficient at something.",
-        "sentence": "The concept of ______ is demonstrated when very skilled or proficient at something, as evident in many academic texts.",
-        "difficulty": "easy",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "nominal",
-        "synonyms": [
-            "inconsequential",
-            "diminutive",
-            "trifling",
-            "normal"
-        ],
-        "definition": "Existing in name only; far below real value or magnitude.",
-        "sentence": "The concept of ______ is demonstrated when existing in name only; far below real value or magnitude, as evident in many academic texts.",
+        "definition": "Lacking sense or meaning; empty of ideas or value.",
+        "sentence": "During the debate, his arguments were so ______ that they failed to persuade anyone in the audience.",
         "difficulty": "medium",
         "distractors": [
-            "incipient",
-            "antecedent",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "inconsequential",
-        "synonyms": [
-            "unimportant",
-            "diminutive",
-            "nominal",
-            "negligible"
-        ],
-        "definition": "Not important or significant; of negligible value.",
-        "sentence": "Most of what she said was pretty ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "antecedent",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "diminutive",
-        "synonyms": [
-            "nominal",
-            "nomen deminutivum",
-            "tiny",
-            "inconsequential"
-        ],
-        "definition": "Extremely or unusually small.",
-        "sentence": "She was a ______ figure beside her husband.",
-        "difficulty": "hard",
-        "distractors": [
-            "incipient",
-            "antecedent",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "capacious",
-        "synonyms": [
-            "commodious",
-            "spacious",
-            "ample",
-            "voluminous"
-        ],
-        "definition": "Having a lot of space inside; roomy.",
-        "sentence": "The concept of ______ is demonstrated when having a lot of space inside; roomy, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "disseminate",
-        "synonyms": [
-            "circulate",
-            "propagate",
-            "spread"
-        ],
-        "definition": "To spread or disperse information widely.",
-        "sentence": "The public health agency worked to ______ accurate information before misinformation could spread further online.",
-        "difficulty": "hard",
-        "distractors": [
-            "repudiate",
-            "assert",
-            "eschew"
-        ]
-    },
-    {
-        "word": "activate",
-        "synonyms": [
-            "get going",
-            "incipient",
-            "set in motion",
-            "start"
-        ],
-        "definition": "To cause a function or system to begin operating.",
-        "sentence": "To ______ your filter, select the View menu.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "assert",
-            "eschew"
+            "pert",
+            "sensual",
+            "depleted"
         ]
     },
     {
         "word": "incipient",
         "synonyms": [
-            "emerging",
-            "activate",
-            "nascent",
-            "inchoate"
+            "beginning",
+            "initial",
+            "emerging"
         ],
-        "definition": "In an initial stage; beginning to happen or develop.",
-        "sentence": "John's ______ school problems were nipped in the bud.",
+        "definition": "In an initial stage; beginning to develop or exist.",
+        "sentence": "The incipient signs of spring are visible as the first flowers begin to bloom, signaling the end of winter and the arrival of warmer weather: _____.",
         "difficulty": "medium",
         "distractors": [
-            "feasible",
-            "ornamental",
+            "extraneous",
+            "detrimental",
+            "serene"
+        ]
+    },
+    {
+        "word": "incongruous",
+        "synonyms": [
+            "inconsistent",
+            "ill-suited",
+            "discrepant"
+        ],
+        "definition": "Not in harmony or keeping; unsuitable or out of place in relation to the surrounding context or situation.",
+        "sentence": "The bright pink couch looked __________ in the otherwise traditional, muted decor of the living room.",
+        "difficulty": "medium",
+        "distractors": [
+            "zealous",
+            "timorous",
+            "daunting"
+        ]
+    },
+    {
+        "word": "inconsequential",
+        "synonyms": [
+            "trivial",
+            "insignificant",
+            "irrelevant"
+        ],
+        "definition": "Of little or no importance; not significant or worthy of consideration.",
+        "sentence": "He worried about ______ issues while ignoring the larger problems that needed his attention.",
+        "difficulty": "medium",
+        "distractors": [
+            "disgruntled",
+            "tractable",
             "explicable"
         ]
     },
     {
-        "word": "assert",
+        "word": "inconspicuous",
         "synonyms": [
-            "aver",
-            "asseverate",
-            "affirm"
+            "unnoticeable",
+            "hidden",
+            "subdued"
         ],
-        "definition": "To state a fact or belief confidently and forcefully.",
-        "sentence": "She continued to ______ that she was innocent.",
-        "difficulty": "easy",
+        "definition": "Not easily seen or noticed; subtle or discreet in appearance or action.",
+        "sentence": "Despite the crowd, she remained ______, blending in with her ordinary attire.",
+        "difficulty": "medium",
         "distractors": [
-            "repudiate",
-            "activate",
-            "eschew"
+            "compelling",
+            "disheartened",
+            "lucrative"
         ]
     },
     {
-        "word": "recalcitrant",
+        "word": "indecipherable",
         "synonyms": [
-            "unruly",
-            "argumentative",
-            "disobedient",
-            "stubborn"
+            "unreadable",
+            "incomprehensible",
+            "illegible"
         ],
-        "definition": "Having an obstinately uncooperative attitude toward authority.",
-        "sentence": "There were hopeful signs from one ______ state.",
+        "definition": "Impossible to understand or interpret; not able to be read or comprehended due to obscurity or complexity.",
+        "sentence": "The ancient manuscript was so damaged that the text was almost ______, leaving scholars puzzled about its meaning.",
         "difficulty": "hard",
         "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
+            "tantamount",
+            "ebullient",
+            "irascible"
+        ]
+    },
+    {
+        "word": "indispensable",
+        "synonyms": [
+            "essential",
+            "necessary",
+            "crucial"
+        ],
+        "definition": "Absolutely necessary; not to be neglectfully discarded or ignored; so important that failure to have it will cause failure in the overall endeavor.",
+        "sentence": "In a successful project, effective communication is ______ for ensuring that all team members are aligned and informed.",
+        "difficulty": "medium",
+        "distractors": [
+            "speculative",
+            "uniform",
+            "lucrative"
+        ]
+    },
+    {
+        "word": "ineffectual",
+        "synonyms": [
+            "ineffective",
+            "unproductive",
+            "useless"
+        ],
+        "definition": "Lacking the ability or power to produce a desired effect; not achieving the intended result.",
+        "sentence": "Despite his efforts to rally the team, his ______ approach failed to inspire anyone to take action.",
+        "difficulty": "medium",
+        "distractors": [
+            "amiable",
+            "winsome",
+            "extant"
+        ]
+    },
+    {
+        "word": "infallible",
+        "synonyms": [
+            "unerring",
+            "flawless",
+            "certain"
+        ],
+        "definition": "Incapable of making mistakes or being wrong; absolutely reliable and trustworthy.",
+        "sentence": "Despite the many challenges they faced, the team's belief in their leader's ______ judgment never wavered, assuring them they were on the right path.",
+        "difficulty": "hard",
+        "distractors": [
+            "misanthropic",
+            "evanescent",
+            "idiosyncratic"
+        ]
+    },
+    {
+        "word": "inimical",
+        "synonyms": [
+            "hostile",
+            "unfriendly",
+            "antagonistic"
+        ],
+        "definition": "Having a tendency to obstruct or harm; being unfriendly or hostile towards something.",
+        "sentence": "The new policies were seen as ______ to the interests of small businesses, making it difficult for them to compete in the market.",
+        "difficulty": "hard",
+        "distractors": [
+            "insidious",
+            "heinous",
+            "quixotic"
+        ]
+    },
+    {
+        "word": "insurmountable",
+        "synonyms": [
+            "unconquerable",
+            "overwhelming",
+            "insufferable"
+        ],
+        "definition": "Too great to be overcome or dealt with; impossible to surmount.",
+        "sentence": "The challenges presented by the severe weather during the expedition felt ______, leaving the team stranded and demoralized.",
+        "difficulty": "hard",
+        "distractors": [
+            "quixotic",
+            "insolent",
+            "propitious"
+        ]
+    },
+    {
+        "word": "intangible",
+        "synonyms": [
+            "immaterial",
+            "unobservable",
+            "abstract"
+        ],
+        "definition": "Not able to be touched or grasped; unable to be perceived physically; existing only in the form of thought or as a concept.",
+        "sentence": "The artist's work captured the ______ essence of emotions that could not be easily defined or measured.",
+        "difficulty": "medium",
+        "distractors": [
+            "meticulous",
+            "diminutive",
+            "whimsical"
+        ]
+    },
+    {
+        "word": "integral",
+        "synonyms": [
+            "essential",
+            "crucial",
+            "vital"
+        ],
+        "definition": "Forming an essential part of something; necessary to make a whole complete.",
+        "sentence": "In a successful team, communication is ______ to achieving our goals.",
+        "difficulty": "medium",
+        "distractors": [
+            "nocturnal",
+            "resolute",
+            "inconsequential"
+        ]
+    },
+    {
+        "word": "intercede",
+        "synonyms": [
+            "mediate",
+            "interven"
+        ],
+        "definition": "To intervene on behalf of another, often to help resolve a conflict or dispute.",
+        "sentence": "When the two friends began to argue, I decided to ______ and help them come to an agreement.",
+        "difficulty": "medium",
+        "distractors": [
+            "delegate",
+            "amalgamate",
+            "exploit"
+        ]
+    },
+    {
+        "word": "interjected",
+        "synonyms": [
+            "interposed",
+            "intervened",
+            "inserted"
+        ],
+        "definition": "To say something abruptly, especially as a way to interrupt or add a comment to a conversation.",
+        "sentence": "During the heated debate, one of the panelists suddenly ______ a point that changed the entire discussion.",
+        "difficulty": "medium",
+        "distractors": [
+            "elude",
+            "appraised",
+            "upbraid"
+        ]
+    },
+    {
+        "word": "intersect",
+        "synonyms": [
+            "cross",
+            "meet",
+            "converge"
+        ],
+        "definition": "To cross or meet at a point, especially in the context of lines or paths.",
+        "sentence": "As I studied the map, I noticed that the two roads seemed to ______ at a busy intersection.",
+        "difficulty": "medium",
+        "distractors": [
+            "dictate",
+            "undermine",
+            "assert"
+        ]
+    },
+    {
+        "word": "intricate",
+        "synonyms": [
+            "complex",
+            "detailed",
+            "complicated"
+        ],
+        "definition": "Having many interconnected or elaborate parts; difficult to understand or analyze due to its complexity.",
+        "sentence": "The artist unveiled a sculpture that was so ______ that viewers were amazed by the level of detail in every tiny feature.",
+        "difficulty": "medium",
+        "distractors": [
+            "presumptuous",
+            "cumulative",
+            "obsolete"
+        ]
+    },
+    {
+        "word": "irrefutable",
+        "synonyms": [
+            "undeniable",
+            "incontrovertible",
+            "indisputable"
+        ],
+        "definition": "Impossible to deny or disprove; undoubtedly true or valid.",
+        "sentence": "The evidence presented in court was so compelling that it left the jury with an ______ conclusion about the defendant's guilt.",
+        "difficulty": "medium",
+        "distractors": [
+            "fetid",
+            "querulous",
+            "inept"
+        ]
+    },
+    {
+        "word": "itemize",
+        "synonyms": [
+            "list",
+            "catalog",
+            "enumerate"
+        ],
+        "definition": "To present or organize information as a list of individual items, often in a sequential manner.",
+        "sentence": "Before starting the project, we need to ______ all the necessary materials so we can budget accordingly.",
+        "difficulty": "medium",
+        "distractors": [
+            "burnish",
+            "fabricate",
+            "emend"
+        ]
+    },
+    {
+        "word": "latent",
+        "synonyms": [
+            "hidden",
+            "dormant",
+            "undeveloped"
+        ],
+        "definition": "Existing but not yet developed or manifest; potential that has not yet been realized.",
+        "sentence": "Although the artist's talent was ______, it began to shine through once she took her first painting class.",
+        "difficulty": "medium",
+        "distractors": [
+            "impetuous",
+            "stoic",
+            "lurid"
+        ]
+    },
+    {
+        "word": "latitude",
+        "synonyms": [
+            "freedom",
+            "scope",
+            "extent"
+        ],
+        "definition": "The geographical coordinate that specifies the north-south position of a point on the Earth's surface, measured in degrees.",
+        "sentence": "In the vast expanse of the ocean, sailors appreciated the ______ they had to explore uncharted waters without restrictions.",
+        "difficulty": "medium",
+        "distractors": [
+            "umbrage",
+            "hierarchy",
+            "expediency"
+        ]
+    },
+    {
+        "word": "lucrative",
+        "synonyms": [
+            "profitable",
+            "rewarding",
+            "advantageous"
+        ],
+        "definition": "Producing a great deal of profit or financial gain.",
+        "sentence": "The investment proved to be extremely ______, bringing in more money than anyone had anticipated.",
+        "difficulty": "medium",
+        "distractors": [
+            "copious",
+            "resilient",
+            "daunting"
+        ]
+    },
+    {
+        "word": "manifest",
+        "synonyms": [
+            "display",
+            "reveal",
+            "demonstrate"
+        ],
+        "definition": "To display or show something clearly, typically through actions or appearances.",
+        "sentence": "Her feelings for him began to ______ after they spent more time together, and it was evident in her shy smiles and cheerful gestures.",
+        "difficulty": "medium",
+        "distractors": [
+            "preclude",
+            "cherish",
+            "marginalize"
+        ]
+    },
+    {
+        "word": "marginalize",
+        "synonyms": [
+            "exclude",
+            "alienate",
+            "isolate"
+        ],
+        "definition": "To treat (a person, group, or concept) as insignificant or peripheral.",
+        "sentence": "Many communities feel that their voices are ______ in national conversations about policy and governance.",
+        "difficulty": "medium",
+        "distractors": [
+            "repose",
+            "supersede",
+            "itemize"
+        ]
+    },
+    {
+        "word": "meticulous",
+        "synonyms": [
+            "careful",
+            "detailed",
+            "thorough"
+        ],
+        "definition": "Showing great attention to detail; very careful and precise.",
+        "sentence": "He was ______ in his preparation, ensuring that every detail was accounted for before the presentation.",
+        "difficulty": "medium",
+        "distractors": [
+            "detrimental",
+            "extraneous",
+            "zealous"
+        ]
+    },
+    {
+        "word": "misanthropic",
+        "synonyms": [
+            "cynical",
+            "antisocial",
+            "reclusive"
+        ],
+        "definition": "Characterized by a general disdain or aversion towards human beings and human society.",
+        "sentence": "After years of disappointment in relationships and society, he had become increasingly ______, frequently avoiding gatherings and social events.",
+        "difficulty": "hard",
+        "distractors": [
+            "infallible",
+            "opulent",
+            "exigent"
+        ]
+    },
+    {
+        "word": "misconstrue",
+        "synonyms": [
+            "misinterpret",
+            "misunderstand",
+            "mistake"
+        ],
+        "definition": "To interpret or understand something incorrectly or in a way that is inaccurate.",
+        "sentence": "When she explained the instructions, many people chose to ______ her meaning, leading to confusion about the task.",
+        "difficulty": "medium",
+        "distractors": [
+            "optimize",
+            "covet",
+            "propagate"
+        ]
+    },
+    {
+        "word": "mitigate",
+        "synonyms": [
+            "alleviate",
+            "lessen",
+            "diminish"
+        ],
+        "definition": "To make something less severe, serious, or painful.",
+        "sentence": "The government implemented new policies to ______ the effects of the economic downturn on small businesses.",
+        "difficulty": "medium",
+        "distractors": [
+            "aggrieved",
+            "refurbish",
+            "congeal"
+        ]
+    },
+    {
+        "word": "monetize",
+        "synonyms": [
+            "capitalize",
+            "profit",
+            "commercialize"
+        ],
+        "definition": "To convert an asset or resource into a source of revenue or profit.",
+        "sentence": "The startup aimed to ______ its innovative app to attract investors and generate income.",
+        "difficulty": "medium",
+        "distractors": [
+            "appraise",
+            "dispatch",
+            "perplex"
+        ]
+    },
+    {
+        "word": "multifarious",
+        "synonyms": [
+            "varied",
+            "diverse",
+            "manifold"
+        ],
+        "definition": "Having many different parts or aspects; diverse in character or content.",
+        "sentence": "The festival offered a ______ array of activities, from music and art to food and games, ensuring there was something for everyone.",
+        "difficulty": "hard",
+        "distractors": [
+            "fecund",
+            "idolatrous",
+            "vitriolic"
+        ]
+    },
+    {
+        "word": "mystifying",
+        "synonyms": [
+            "baffling",
+            "confusing",
+            "puzzling"
+        ],
+        "definition": "Causing someone to be confused or bewildered, often due to complexity or obscurity.",
+        "sentence": "The magician's tricks were so ______ that even the most experienced spectators were left in awe and uncertainty about how they were performed.",
+        "difficulty": "medium",
+        "distractors": [
+            "archetypal",
+            "disgruntled",
+            "assiduous"
+        ]
+    },
+    {
+        "word": "nebulous",
+        "synonyms": [
+            "vague",
+            "unclear",
+            "ambiguous"
+        ],
+        "definition": "Characterized by a lack of definite shape or form; indistinct or ill-defined, often used to describe ideas or concepts that are not clearly expressed.",
+        "sentence": "The professor's explanation of the topic was so ______ that many students felt confused and lost.",
+        "difficulty": "medium",
+        "distractors": [
+            "orthodox",
+            "saccharine",
+            "onerous"
+        ]
+    },
+    {
+        "word": "nominal",
+        "synonyms": [
+            "theoretical",
+            "presumed",
+            "name-only"
+        ],
+        "definition": "Existing in name only and not representing the reality or true value; insignificant or minimal in terms of actual value or impact.",
+        "sentence": "Although the consultant's fee was only a ______ amount compared to the project's actual costs, it was deemed necessary for the budget.",
+        "difficulty": "medium",
+        "distractors": [
+            "commodious",
+            "discordant",
+            "discerning"
+        ]
+    },
+    {
+        "word": "notional",
+        "synonyms": [
+            "hypothetical",
+            "conceptual",
+            "theoretical"
+        ],
+        "definition": "Existing only in theory or as a suggestion; not corresponding to reality or practical application.",
+        "sentence": "In the debate over economic policies, the senator introduced a ______ tax system that was based on various assumptions rather than actual data.",
+        "difficulty": "medium",
+        "distractors": [
+            "wily",
+            "malleable",
+            "immutable"
+        ]
+    },
+    {
+        "word": "novel",
+        "synonyms": [
+            "new",
+            "original",
+            "innovative"
+        ],
+        "definition": "A work of fiction that is typically long and complex, often encompassing various characters and themes.",
+        "sentence": "The scientist proposed a ______ approach to renewable energy that could revolutionize the industry.",
+        "difficulty": "medium",
+        "distractors": [
+            "demure",
+            "contrite",
+            "intricate"
+        ]
+    },
+    {
+        "word": "nuanced",
+        "synonyms": [
+            "subtle",
+            "fine",
+            "gradual"
+        ],
+        "definition": "Characterized by or exhibiting subtle variations, complexities, or distinctions that are not immediately obvious.",
+        "sentence": "The artist's latest work is incredibly ______, revealing different meanings upon each viewing.",
+        "difficulty": "medium",
+        "distractors": [
+            "indigent",
+            "incisive",
+            "benevolent"
+        ]
+    },
+    {
+        "word": "oblique",
+        "synonyms": [
+            "slanting",
+            "indirect",
+            "sloping"
+        ],
+        "definition": "Not explicit or done in a direct way; diverging from a straight line or course.",
+        "sentence": "The artist used ______ lines to create a sense of depth and perspective in his painting.",
+        "difficulty": "medium",
+        "distractors": [
+            "audacious",
+            "colloquial",
+            "vapid"
+        ]
+    },
+    {
+        "word": "obviated",
+        "synonyms": [
+            "avoided",
+            "prevented",
+            "eliminated"
+        ],
+        "definition": "To remove a need or difficulty; to render something unnecessary or to make an anticipated action unnecessary.",
+        "sentence": "The careful planning of the event ensured that all potential issues were ______ before they could arise.",
+        "difficulty": "medium",
+        "distractors": [
+            "inhibit",
+            "reconstituted",
+            "preclude"
+        ]
+    },
+    {
+        "word": "operative",
+        "synonyms": [
+            "effective",
+            "functional",
+            "working"
+        ],
+        "definition": "Having the power to produce an effect; in effect; functioning or active.",
+        "sentence": "During the emergency, the backup generators were ______ and provided electricity to the entire hospital.",
+        "difficulty": "medium",
+        "distractors": [
+            "surrogate",
+            "commendation",
+            "gluttony"
+        ]
+    },
+    {
+        "word": "optimize",
+        "synonyms": [
+            "enhance",
+            "improve",
+            "refine"
+        ],
+        "definition": "To make the best or most effective use of a resource or situation.",
+        "sentence": "In order to increase efficiency, the company had to ______ its production processes.",
+        "difficulty": "medium",
+        "distractors": [
+            "coerce",
+            "misconstrue",
+            "enfranchise"
+        ]
+    },
+    {
+        "word": "ornamental",
+        "synonyms": [
+            "decorative",
+            "adorned",
+            "embellished"
+        ],
+        "definition": "Relating to or serving as an ornament; decorative rather than functional.",
+        "sentence": "The garden was filled with various plants, but it was the ______ features like the fountains and sculptures that truly caught the visitors' eyes.",
+        "difficulty": "medium",
+        "distractors": [
+            "cloying",
+            "prepossessing",
+            "wily"
+        ]
+    },
+    {
+        "word": "orthodox",
+        "synonyms": [
+            "traditional",
+            "conventional",
+            "established"
+        ],
+        "definition": "Conforming to established doctrine, especially in religion or ideology; adhering strictly to traditional beliefs or practices.",
+        "sentence": "In many cultures, the ______ views on marriage have often remained unchanged for centuries.",
+        "difficulty": "medium",
+        "distractors": [
+            "remedial",
+            "resolute",
+            "ornamental"
+        ]
+    },
+    {
+        "word": "outstrip",
+        "synonyms": [
+            "exceed",
+            "surpass",
+            "outdo"
+        ],
+        "definition": "To go beyond or do better than someone or something in progress, achievement, or performance.",
+        "sentence": "Despite his initial struggles, he managed to ______ all of his competitors in the final race, claiming first place.",
+        "difficulty": "medium",
+        "distractors": [
+            "elicit",
+            "inundate",
+            "dither"
+        ]
+    },
+    {
+        "word": "palpable",
+        "synonyms": [
+            "tangible",
+            "noticeable",
+            "clear"
+        ],
+        "definition": "Able to be touched or felt; easily perceived or recognized; evident.",
+        "sentence": "The tension in the room was so ______ that even the slightest whisper seemed loud and disruptive.",
+        "difficulty": "medium",
+        "distractors": [
+            "callous",
+            "venerable",
+            "discursive"
+        ]
+    },
+    {
+        "word": "paradoxically",
+        "synonyms": [
+            "ironically",
+            "contradictorily",
+            "unexpectedly"
+        ],
+        "definition": "In a seemingly contradictory manner; when something occurs that is contrary to what one would expect.",
+        "sentence": "He had always been shy, but ______, he was the first to volunteer to speak in front of the entire class.",
+        "difficulty": "medium",
+        "distractors": [
+            "vehemently",
+            "vehemently",
+            "vehemently"
+        ]
+    },
+    {
+        "word": "partition",
+        "synonyms": [
+            "divide",
+            "separate",
+            "split"
+        ],
+        "definition": "A partition is a structure or obstacle that divides a space into smaller parts or sections.",
+        "sentence": "In order to create more private workspaces, the office manager decided to install a ______ between each desk.",
+        "difficulty": "medium",
+        "distractors": [
+            "temperance",
+            "congruity",
+            "forum"
+        ]
+    },
+    {
+        "word": "paucity",
+        "synonyms": [
+            "scarcity",
+            "lack",
+            "insufficiency"
+        ],
+        "definition": "A smallness of quantity or number; an inadequate amount.",
+        "sentence": "The ______ of resources in the area made it difficult for the community to thrive and meet its basic needs.",
+        "difficulty": "hard",
+        "distractors": [
+            "ostracism",
+            "fecundity",
+            "equanimity"
+        ]
+    },
+    {
+        "word": "perceptible",
+        "synonyms": [
+            "noticeable",
+            "discernible",
+            "detectable"
+        ],
+        "definition": "Able to be perceived or seen; capable of being observed or recognized.",
+        "sentence": "After the storm passed, there was a ______ change in the weather, with the sun shining brightly and the air feeling warmer.",
+        "difficulty": "medium",
+        "distractors": [
+            "variegated",
+            "lucid",
+            "strident"
+        ]
+    },
+    {
+        "word": "perfunctory",
+        "synonyms": [
+            "superficial",
+            "hasty",
+            "cursory"
+        ],
+        "definition": "Carried out with a minimum of effort or reflection; done as a routine duty with little interest or attention.",
+        "sentence": "Despite the importance of the meeting, his ______ nods indicated that he was not truly engaged in the discussion.",
+        "difficulty": "hard",
+        "distractors": [
+            "erudite",
+            "emaciated",
+            "opulent"
+        ]
+    },
+    {
+        "word": "peripheral",
+        "synonyms": [
+            "secondary",
+            "auxiliary",
+            "marginal"
+        ],
+        "definition": "Relating to or situated on the edge or periphery of something; not central or of primary importance.",
+        "sentence": "While the main plot of the novel was captivating, the ______ characters added an interesting layer to the story.",
+        "difficulty": "medium",
+        "distractors": [
+            "proponent",
+            "bias",
+            "conjecture"
+        ]
+    },
+    {
+        "word": "pervasive",
+        "synonyms": [
+            "widespread",
+            "ubiquitous",
+            "common"
+        ],
+        "definition": "Having the quality of being present everywhere or throughout a particular area or group; often used to describe something that is all-encompassing or prevalent.",
+        "sentence": "In today's digital age, the influence of social media has become so ______ that it affects nearly every aspect of our daily lives.",
+        "difficulty": "medium",
+        "distractors": [
+            "dormant",
+            "terrestrial",
+            "variegated"
+        ]
+    },
+    {
+        "word": "placate",
+        "synonyms": [
+            "calm",
+            "soothe",
+            "pacify"
+        ],
+        "definition": "To appease or pacify someone, especially by giving something to them or by expressing compassion or understanding.",
+        "sentence": "In an attempt to ______ the angry crowd, the mayor promised to address their concerns personally.",
+        "difficulty": "medium",
+        "distractors": [
+            "enfranchise",
+            "venerate",
+            "abate"
+        ]
+    },
+    {
+        "word": "precarious",
+        "synonyms": [
+            "uncertain",
+            "unstable",
+            "dangerous"
+        ],
+        "definition": "Dependent on chance; uncertain; not securely held or in position; likely to fall or collapse.",
+        "sentence": "The climber found himself in a ______ position, teetering on the edge of the cliff with nothing but thin air below him.",
+        "difficulty": "medium",
+        "distractors": [
+            "stolid",
+            "dubious",
+            "detrimental"
+        ]
+    },
+    {
+        "word": "preclude",
+        "synonyms": [
+            "prevent",
+            "prohibit",
+            "exclude"
+        ],
+        "definition": "To make something impossible or prevent it from happening; to avert or forestall.",
+        "sentence": "The heavy rains threatened to ______ our outdoor plans for the weekend.",
+        "difficulty": "medium",
+        "distractors": [
+            "fathom",
+            "delegate",
+            "evince"
+        ]
+    },
+    {
+        "word": "precursor",
+        "synonyms": [
+            "forerunner",
+            "predecessor",
+            "Harbinger"
+        ],
+        "definition": "A precursor is an entity that comes before another of the same kind, often indicating or leading to a subsequent event or development.",
+        "sentence": "The discovery of the ancient artifact served as a ______ to understanding the culture that once thrived in the region.",
+        "difficulty": "medium",
+        "distractors": [
+            "ascetic",
+            "presage",
+            "rapport"
+        ]
+    },
+    {
+        "word": "preliminary",
+        "synonyms": [
+            "initial",
+            "introductory",
+            "preparatory"
+        ],
+        "definition": "Serving as a preparation or precursor; occurring before something more important.",
+        "sentence": "Before the final exam, we had a few ______ sessions to review the material and discuss key concepts.",
+        "difficulty": "medium",
+        "distractors": [
+            "operative",
+            "conduit",
+            "wrath"
+        ]
+    },
+    {
+        "word": "premeditated",
+        "synonyms": [
+            "planned",
+            "intentional",
+            "deliberate"
+        ],
+        "definition": "Characterized by having carefully thought out or considered beforehand, often in the context of crime or wrongdoing.",
+        "sentence": "The crime was so __________ that the police found evidence pointing to a lengthy planning process.",
+        "difficulty": "hard",
+        "distractors": [
+            "vociferous",
+            "meritorious",
+            "frenetic"
+        ]
+    },
+    {
+        "word": "prescribed",
+        "synonyms": [
+            "recommended",
+            "designated",
+            "ordered"
+        ],
+        "definition": "To officially designate or require a particular treatment, action, or approach, typically in a formal or legal context.",
+        "sentence": "After reviewing the patient's condition, the doctor __________ a new medication to help improve her symptoms.",
+        "difficulty": "medium",
+        "distractors": [
+            "paramount",
+            "animated",
+            "derelict"
+        ]
+    },
+    {
+        "word": "prestige",
+        "synonyms": [
+            "status",
+            "reputation",
+            "influence"
+        ],
+        "definition": "The level of respect or admiration that someone or something has, often because of their achievements or quality.",
+        "sentence": "After receiving the national award, the author gained considerable ______ in the literary community.",
+        "difficulty": "medium",
+        "distractors": [
+            "amalgam",
+            "proponent",
+            "toady"
+        ]
+    },
+    {
+        "word": "presuppose",
+        "synonyms": [
+            "assume",
+            "presume",
+            "take for granted"
+        ],
+        "definition": "To assume something to be true or to exist without proof, often as a necessary condition for further reasoning or argument.",
+        "sentence": "When discussing the theory, the author seemed to ______ that all readers were familiar with the previous research in the field.",
+        "difficulty": "medium",
+        "distractors": [
+            "undulate",
+            "efface",
+            "disperse"
+        ]
+    },
+    {
+        "word": "prevail",
+        "synonyms": [
+            "succeed",
+            "triumph",
+            "win"
+        ],
+        "definition": "To be victorious or successful in a particular situation; to be widespread or predominant.",
+        "sentence": "Despite the challenges they faced, the team hoped to ______ in the final match and bring home the championship trophy.",
+        "difficulty": "medium",
+        "distractors": [
+            "encompass",
+            "immerse",
+            "captivate"
+        ]
+    },
+    {
+        "word": "prioritize",
+        "synonyms": [
+            "emphasize",
+            "favor",
+            "highlight"
+        ],
+        "definition": "To arrange or deal with in order of importance or urgency.",
+        "sentence": "When planning our vacation, we must ______ the activities that matter most to us.",
+        "difficulty": "medium",
+        "distractors": [
+            "inoculate",
+            "knell",
+            "monetize"
+        ]
+    },
+    {
+        "word": "profound",
+        "synonyms": [
+            "deep",
+            "intense",
+            "significant"
+        ],
+        "definition": "Having or showing great knowledge or understanding; far-reaching or substantial in meaning or effect.",
+        "sentence": "The professor's lecture on quantum physics was so ______ that even experienced scientists found it enlightening and challenging.",
+        "difficulty": "medium",
+        "distractors": [
+            "lucid",
+            "phlegmatic",
+            "tedious"
+        ]
+    },
+    {
+        "word": "profusion",
+        "synonyms": [
+            "abundance",
+            "plethora",
+            "excess"
+        ],
+        "definition": "A large quantity of something; an overflowing or extravagant amount.",
+        "sentence": "The garden was a stunning display of flowers, showcasing a ______ of colors and varieties that attracted many visitors.",
+        "difficulty": "medium",
+        "distractors": [
+            "amenity",
+            "renunciation",
+            "commendation"
+        ]
+    },
+    {
+        "word": "proponent",
+        "synonyms": [
+            "advocate",
+            "supporter",
+            "champion"
+        ],
+        "definition": "A person who advocates for a particular idea, plan, or cause.",
+        "sentence": "As a passionate ______ of environmental conservation, she dedicated her life to raising awareness about climate change.",
+        "difficulty": "medium",
+        "distractors": [
+            "dialect",
+            "dirge",
+            "corpulence"
+        ]
+    },
+    {
+        "word": "protracted",
+        "synonyms": [
+            "lengthy",
+            "extended",
+            "drawn-out"
+        ],
+        "definition": "Lasting for a long time or longer than expected; prolonged.",
+        "sentence": "The negotiations turned out to be ______, stretching on for several months without any agreement in sight.",
+        "difficulty": "medium",
+        "distractors": [
+            "antiquated",
+            "punitive",
+            "venerable"
         ]
     },
     {
         "word": "proxy",
         "synonyms": [
-            "deputy",
-            "emissary",
-            "representative"
+            "substitute",
+            "representative",
+            "agent"
         ],
-        "definition": "A figure, agent, or variable standing in for another.",
-        "sentence": "The concept of ______ is demonstrated when a figure, agent, or variable standing in for another, as evident in many academic texts.",
-        "difficulty": "easy",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "emissary",
-        "synonyms": [
-            "proxy"
-        ],
-        "definition": "A person sent on a special mission, usually as a diplomatic agent.",
-        "sentence": "The concept of ______ is demonstrated when a person sent on a special mission, usually as a diplomatic agent, as evident in many academic texts.",
+        "definition": "A person authorized to act on behalf of another, particularly in voting or decision-making contexts.",
+        "sentence": "During the meeting, Sarah could not attend, so she sent her ______ to represent her interests.",
         "difficulty": "medium",
         "distractors": [
-            "supposition",
-            "calibration",
-            "iconoclasm"
+            "quandary",
+            "consensus",
+            "epitome"
         ]
     },
     {
-        "word": "prevail",
-        "synonyms": [],
-        "definition": "To prove more powerful than opposing forces.",
-        "sentence": "May I ______ on you to make a speech after dinner?",
+        "word": "prudently",
+        "synonyms": [
+            "carefully",
+            "wisely",
+            "cautiously"
+        ],
+        "definition": "In a way that shows careful judgment or thoughtfulness in handling practical matters.",
+        "sentence": "When investing in the stock market, it is crucial to act ______ to avoid significant losses.",
         "difficulty": "medium",
         "distractors": [
-            "repudiate",
-            "activate",
-            "eschew"
+            "vehemently",
+            "vehemently",
+            "paradoxically"
         ]
     },
     {
-        "word": "corroborate",
+        "word": "quintessential",
         "synonyms": [
-            "validate",
-            "buttress",
-            "endorse",
-            "substantiate"
+            "typical",
+            "ideal",
+            "perfect"
         ],
-        "definition": "To confirm or give support to a statement, theory, or finding.",
-        "sentence": "Recent research seems to ______ his theory.",
+        "definition": "Representing the most perfect or typical example of a quality or class.",
+        "sentence": "The athlete was the ______ example of dedication and hard work, inspiring many young players.",
         "difficulty": "hard",
         "distractors": [
-            "extol",
-            "attrition",
-            "activate"
+            "dogmatic",
+            "obstreperous",
+            "commensurate"
         ]
     },
     {
-        "word": "buttress",
+        "word": "recalcitrant",
         "synonyms": [
-            "validate",
-            "counterfort",
-            "endorse",
-            "brace"
+            "stubborn",
+            "uncooperative",
+            "defiant"
         ],
-        "definition": "To increase the strength of or provide justification for; reinforce.",
-        "sentence": "It was decided to ______ the crumbling walls.",
+        "definition": "Having an obstinately uncooperative attitude toward authority or discipline.",
+        "sentence": "The teacher found it challenging to manage the class because several students were particularly ______, refusing to follow the rules or participate in discussions.",
+        "difficulty": "hard",
+        "distractors": [
+            "ethereal",
+            "prurient",
+            "protean"
+        ]
+    },
+    {
+        "word": "recant",
+        "synonyms": [
+            "withdraw",
+            "retract",
+            "disavow"
+        ],
+        "definition": "To withdraw or renounce a statement or belief formally; to say that one no longer holds a particular opinion or belief.",
+        "sentence": "After much contemplation, she decided to ______ her previous claims about the incident, stating that she no longer believed what she had said.",
         "difficulty": "medium",
         "distractors": [
-            "extol",
-            "attrition",
-            "activate"
+            "appraise",
+            "disseminate",
+            "catalyze"
+        ]
+    },
+    {
+        "word": "reconstituted",
+        "synonyms": [
+            "restored",
+            "reformed",
+            "rehabilitated"
+        ],
+        "definition": "To restore something to its original state or form, often by adding water or other substances to a dehydrated product.",
+        "sentence": "After being away from home for several months, she felt that her connections with friends needed to be ______ to rekindle their strong bond.",
+        "difficulty": "medium",
+        "distractors": [
+            "exult",
+            "raze",
+            "fabricate"
+        ]
+    },
+    {
+        "word": "rectify",
+        "synonyms": [
+            "correct",
+            "fix",
+            "amend"
+        ],
+        "definition": "To make right or correct something that is wrong or inaccurate.",
+        "sentence": "After realizing the error in her calculations, she knew she had to ______ the mistake before submitting her report.",
+        "difficulty": "medium",
+        "distractors": [
+            "debunk",
+            "placate",
+            "blemish"
+        ]
+    },
+    {
+        "word": "redundant",
+        "synonyms": [
+            "unnecessary",
+            "superfluous",
+            "excessive"
+        ],
+        "definition": "The term used to describe something that is no longer needed or that repeats something else in a way that is not required.",
+        "sentence": "In the report, the author's conclusion was deemed ______, as it merely restated points already made earlier in the document.",
+        "difficulty": "medium",
+        "distractors": [
+            "unpretentious",
+            "potable",
+            "tremulous"
+        ]
+    },
+    {
+        "word": "refurbish",
+        "synonyms": [
+            "renovate",
+            "restore",
+            "revamp"
+        ],
+        "definition": "To restore something to a good condition by cleaning, repairing, or improving it.",
+        "sentence": "After years of neglect, the old theater was finally ready to be ______, bringing new life to its faded grandeur.",
+        "difficulty": "medium",
+        "distractors": [
+            "exploit",
+            "intercede",
+            "accentuate"
+        ]
+    },
+    {
+        "word": "refute",
+        "synonyms": [
+            "disprove",
+            "counter",
+            "debunk"
+        ],
+        "definition": "To prove that something is false or incorrect, often by providing evidence or argument.",
+        "sentence": "Many scientists strive to ______ theories that do not hold up against their experimental results.",
+        "difficulty": "medium",
+        "distractors": [
+            "retract",
+            "nurture",
+            "intersect"
+        ]
+    },
+    {
+        "word": "renunciation",
+        "synonyms": [
+            "rejection",
+            "abandonment",
+            "surrender"
+        ],
+        "definition": "The formal rejection of something, typically a belief, claim, or course of action.",
+        "sentence": "After much deliberation, she made the difficult decision of ______ of her former life as a corporate executive to pursue her passion for art.",
+        "difficulty": "medium",
+        "distractors": [
+            "travesty",
+            "duress",
+            "cobbler"
+        ]
+    },
+    {
+        "word": "repertory",
+        "synonyms": [
+            "collection",
+            "inventory",
+            "repository"
+        ],
+        "definition": "A repertoire or stock of plays, dances, or pieces that a company or individual can perform or present.",
+        "sentence": "The theater group announced that their new season would include a mix of classic dramas and modern works from their extensive ______.",
+        "difficulty": "medium",
+        "distractors": [
+            "stymie",
+            "intimation",
+            "umbrage"
+        ]
+    },
+    {
+        "word": "reprieve",
+        "synonyms": [
+            "relief",
+            "respite",
+            "delay"
+        ],
+        "definition": "A temporary suspension or cancellation of a punishment or a difficult situation.",
+        "sentence": "After weeks of hard work, the unexpected weekend off felt like a ______ from the pressures of school.",
+        "difficulty": "medium",
+        "distractors": [
+            "salve",
+            "nuance",
+            "hedonist"
+        ]
+    },
+    {
+        "word": "repudiate",
+        "synonyms": [
+            "reject",
+            "disown",
+            "renounce"
+        ],
+        "definition": "To refuse to accept or be associated with something; to deny the validity or truth of something.",
+        "sentence": "After much consideration, the leader decided to ______ the proposed changes to the policy, believing they were not in the best interest of the organization.",
+        "difficulty": "hard",
+        "distractors": [
+            "engender",
+            "ameliorate",
+            "engender"
+        ]
+    },
+    {
+        "word": "resilient",
+        "synonyms": [
+            "tough",
+            "strong",
+            "flexible"
+        ],
+        "definition": "Able to withstand or recover quickly from difficult conditions; marked by the ability to bounce back or adapt to challenges effectively.",
+        "sentence": "After facing numerous challenges during the year, the community showed its ______ spirit by coming together to rebuild and support one another.",
+        "difficulty": "medium",
+        "distractors": [
+            "impassive",
+            "haughty",
+            "torpid"
+        ]
+    },
+    {
+        "word": "resolute",
+        "synonyms": [
+            "determined",
+            "steadfast",
+            "unwavering"
+        ],
+        "definition": "Admirably purposeful, determined, and unwavering.",
+        "sentence": "Despite the challenges that lay ahead, her ______ spirit inspired everyone around her to keep pushing forward.",
+        "difficulty": "medium",
+        "distractors": [
+            "caustic",
+            "ambiguous",
+            "amorous"
+        ]
+    },
+    {
+        "word": "restitution",
+        "synonyms": [
+            "repayment",
+            "compensation",
+            "restoration"
+        ],
+        "definition": "The act of restoring something to its original state or compensating for loss or damage.",
+        "sentence": "After the scandal, the company promised full ______ to all affected customers for their losses.",
+        "difficulty": "hard",
+        "distractors": [
+            "approbation",
+            "alacrity",
+            "forbearance"
+        ]
+    },
+    {
+        "word": "rudimentary",
+        "synonyms": [
+            "basic",
+            "elementary",
+            "fundamental"
+        ],
+        "definition": "Involving or limited to basic principles; insufficiently developed or very simple.",
+        "sentence": "Before she could advance to the more complex topics in chemistry, she had to master the __________ concepts that formed the foundation of the subject.",
+        "difficulty": "medium",
+        "distractors": [
+            "intricate",
+            "notorious",
+            "onerous"
+        ]
+    },
+    {
+        "word": "sanguine",
+        "synonyms": [
+            "optimistic",
+            "hopeful",
+            "cheerful"
+        ],
+        "definition": "Characterized by a positive, hopeful, or confident temperament, especially in difficult situations.",
+        "sentence": "Despite the challenges ahead, she remained ______ about their chances of success.",
+        "difficulty": "hard",
+        "distractors": [
+            "commensurate",
+            "trenchant",
+            "insidious"
+        ]
+    },
+    {
+        "word": "saturated",
+        "synonyms": [
+            "soaked",
+            "full",
+            "imbued"
+        ],
+        "definition": "Fully soaked or filled to capacity; unable to absorb more liquid or to be increased further.",
+        "sentence": "After days of heavy rain, the ground was so ______ that any additional water caused puddles to form on the surface.",
+        "difficulty": "medium",
+        "distractors": [
+            "serene",
+            "heterogeneous",
+            "orthodox"
+        ]
+    },
+    {
+        "word": "scrupulous",
+        "synonyms": [
+            "meticulous",
+            "cautious",
+            "principled"
+        ],
+        "definition": "Diligent and attentive to detail, often relating to moral integrity and ethical considerations.",
+        "sentence": "The ______ accountant ensured that every transaction was recorded accurately, leaving no room for error or misinterpretation.",
+        "difficulty": "hard",
+        "distractors": [
+            "nefarious",
+            "sacrosanct",
+            "infallible"
+        ]
+    },
+    {
+        "word": "scrutinized",
+        "synonyms": [
+            "examined",
+            "analyzed",
+            "inspected"
+        ],
+        "definition": "To examine or inspect something very closely and critically.",
+        "sentence": "The detective ______ the evidence, searching for any clues that might lead to a breakthrough in the case.",
+        "difficulty": "hard",
+        "distractors": [
+            "promulgate",
+            "transcending",
+            "transmute"
+        ]
+    },
+    {
+        "word": "shrewd",
+        "synonyms": [
+            "astute",
+            "clever",
+            "perceptive"
+        ],
+        "definition": "Having or showing sharp powers of judgment; being able to accurately assess situations or people.",
+        "sentence": "In negotiations, her ______ analysis of the circumstances led to a deal that benefited both parties.",
+        "difficulty": "medium",
+        "distractors": [
+            "ambiguous",
+            "incisive",
+            "torrid"
+        ]
+    },
+    {
+        "word": "spurious",
+        "synonyms": [
+            "false",
+            "fake",
+            "untrue"
+        ],
+        "definition": "Not genuine, authentic, or true; based on false ideas or reasoning.",
+        "sentence": "The scientist's reputation was damaged when it was revealed that his research contained a ______ claim that was later disproven.",
+        "difficulty": "medium",
+        "distractors": [
+            "copious",
+            "canny",
+            "disheartened"
+        ]
+    },
+    {
+        "word": "stymie",
+        "synonyms": [
+            "hinder",
+            "obstruct",
+            "impair"
+        ],
+        "definition": "To prevent someone from making progress; to thwart or block an action or plan.",
+        "sentence": "The sudden change in regulations will likely ______ our plans for the new project.",
+        "difficulty": "medium",
+        "distractors": [
+            "prowess",
+            "partition",
+            "petulance"
         ]
     },
     {
         "word": "substantiate",
         "synonyms": [
             "validate",
-            "buttress",
-            "endorse",
-            "corroborate"
+            "confirm",
+            "proven"
         ],
-        "definition": "To provide evidence to support or prove the truth of a claim.",
-        "sentence": "The journalist refused to publish the accusation without enough evidence to ______ the claim.",
+        "definition": "To provide evidence or support for a claim, assertion, or belief; to establish the truth or validity of something.",
+        "sentence": "In order to win the case, the lawyer needed to ______ her client's claims with solid evidence.",
         "difficulty": "hard",
         "distractors": [
-            "extol",
-            "attrition",
-            "activate"
+            "obfuscate",
+            "promulgate",
+            "blandish"
         ]
     },
     {
-        "word": "endorse",
+        "word": "subversive",
         "synonyms": [
-            "validate",
-            "buttress",
-            "substantiate",
-            "corroborate"
+            "rebellious",
+            "insurgent",
+            "disruptive"
         ],
-        "definition": "To declare one's public approval or support of.",
-        "sentence": "The concept of ______ is demonstrated when to declare one's public approval or support of, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "extol",
-            "attrition",
-            "activate"
-        ]
-    },
-    {
-        "word": "validate",
-        "synonyms": [
-            "buttress",
-            "endorse",
-            "substantiate",
-            "corroborate"
-        ],
-        "definition": "To check or prove the validity or accuracy of something.",
-        "sentence": "The play ends by seeming to ______ Antigone.",
-        "difficulty": "medium",
-        "distractors": [
-            "extol",
-            "attrition",
-            "activate"
-        ]
-    },
-    {
-        "word": "proponent",
-        "synonyms": [
-            "exponent"
-        ],
-        "definition": "A person who advocates a theory, proposal, or project.",
-        "sentence": "The concept of ______ is demonstrated when a person who advocates a theory, proposal, or project, as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "notional",
-        "synonyms": [],
-        "definition": "Existing only in theory, speculation, or as an idea.",
-        "sentence": "All this with a ______ enemy gunning for us.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "resilient",
-        "synonyms": [
-            "bendable",
-            "flexible",
-            "strong"
-        ],
-        "definition": "The capacity to recover quickly from difficulties; toughness.",
-        "sentence": "Jim Harbaugh has been very ______ all year.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "orthodox",
-        "synonyms": [
-            "conventional",
-            "conservative"
-        ],
-        "definition": "Conforming to traditional or commonly accepted rules.",
-        "sentence": "The theory was ______ within the discipline for decades before a series of contradictory findings forced its revision.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "veritable",
-        "synonyms": [
-            "verisimilitude"
-        ],
-        "definition": "Used as an intensifier, often to qualify a metaphor (\"truly\").",
-        "sentence": "The concept of ______ is demonstrated when used as an intensifier, often to qualify a metaphor (\"truly\"), as evident in many academic texts.",
-        "difficulty": "medium",
-        "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
-        ]
-    },
-    {
-        "word": "verisimilitude",
-        "synonyms": [
-            "veritable"
-        ],
-        "definition": "The appearance of being true or real.",
-        "sentence": "This last gives the novel some technical ______.",
+        "definition": "Tending to undermine or overthrow an established authority, especially a political system.",
+        "sentence": "The group was labeled as ______ due to their attempts to challenge the government\u2019s policies and instigate change.",
         "difficulty": "hard",
         "distractors": [
-            "supposition",
-            "calibration",
-            "iconoclasm"
+            "counterintuitive",
+            "insurmountable",
+            "meritorious"
         ]
     },
     {
-        "word": "idiosyncratic",
+        "word": "succumb",
         "synonyms": [
-            "atypical"
+            "yield",
+            "submit",
+            "give in"
         ],
-        "definition": "Relating to a distinctive, peculiar, or individualistic characteristic.",
-        "sentence": "In that sense, it is deliberately ______.",
-        "difficulty": "hard",
-        "distractors": [
-            "diminutive",
-            "homogeneous",
-            "tenuous"
-        ]
-    },
-    {
-        "word": "atypical",
-        "synonyms": [
-            "idiosyncratic"
-        ],
-        "definition": "Not representative of a type, group, or class; unusual.",
-        "sentence": "The patient's ______ response to the medication required the team to reconsider the initial diagnosis.",
+        "definition": "To cease to resist; to give in or surrender to someone or something, often after a struggle or persistent effort.",
+        "sentence": "After many hours of pleading, she finally decided to ______ to her friend's requests and joined the club.",
         "difficulty": "medium",
         "distractors": [
-            "diminutive",
-            "homogeneous",
-            "tenuous"
+            "truncate",
+            "interjected",
+            "dictate"
         ]
     },
     {
-        "word": "redundant",
+        "word": "superficial",
         "synonyms": [
-            "surplus to requirements"
+            "shallow",
+            "surface-level",
+            "cosmetic"
         ],
-        "definition": "Not or no longer needed or useful; superfluous.",
-        "sentence": "Her second argument was entirely ______, reiterating what had already been proven in the opening statement.",
+        "definition": "Pertaining to or affecting only the surface; lacking depth or significance.",
+        "sentence": "Though the report seemed thorough, upon closer inspection, it was merely ______ and did not address the critical issues at hand.",
         "difficulty": "medium",
         "distractors": [
-            "feasible",
-            "ornamental",
-            "explicable"
+            "tortuous",
+            "variegated",
+            "rudimentary"
         ]
     },
     {
-        "word": "precarious",
+        "word": "supersede",
         "synonyms": [
-            "shaky",
-            "rickety",
-            "unsteady",
-            "unstable"
+            "replace",
+            "displace",
+            "overrule"
         ],
-        "definition": "Not securely held; dangerously likely to collapse.",
-        "sentence": "Our financial situation had become ______.",
+        "definition": "To take the place of something or someone that was previously in use or position; to make obsolete.",
+        "sentence": "The new software program is designed to ______ the outdated system that the company had been using for years.",
+        "difficulty": "medium",
+        "distractors": [
+            "dispel",
+            "enumerate",
+            "extol"
+        ]
+    },
+    {
+        "word": "supposition",
+        "synonyms": [
+            "assumption",
+            "presumption",
+            "hypothesis"
+        ],
+        "definition": "A belief or idea that is accepted as true without proof, often used as a basis for further reasoning.",
+        "sentence": "The scientist's theory was based on the ______ that certain environmental factors led to dramatic changes in animal behavior.",
+        "difficulty": "medium",
+        "distractors": [
+            "arbiter",
+            "portent",
+            "harbinger"
+        ]
+    },
+    {
+        "word": "tangential",
+        "synonyms": [
+            "peripheral",
+            "incidental"
+        ],
+        "definition": "Relating to or along a tangent; diverging from the main point or purpose; only slightly relevant.",
+        "sentence": "While the professor's lecture was interesting, his remarks about history were quite ______ to the main topic of the class, which was physics.",
+        "difficulty": "medium",
+        "distractors": [
+            "aloof",
+            "whimsical",
+            "heterogeneous"
+        ]
+    },
+    {
+        "word": "tantamount",
+        "synonyms": [
+            "equivalent",
+            "similar",
+            "comparable"
+        ],
+        "definition": "Being virtually the same as something; having equal value or significance.",
+        "sentence": "In many jurisdictions, failing to report income can be considered ______ to committing tax fraud.",
         "difficulty": "hard",
         "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
+            "inviolable",
+            "complicit",
+            "prescient"
+        ]
+    },
+    {
+        "word": "tedious",
+        "synonyms": [
+            "boring",
+            "monotonous",
+            "repetitive"
+        ],
+        "definition": "Tiresomely long or monotonous; causing weariness or boredom.",
+        "sentence": "The professor's lecture was so ______ that several students struggled to stay awake through the entire class.",
+        "difficulty": "medium",
+        "distractors": [
+            "indigenous",
+            "protracted",
+            "cumulative"
         ]
     },
     {
         "word": "tenuous",
         "synonyms": [
-            "ethereal",
-            "precarious",
-            "gossamer",
-            "delicate"
+            "slight",
+            "weak",
+            "fragile"
         ],
-        "definition": "Very weak, slender, slight, or fragilely supported.",
-        "sentence": "The concept of ______ is demonstrated when very weak, slender, slight, or fragilely supported, as evident in many academic texts.",
+        "definition": "Thin or slender in form; lacking substance or strength; insubstantial.",
+        "sentence": "The scientist acknowledged that her theory was still quite ______, requiring further evidence to gain acceptance in the broader community.",
         "difficulty": "medium",
         "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
+            "winsome",
+            "vociferous",
+            "utilitarian"
+        ]
+    },
+    {
+        "word": "transcending",
+        "synonyms": [
+            "surpassing",
+            "exceeding",
+            "overcoming"
+        ],
+        "definition": "Going beyond the limits or range of something; to rise above or move beyond.",
+        "sentence": "Her achievements in the field of science were ______, inspiring countless others to pursue their dreams.",
+        "difficulty": "hard",
+        "distractors": [
+            "substantiate",
+            "arrogate",
+            "expiate"
+        ]
+    },
+    {
+        "word": "undermine",
+        "synonyms": [
+            "weaken",
+            "diminish",
+            "subvert"
+        ],
+        "definition": "To weaken or damage something, especially gradually or indirectly.",
+        "sentence": "Her constant criticism served to ______ his confidence in his abilities.",
+        "difficulty": "medium",
+        "distractors": [
+            "dispatch",
+            "truncate",
+            "calibrate"
+        ]
+    },
+    {
+        "word": "unequivocal",
+        "synonyms": [
+            "clear",
+            "absolute",
+            "definite"
+        ],
+        "definition": "Leaving no doubt; unambiguous and clear in meaning or expression.",
+        "sentence": "The committee reached an ______ decision that would guide the future of the project without any uncertainty.",
+        "difficulty": "hard",
+        "distractors": [
+            "solipsistic",
+            "scurrilous",
+            "incorrigible"
+        ]
+    },
+    {
+        "word": "uniform",
+        "synonyms": [
+            "consistent",
+            "standard",
+            "identical"
+        ],
+        "definition": "Something that is the same in form or character throughout; not varying or changing.",
+        "sentence": "The students were required to wear a ______ for all the formal events, ensuring that everyone looked the same.",
+        "difficulty": "medium",
+        "distractors": [
+            "banal",
+            "hallowed",
+            "forlorn"
+        ]
+    },
+    {
+        "word": "unobtrusive",
+        "synonyms": [
+            "inconspicuous",
+            "subtle",
+            "low-key"
+        ],
+        "definition": "Not attracting attention in a way that is unwelcome or intrusive; discreet and not easily noticed.",
+        "sentence": "The designer chose colors that were ______, allowing the artwork to take center stage without overwhelming the viewer.",
+        "difficulty": "medium",
+        "distractors": [
+            "profane",
+            "vapid",
+            "devious"
+        ]
+    },
+    {
+        "word": "unpretentious",
+        "synonyms": [
+            "modest",
+            "humble",
+            "simple"
+        ],
+        "definition": "Not attempting to impress others with an appearance of greater importance or merit than is actually possessed; modest or unassuming.",
+        "sentence": "Despite his accomplishments, he remained entirely ______, never boasting about his success to anyone.",
+        "difficulty": "medium",
+        "distractors": [
+            "discerning",
+            "superficial",
+            "pugnacious"
         ]
     },
     {
         "word": "untenable",
         "synonyms": [
-            "tenuous",
-            "precarious"
+            "unjustifiable",
+            "indefensible",
+            "insupportable"
         ],
-        "definition": "Not able to be maintained or defended against objection.",
-        "sentence": "Closer investigation showed this idea to be ______.",
-        "difficulty": "medium",
-        "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
-        ]
-    },
-    {
-        "word": "exploit",
-        "synonyms": [
-            "take advantage of",
-            "use"
-        ],
-        "definition": "To make full use of and derive benefit from a resource.",
-        "sentence": "Farmers have been slow to ______ this market.",
-        "difficulty": "medium",
-        "distractors": [
-            "repudiate",
-            "activate",
-            "eschew"
-        ]
-    },
-    {
-        "word": "heterogeneous",
-        "synonyms": [
-            "manifold",
-            "diverse",
-            "multifarious",
-            "disparate"
-        ],
-        "definition": "Diverse in character, content, or composition.",
-        "sentence": "Both antibodies are a largely ______ family.",
+        "definition": "Not able to be maintained or defended against attack or objection; incapable of being supported.",
+        "sentence": "The committee believed that the evidence presented was so weak that it rendered the argument completely ______.",
         "difficulty": "hard",
         "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
+            "egregious",
+            "trenchant",
+            "impeccable"
         ]
     },
     {
-        "word": "disparate",
+        "word": "validate",
         "synonyms": [
-            "uncoordinated",
-            "mismatched",
-            "heterogeneous",
-            "different"
+            "confirm",
+            "approve",
+            "authenticate"
         ],
-        "definition": "Essentially different in kind; completely distinct or unequal.",
-        "sentence": "The five experiments gave quite ______ results.",
+        "definition": "To check or prove the accuracy or truth of something; to confirm the legitimacy or effectiveness of something.",
+        "sentence": "Before submitting your research paper, it is important to ______ your sources to ensure they are credible and reliable.",
         "difficulty": "medium",
         "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
+            "cavort",
+            "compress",
+            "allege"
         ]
     },
     {
-        "word": "multifarious",
+        "word": "variable",
         "synonyms": [
-            "disparate",
-            "diverse",
-            "various",
-            "heterogeneous"
+            "factor",
+            "element",
+            "component"
         ],
-        "definition": "Many and of various types; great variety.",
-        "sentence": "The concept of ______ is demonstrated when many and of various types; great variety, as evident in many academic texts.",
+        "definition": "An element, feature, or factor that is subject to change or variation.",
+        "sentence": "In the experiment, the researchers altered one ______ at a time to determine its impact on the results.",
+        "difficulty": "medium",
+        "distractors": [
+            "cadence",
+            "esteem",
+            "crescendo"
+        ]
+    },
+    {
+        "word": "verisimilitude",
+        "synonyms": [
+            "realism",
+            "authenticity",
+            "likeness"
+        ],
+        "definition": "The appearance of being true or real; the quality of seeming to be true or plausible.",
+        "sentence": "The novel's incredible attention to detail gave it a sense of ______, making readers feel as though they were truly part of the story.",
         "difficulty": "hard",
         "distractors": [
-            "inconsequential",
-            "antecedent",
-            "atypical"
+            "alacrity",
+            "insurgent",
+            "complacency"
+        ]
+    },
+    {
+        "word": "veritable",
+        "synonyms": [
+            "genuine",
+            "actual",
+            "real"
+        ],
+        "definition": "Used as an intensifier, often before a metaphor, to emphasize the authenticity or reality of something.",
+        "sentence": "The garden was a ______ paradise, overflowing with vibrant flowers and tantalizing scents.",
+        "difficulty": "medium",
+        "distractors": [
+            "nomadic",
+            "latent",
+            "languid"
+        ]
+    },
+    {
+        "word": "vindicate",
+        "synonyms": [
+            "clear",
+            "exonerate",
+            "justify"
+        ],
+        "definition": "To clear someone of blame or suspicion; to show or prove to be right, reasonable, or justified.",
+        "sentence": "After a lengthy investigation, the evidence served to ______ the defendant, proving that she was not at the scene of the crime.",
+        "difficulty": "hard",
+        "distractors": [
+            "vituperate",
+            "disparage",
+            "stupefy"
+        ]
+    },
+    {
+        "word": "waive",
+        "synonyms": [
+            "relinquish",
+            "forsake",
+            "abandon"
+        ],
+        "definition": "To voluntarily give up or surrender a right, claim, or privilege.",
+        "sentence": "After much deliberation, the committee decided to ______ the requirement for additional documentation in special circumstances.",
+        "difficulty": "medium",
+        "distractors": [
+            "divulge",
+            "mitigate",
+            "wanton"
+        ]
+    },
+    {
+        "word": "transcending",
+        "synonyms": [
+            "surpassing",
+            "exceeding",
+            "rising above"
+        ],
+        "definition": "Going beyond the limits of something, especially in a way that enhances or elevates it.",
+        "sentence": "In her speech, she spoke about ______ the challenges faced by the community to inspire hope and resilience.",
+        "difficulty": "hard",
+        "distractors": [
+            "bilk",
+            "consecrate",
+            "consecrate"
+        ]
+    },
+    {
+        "word": "ubiquitous",
+        "synonyms": [
+            "omnipresent",
+            "everywhere",
+            "pervasive"
+        ],
+        "definition": "Present, appearing, or found everywhere; existing or being everywhere at the same time.",
+        "sentence": "In today's world, the use of smartphones is so ______ that it seems like everyone is constantly connected to the internet.",
+        "difficulty": "medium",
+        "distractors": [
+            "scathing",
+            "verdant",
+            "placid"
         ]
     },
     {
         "word": "undermine",
-        "synonyms": [],
-        "definition": "To lessen the effectiveness, power, or ability of gradually.",
-        "sentence": "High income tax can ______ work incentives.",
+        "synonyms": [
+            "sabotage",
+            "weaken",
+            "erode"
+        ],
+        "definition": "To weaken or damage gradually or secretly, often in a way that is not immediately apparent.",
+        "sentence": "The constant criticism from her colleagues began to ______ her confidence in her abilities.",
         "difficulty": "medium",
         "distractors": [
-            "repudiate",
-            "activate",
-            "eschew"
+            "retract",
+            "vindicate",
+            "fathom"
         ]
     },
     {
-        "word": "exacerbate",
-        "synonyms": [],
-        "definition": "To make a problem, bad situation, or negative feeling worse.",
-        "sentence": "Climate change will only ______ such pressures.",
+        "word": "unequivocal",
+        "synonyms": [
+            "clear",
+            "absolute",
+            "definite"
+        ],
+        "definition": "Leaving no doubt; leaving no room for confusion or misinterpretation.",
+        "sentence": "The scientist's results were ______, confirming the theory without any ambiguity.",
         "difficulty": "hard",
         "distractors": [
-            "repudiate",
-            "activate",
-            "eschew"
+            "ebullient",
+            "insidious",
+            "premeditated"
+        ]
+    },
+    {
+        "word": "uniform",
+        "synonyms": [
+            "consistent",
+            "identical",
+            "standard"
+        ],
+        "definition": "The quality of being the same in form, manner, or degree; lacking variation or diversity.",
+        "sentence": "In order to promote school spirit, all students were required to wear a ______ that featured the school colors and logo.",
+        "difficulty": "medium",
+        "distractors": [
+            "obtuse",
+            "paramount",
+            "malleable"
+        ]
+    },
+    {
+        "word": "unobtrusive",
+        "synonyms": [
+            "inconspicuous",
+            "low-key",
+            "discreet"
+        ],
+        "definition": "Not attracting attention in a way that would disturb or interfere; subtle and modest in presence.",
+        "sentence": "Even at the crowded venue, the artist remained ______, allowing the audience to enjoy the performance without distraction.",
+        "difficulty": "medium",
+        "distractors": [
+            "taciturn",
+            "obsolete",
+            "agile"
+        ]
+    },
+    {
+        "word": "unpretentious",
+        "synonyms": [
+            "modest",
+            "simple",
+            "genuine"
+        ],
+        "definition": "Not attempting to impress others with an appearance of greater importance, talent, or culture than is actually possessed.",
+        "sentence": "Despite its luxurious surroundings, the restaurant maintained an ______ atmosphere that made everyone feel welcomed.",
+        "difficulty": "medium",
+        "distractors": [
+            "puerile",
+            "analogous",
+            "haphazard"
+        ]
+    },
+    {
+        "word": "untenable",
+        "synonyms": [
+            "indefensible",
+            "unstable",
+            "unsustainable"
+        ],
+        "definition": "not able to be maintained or defended against criticism or attack; unable to be held or justified.",
+        "sentence": "The committee found her argument to be completely ______, lacking any substantial evidence to support her claims.",
+        "difficulty": "hard",
+        "distractors": [
+            "enigmatic",
+            "desultory",
+            "penurious"
+        ]
+    },
+    {
+        "word": "validate",
+        "synonyms": [
+            "confirm",
+            "prove",
+            "authenticate"
+        ],
+        "definition": "To check or prove the accuracy or validity of something; to affirm or support the truth of something.",
+        "sentence": "Before we can proceed with the project, we need to ______ the results of the initial tests to ensure they are accurate.",
+        "difficulty": "medium",
+        "distractors": [
+            "preclude",
+            "dispel",
+            "forsake"
+        ]
+    },
+    {
+        "word": "variable",
+        "synonyms": [
+            "changeable",
+            "modifiable",
+            "flexible"
+        ],
+        "definition": "A term that refers to something that may change or vary, often used in mathematics and programming to denote a quantity that can assume different values.",
+        "sentence": "In the experiment, the scientists controlled the ______ to ensure accurate results across different conditions.",
+        "difficulty": "medium",
+        "distractors": [
+            "operative",
+            "detractor",
+            "artisan"
+        ]
+    },
+    {
+        "word": "verisimilitude",
+        "synonyms": [
+            "realism",
+            "authenticity",
+            "likeliness"
+        ],
+        "definition": "The appearance of being true or real; the quality of seeming truthful or probable.",
+        "sentence": "In her novel, the author achieved such remarkable ______ that readers felt as if they were experiencing the events alongside the characters.",
+        "difficulty": "hard",
+        "distractors": [
+            "grandiloquence",
+            "paucity",
+            "animosity"
+        ]
+    },
+    {
+        "word": "veritable",
+        "synonyms": [
+            "genuine",
+            "authentic",
+            "real"
+        ],
+        "definition": "Used as an intensifier, often to emphasize the exceptional nature of something; truly or undoubtedly.",
+        "sentence": "In the heart of the ancient city, we stumbled upon a ______ treasure trove of artifacts that had remained untouched for centuries.",
+        "difficulty": "hard",
+        "distractors": [
+            "opulent",
+            "laconic",
+            "clairvoyant"
+        ]
+    },
+    {
+        "word": "vigilance",
+        "synonyms": [
+            "alertness",
+            "watchfulness",
+            "caution"
+        ],
+        "definition": "The state of being watchful, especially to avoid danger or problems.",
+        "sentence": "In order to ensure their safety, the security team maintained a constant ______ during the event, watching for any unusual behavior.",
+        "difficulty": "medium",
+        "distractors": [
+            "yoke",
+            "anomaly",
+            "respite"
+        ]
+    },
+    {
+        "word": "vindicate",
+        "synonyms": [
+            "justify",
+            "clear",
+            "absolve"
+        ],
+        "definition": "To clear from blame or suspicion; to show or prove to be right or justified.",
+        "sentence": "After a lengthy investigation, the evidence served to ______ the accused, proving that he had acted in accordance with the law.",
+        "difficulty": "medium",
+        "distractors": [
+            "disseminate",
+            "presuppose",
+            "preclude"
+        ]
+    },
+    {
+        "word": "waive",
+        "synonyms": [
+            "relinquish",
+            "forgo",
+            "abandon"
+        ],
+        "definition": "To intentionally give up or refrain from enforcing a right, claim, or privilege.",
+        "sentence": "In a surprising move, the athlete decided to ______ his right to appeal the decision made by the judges.",
+        "difficulty": "medium",
+        "distractors": [
+            "hampered",
+            "retract",
+            "upbraid"
+        ]
+    },
+    {
+        "word": "accessory",
+        "definition": "a supplementary or additional item that enhances or completes something else.",
+        "sentence": "She wore a beautiful necklace as an ______ to her elegant dress.",
+        "difficulty": "medium",
+        "synonyms": [
+            "add-on",
+            "supplement",
+            "complement"
+        ],
+        "distractors": [
+            "primary",
+            "essential",
+            "fundamental"
+        ]
+    },
+    {
+        "word": "acquiesced",
+        "definition": "To accept something reluctantly but without protest.",
+        "sentence": "Although she had reservations about the plan, she ultimately ______ to the group's decision.",
+        "difficulty": "medium",
+        "synonyms": [
+            "agreed",
+            "complied",
+            "consented"
+        ],
+        "distractors": [
+            "resisted",
+            "protested",
+            "objected"
+        ]
+    },
+    {
+        "word": "alleviate",
+        "definition": "to make (suffering, deficiency, or a problem) less severe",
+        "sentence": "The new medication was designed to ______ the symptoms of the illness.",
+        "difficulty": "medium",
+        "synonyms": [
+            "relieve",
+            "ease",
+            "mitigate"
+        ],
+        "distractors": [
+            "exacerbate",
+            "complicate",
+            "intensify"
+        ]
+    },
+    {
+        "word": "amorphous",
+        "definition": "lacking a definite shape or form; shapeless.",
+        "sentence": "The artist's sculpture was intentionally ______, challenging traditional notions of form and structure.",
+        "difficulty": "medium",
+        "synonyms": [
+            "shapeless",
+            "formless",
+            "indeterminate"
+        ],
+        "distractors": [
+            "meticulous",
+            "concrete",
+            "translucent"
+        ]
+    },
+    {
+        "word": "anachronistic",
+        "definition": "belonging to a period other than that being portrayed; out of place in time.",
+        "sentence": "The movie was criticized for its ______ use of modern slang in a historical setting.",
+        "difficulty": "medium",
+        "synonyms": [
+            "outdated",
+            "inappropriate",
+            "misplaced"
+        ],
+        "distractors": [
+            "contemporary",
+            "timeless",
+            "futuristic"
+        ]
+    },
+    {
+        "word": "analogy",
+        "definition": "A comparison between two things, typically for the purpose of explanation or clarification.",
+        "sentence": "The teacher used an ______ to explain the complex concept by relating it to something familiar to the students.",
+        "difficulty": "medium",
+        "synonyms": [
+            "comparison",
+            "similarity",
+            "metaphor"
+        ],
+        "distractors": [
+            "paradox",
+            "anomaly",
+            "hypothesis"
+        ]
+    },
+    {
+        "word": "antecedent",
+        "definition": "a thing or event that existed before or logically precedes another.",
+        "sentence": "In the sentence 'When the dog barked, it startled the cat,' the word 'dog' is the ______ of 'it.'",
+        "difficulty": "medium",
+        "synonyms": [
+            "predecessor",
+            "forerunner",
+            "precursor"
+        ],
+        "distractors": [
+            "subsequent",
+            "consequent",
+            "following"
+        ]
+    },
+    {
+        "word": "arcane",
+        "definition": "Understood by few; mysterious or secret.",
+        "sentence": "The professor's lecture on quantum mechanics was so ______ that only a handful of students could grasp the concepts.",
+        "difficulty": "medium",
+        "synonyms": [
+            "esoteric",
+            "enigmatic",
+            "obscure"
+        ],
+        "distractors": [
+            "mundane",
+            "transparent",
+            "obvious"
+        ]
+    },
+    {
+        "word": "assuage",
+        "definition": "to make an unpleasant feeling less intense; to soothe or calm",
+        "sentence": "To ______ her guilt, she decided to volunteer at the local shelter.",
+        "difficulty": "medium",
+        "synonyms": [
+            "alleviate",
+            "mitigate",
+            "pacify"
+        ],
+        "distractors": [
+            "aggravate",
+            "exacerbate",
+            "intensify"
+        ]
+    },
+    {
+        "word": "attrition",
+        "definition": "the process of gradually reducing the strength or effectiveness of something through sustained attack or pressure.",
+        "sentence": "The company's workforce experienced significant ______ due to the high turnover rate and lack of employee retention strategies.",
+        "difficulty": "medium",
+        "synonyms": [
+            "reduction",
+            "diminution",
+            "erosion"
+        ],
+        "distractors": [
+            "contribution",
+            "expansion",
+            "augmentation"
+        ]
+    },
+    {
+        "word": "defunct",
+        "definition": "no longer existing or functioning; dead or inactive.",
+        "sentence": "The once-popular amusement park is now completely ______, with overgrown weeds and rusting rides.",
+        "difficulty": "medium",
+        "synonyms": [
+            "obsolete",
+            "extinct",
+            "inactive"
+        ],
+        "distractors": [
+            "dormant",
+            "vibrant",
+            "novel"
+        ]
+    },
+    {
+        "word": "discretion",
+        "definition": "the quality of being careful about what one says or does; the freedom to decide what should be done in a particular situation.",
+        "sentence": "The teacher exercised her ______ when deciding how to handle the situation with the students.",
+        "difficulty": "medium",
+        "synonyms": [
+            "judgment",
+            "tact",
+            "prudence"
+        ],
+        "distractors": [
+            "indiscretion",
+            "oblivion",
+            "compliance"
+        ]
+    },
+    {
+        "word": "diverge",
+        "definition": "to separate from another route and go in a different direction; to differ in opinion or character.",
+        "sentence": "As the two paths began to ______, we had to decide which one to take.",
+        "difficulty": "medium",
+        "synonyms": [
+            "separate",
+            "branch",
+            "deviate"
+        ],
+        "distractors": [
+            "converge",
+            "merge",
+            "align"
+        ]
+    },
+    {
+        "word": "encrypt",
+        "definition": "to convert information or data into a code, especially to prevent unauthorized access",
+        "sentence": "To ensure the security of sensitive information, we must ______ all files before sending them over the internet.",
+        "difficulty": "medium",
+        "synonyms": [
+            "encode",
+            "cipher",
+            "secure"
+        ],
+        "distractors": [
+            "decrypt",
+            "expose",
+            "transmit"
+        ]
+    },
+    {
+        "word": "extemporaneous",
+        "definition": "done without preparation; impromptu.",
+        "sentence": "The speaker's ______ remarks captivated the audience, showcasing his ability to think on his feet.",
+        "difficulty": "medium",
+        "synonyms": [
+            "improvised",
+            "unrehearsed",
+            "spontaneous"
+        ],
+        "distractors": [
+            "meticulous",
+            "premeditated",
+            "calculated"
+        ]
+    },
+    {
+        "word": "indulge",
+        "definition": "to allow oneself to enjoy the pleasure of something; to give in to one's desires or whims.",
+        "sentence": "After a long week of work, she decided to ______ in her favorite dessert as a reward.",
+        "difficulty": "medium",
+        "synonyms": [
+            "satisfy",
+            "pamper",
+            "gratify"
+        ],
+        "distractors": [
+            "restrain",
+            "abstain",
+            "deny"
+        ]
+    },
+    {
+        "word": "opaque",
+        "definition": "Not able to be seen through; not transparent.",
+        "sentence": "The glass was so ______ that we couldn't see what was happening on the other side.",
+        "difficulty": "medium",
+        "synonyms": [
+            "cloudy",
+            "unclear",
+            "obscure"
+        ],
+        "distractors": [
+            "translucent",
+            "transparent",
+            "clear"
+        ]
+    },
+    {
+        "word": "accessory",
+        "definition": "a supplementary or additional item that enhances or completes something else.",
+        "sentence": "She wore a beautiful necklace as an ______ to her elegant dress.",
+        "difficulty": "medium",
+        "synonyms": [
+            "add-on",
+            "supplement",
+            "complement"
+        ],
+        "distractors": [
+            "primary",
+            "essential",
+            "fundamental"
+        ]
+    },
+    {
+        "word": "acquiesced",
+        "definition": "To accept something reluctantly but without protest.",
+        "sentence": "Although she had reservations about the plan, she ultimately ______ to the group's decision.",
+        "difficulty": "medium",
+        "synonyms": [
+            "agreed",
+            "complied",
+            "consented"
+        ],
+        "distractors": [
+            "resisted",
+            "protested",
+            "objected"
+        ]
+    },
+    {
+        "word": "alleviate",
+        "definition": "to make (suffering, deficiency, or a problem) less severe",
+        "sentence": "The new medication was designed to ______ the symptoms of the illness.",
+        "difficulty": "medium",
+        "synonyms": [
+            "relieve",
+            "ease",
+            "mitigate"
+        ],
+        "distractors": [
+            "exacerbate",
+            "complicate",
+            "intensify"
+        ]
+    },
+    {
+        "word": "amorphous",
+        "definition": "lacking a definite shape or form; shapeless.",
+        "sentence": "The artist's sculpture was intentionally ______, challenging traditional notions of form and structure.",
+        "difficulty": "medium",
+        "synonyms": [
+            "shapeless",
+            "formless",
+            "indeterminate"
+        ],
+        "distractors": [
+            "meticulous",
+            "concrete",
+            "translucent"
+        ]
+    },
+    {
+        "word": "anachronistic",
+        "definition": "belonging to a period other than that being portrayed; out of place in time.",
+        "sentence": "The movie was criticized for its ______ use of modern slang in a historical setting.",
+        "difficulty": "medium",
+        "synonyms": [
+            "outdated",
+            "inappropriate",
+            "misplaced"
+        ],
+        "distractors": [
+            "contemporary",
+            "timeless",
+            "futuristic"
+        ]
+    },
+    {
+        "word": "analogy",
+        "definition": "A comparison between two things, typically for the purpose of explanation or clarification.",
+        "sentence": "The teacher used an ______ to explain the complex concept by relating it to something familiar to the students.",
+        "difficulty": "medium",
+        "synonyms": [
+            "comparison",
+            "similarity",
+            "metaphor"
+        ],
+        "distractors": [
+            "paradox",
+            "anomaly",
+            "hypothesis"
+        ]
+    },
+    {
+        "word": "antecedent",
+        "definition": "a thing or event that existed before or logically precedes another.",
+        "sentence": "In the sentence 'When the dog barked, it startled the cat,' the word 'dog' is the ______ of 'it.'",
+        "difficulty": "medium",
+        "synonyms": [
+            "predecessor",
+            "forerunner",
+            "precursor"
+        ],
+        "distractors": [
+            "subsequent",
+            "consequent",
+            "following"
+        ]
+    },
+    {
+        "word": "arcane",
+        "definition": "Understood by few; mysterious or secret.",
+        "sentence": "The professor's lecture on quantum mechanics was so ______ that only a handful of students could grasp the concepts.",
+        "difficulty": "medium",
+        "synonyms": [
+            "esoteric",
+            "enigmatic",
+            "obscure"
+        ],
+        "distractors": [
+            "mundane",
+            "transparent",
+            "obvious"
+        ]
+    },
+    {
+        "word": "assuage",
+        "definition": "to make an unpleasant feeling less intense; to soothe or calm",
+        "sentence": "To ______ her guilt, she decided to volunteer at the local shelter.",
+        "difficulty": "medium",
+        "synonyms": [
+            "alleviate",
+            "mitigate",
+            "pacify"
+        ],
+        "distractors": [
+            "aggravate",
+            "exacerbate",
+            "intensify"
+        ]
+    },
+    {
+        "word": "attrition",
+        "definition": "the process of gradually reducing the strength or effectiveness of something through sustained attack or pressure.",
+        "sentence": "The company's workforce experienced significant ______ due to the high turnover rate and lack of employee retention strategies.",
+        "difficulty": "medium",
+        "synonyms": [
+            "reduction",
+            "diminution",
+            "erosion"
+        ],
+        "distractors": [
+            "contribution",
+            "expansion",
+            "augmentation"
+        ]
+    },
+    {
+        "word": "defunct",
+        "definition": "no longer existing or functioning; dead or inactive.",
+        "sentence": "The once-popular amusement park is now completely ______, with overgrown weeds and rusting rides.",
+        "difficulty": "medium",
+        "synonyms": [
+            "obsolete",
+            "extinct",
+            "inactive"
+        ],
+        "distractors": [
+            "dormant",
+            "vibrant",
+            "novel"
+        ]
+    },
+    {
+        "word": "discretion",
+        "definition": "the quality of being careful about what one says or does; the freedom to decide what should be done in a particular situation.",
+        "sentence": "The teacher exercised her ______ when deciding how to handle the situation with the students.",
+        "difficulty": "medium",
+        "synonyms": [
+            "judgment",
+            "tact",
+            "prudence"
+        ],
+        "distractors": [
+            "indiscretion",
+            "oblivion",
+            "compliance"
+        ]
+    },
+    {
+        "word": "diverge",
+        "definition": "to separate from another route and go in a different direction; to differ in opinion or character.",
+        "sentence": "As the two paths began to ______, we had to decide which one to take.",
+        "difficulty": "medium",
+        "synonyms": [
+            "separate",
+            "branch",
+            "deviate"
+        ],
+        "distractors": [
+            "converge",
+            "merge",
+            "align"
+        ]
+    },
+    {
+        "word": "encrypt",
+        "definition": "to convert information or data into a code, especially to prevent unauthorized access",
+        "sentence": "To ensure the security of sensitive information, we must ______ all files before sending them over the internet.",
+        "difficulty": "medium",
+        "synonyms": [
+            "encode",
+            "cipher",
+            "secure"
+        ],
+        "distractors": [
+            "decrypt",
+            "expose",
+            "transmit"
+        ]
+    },
+    {
+        "word": "extemporaneous",
+        "definition": "done without preparation; impromptu.",
+        "sentence": "The speaker's ______ remarks captivated the audience, showcasing his ability to think on his feet.",
+        "difficulty": "medium",
+        "synonyms": [
+            "improvised",
+            "unrehearsed",
+            "spontaneous"
+        ],
+        "distractors": [
+            "meticulous",
+            "premeditated",
+            "calculated"
+        ]
+    },
+    {
+        "word": "iconoclastic",
+        "definition": "characterized by attacking or ignoring cherished beliefs and institutions; revolutionary or nonconformist.",
+        "sentence": "Her ______ approach to traditional art forms made her a controversial figure in the gallery scene.",
+        "difficulty": "hard",
+        "synonyms": [
+            "revolutionary",
+            "heretical",
+            "unconventional"
+        ],
+        "distractors": [
+            "conformist",
+            "traditional",
+            "orthodox"
+        ]
+    },
+    {
+        "word": "indulge",
+        "definition": "to allow oneself to enjoy the pleasure of something; to give in to one's desires or whims.",
+        "sentence": "After a long week of work, she decided to ______ in her favorite dessert as a reward.",
+        "difficulty": "medium",
+        "synonyms": [
+            "satisfy",
+            "pamper",
+            "gratify"
+        ],
+        "distractors": [
+            "restrain",
+            "abstain",
+            "deny"
+        ]
+    },
+    {
+        "word": "opaque",
+        "definition": "Not able to be seen through; not transparent.",
+        "sentence": "The glass was so ______ that we couldn't see what was happening on the other side.",
+        "difficulty": "medium",
+        "synonyms": [
+            "cloudy",
+            "unclear",
+            "obscure"
+        ],
+        "distractors": [
+            "translucent",
+            "transparent",
+            "clear"
         ]
     }
 ];
-
-// Dynamically fetch word metadata from the Free Dictionary API (used for CSV imports)
-async function fetchWordMetadataFromAPI(word) {
-    const cleanedWord = word.trim().toLowerCase();
-
-    try {
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${cleanedWord}`);
-        if (!response.ok) throw new Error("Word not found");
-
-        const data = await response.json();
-        const entry = data[0];
-
-        const phonetic = entry.phonetic ||
-                         (entry.phonetics && entry.phonetics[0] ? entry.phonetics[0].text : "") ||
-                         `/${cleanedWord}/`;
-
-        let definition = "";
-        let synonyms = [];
-        let exampleSentence = "";
-
-        if (entry.meanings) {
-            entry.meanings.forEach(meaning => {
-                if (meaning.definitions) {
-                    meaning.definitions.forEach(def => {
-                        if (!definition && def.definition) definition = def.definition;
-                        if (!exampleSentence && def.example) exampleSentence = def.example;
-                    });
-                }
-                if (meaning.synonyms) synonyms = synonyms.concat(meaning.synonyms);
-            });
-        }
-
-        if (!definition) definition = `A vocabulary term (${cleanedWord}).`;
-        if (!exampleSentence) exampleSentence = `The word ${cleanedWord} appears in many academic texts.`;
-
-        // Strip junk synonyms
-        const JUNK = new Set(["equivalent","related term","related word","point elasticity","alternate term","correlative","analogue","substitute"]);
-        synonyms = [...new Set(synonyms)].filter(s => s.toLowerCase() !== cleanedWord && !JUNK.has(s)).slice(0, 5);
-        if (synonyms.length === 0) synonyms = [];
-
-        const regex = new RegExp("\\b" + cleanedWord + "\\b", "gi");
-        const sentence = exampleSentence.replace(regex, "______");
-
-        // Pick 3 placeholder distractors — will be overridden by study-engine logic
-        const distractors = ["tenuous", "speculative", "fallible"];
-
-        return { word: cleanedWord, synonyms, definition, sentence, difficulty: "medium", distractors };
-
-    } catch (err) {
-        console.warn(`Dictionary API error for "${word}". Using minimal fallback.`, err);
-        return {
-            word: cleanedWord,
-            synonyms: [],
-            definition: `A vocabulary word: ${cleanedWord}.`,
-            sentence: `______ is a word encountered in collegiate-level reading.`,
-            difficulty: "medium",
-            distractors: ["tenuous", "speculative", "fallible"]
-        };
-    }
-}
