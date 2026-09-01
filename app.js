@@ -805,8 +805,6 @@ class AppController {
             } else if (target === 'tycoon-view') {
                 this.tycoonEngine.renderVisuals();
                 this.tycoonEngine.updateUI();
-            } else if (target === 'community-view') {
-                this.searchCommunityDecks();
             }
             
             // Stop timer game if leaving timer view

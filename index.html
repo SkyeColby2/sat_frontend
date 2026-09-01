@@ -51,7 +51,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -155,97 +155,74 @@
     </header>
 
     <div class="app-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-brand" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px;">
-                <!-- Inline Diamond DV SVG Logo -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px;">
-                  <defs>
-                    <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#0D1E1C" />
-                      <stop offset="100%" stop-color="#1A7A6E" />
-                    </linearGradient>
-                    <linearGradient id="dv-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#5BBFB5" />
-                      <stop offset="50%" stop-color="#2A9D8F" />
-                      <stop offset="100%" stop-color="#10B981" />
-                    </linearGradient>
-                  </defs>
-                  <rect width="512" height="512" rx="112" fill="url(#bg-grad-2)" />
-                  <rect x="130" y="120" width="40" height="272" rx="20" fill="url(#dv-grad-2)" />
-                  <path d="M 170 120 H 270 C 360 120, 400 180, 400 256 C 400 332, 340 392, 250 392 L 170 392" fill="none" stroke="url(#dv-grad-2)" stroke-width="40" stroke-linecap="round" />
-                  <path d="M 230 200 L 300 320 L 370 200" fill="none" stroke="url(#dv-grad-2)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-
-                <!-- Brand Typography -->
-                <div class="brand-text" style="display: flex; flex-direction: column;">
-                    <span class="brand-title" style="font-size: 1.15rem; font-weight: 800; color: var(--text-1); line-height: 1.1;">DoVocab</span>
-                    <span class="brand-subtitle" style="font-size: 0.68rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;">SAT &amp; TYCOON</span>
-                </div>
-            </div>
-            <!-- Tycoon Mini-Widget in Sidebar -->
-            <div class="sidebar-tycoon-widget">
-                <div class="widget-header">
-                    <span><i class="fa-solid fa-store text-amber"></i> Restaurant</span>
-                    <span id="widget-floor-badge" class="badge badge-amber">Floor 1</span>
-                </div>
-                <div class="widget-balance">
-                    <span class="currency-symbol">$</span><span id="sidebar-cash">0.00</span>
-                </div>
-                <div class="widget-income">
-                    <span>+<span id="sidebar-income-rate">0.00</span>/sec</span>
-                </div>
-                <!-- 🌟 Critic Stars Review Widget -->
-                <div class="tycoon-stat-card" style="background: var(--surface-2); border: 1px solid var(--border); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 4px;">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Restaurant Rating</span>
-                    <div id="tycoon-review-stars" style="color: #d97706; font-weight: 700; font-size: 1rem;">★☆☆☆☆ (1.5 / 5.0 Stars)</div>
-                </div>
-            </div>
-
-            <nav class="sidebar-nav">
-                <button class="nav-item active" data-target="dashboard-view">
-                    <i class="fa-solid fa-table-columns"></i> Dashboard & Import
-                </button>
-                <button class="nav-item" data-target="study-view">
-                    <i class="fa-solid fa-brain"></i> Study Mode
-                </button>
-                <button class="nav-item" data-target="flashcard-view">
-                    <i class="fa-solid fa-clone"></i> Flashcards
-                </button>
-                <button class="nav-item" data-target="timer-view">
-                    <i class="fa-solid fa-stopwatch"></i> Beat the Timer
-                </button>
-                <button class="nav-item" data-target="tycoon-view">
-                    <i class="fa-solid fa-shop"></i> Restaurant Tycoon
-                </button>
-                <button class="nav-item" data-target="community-view">
-                    <i class="fa-solid fa-users"></i> Search Decks
-                </button>
-            </nav>
-
-            <!-- User Profile Panel (shown when signed in) -->
-            <div class="sidebar-user-panel" id="sidebar-user-panel" style="display:none;">
-                <div class="user-avatar-row">
-                    <img id="user-avatar" class="user-avatar" src="" alt="Avatar" onerror="this.style.display='none'">
-                    <div class="user-info">
-                        <span class="user-name" id="user-display-name">Student</span>
-                        <span class="user-username" id="user-username-display" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500; display: block; margin-top: -2px;"></span>
-                        <span class="user-sync-status" id="user-sync-status">
-                            <i class="fa-solid fa-cloud-arrow-up"></i> Synced
-                        </span>
+        <!-- Top Navigation Header (Replaces Sidebar) -->
+        <header class="top-app-header">
+            <div class="header-container">
+                <div class="header-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 8px;">
+                      <defs>
+                        <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#0D1E1C" />
+                          <stop offset="100%" stop-color="#1A7A6E" />
+                        </linearGradient>
+                        <linearGradient id="dv-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#5BBFB5" />
+                          <stop offset="50%" stop-color="#2A9D8F" />
+                          <stop offset="100%" stop-color="#10B981" />
+                        </linearGradient>
+                      </defs>
+                      <rect width="512" height="512" rx="112" fill="url(#bg-grad-2)" />
+                      <rect x="130" y="120" width="40" height="272" rx="20" fill="url(#dv-grad-2)" />
+                      <path d="M 170 120 H 270 C 360 120, 400 180, 400 256 C 400 332, 340 392, 250 392 L 170 392" fill="none" stroke="url(#dv-grad-2)" stroke-width="40" stroke-linecap="round" />
+                      <path d="M 230 200 L 300 320 L 370 200" fill="none" stroke="url(#dv-grad-2)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="brand-text">
+                        <span class="brand-title">DoVocab</span>
+                        <span class="brand-subtitle">SAT &amp; TYCOON</span>
                     </div>
                 </div>
-                <button class="btn btn-sm btn-outline btn-block" id="signout-btn" style="margin-top:0.5rem;">
-                    <i class="fa-solid fa-right-from-bracket"></i> Sign Out
-                </button>
-            </div>
 
-            <div class="sidebar-footer">
-                <button class="btn btn-sm btn-outline btn-block" id="reset-app-btn">
-                    <i class="fa-solid fa-trash-can"></i> Reset All Data
-                </button>
+                <nav class="top-nav-links">
+                    <button class="nav-item active" data-target="dashboard-view">
+                        <i class="fa-solid fa-table-columns"></i> Dashboard
+                    </button>
+                    <button class="nav-item" data-target="study-view">
+                        <i class="fa-solid fa-brain"></i> Study Mode
+                    </button>
+                    <button class="nav-item" data-target="flashcard-view">
+                        <i class="fa-solid fa-clone"></i> Flashcards
+                    </button>
+                    <button class="nav-item" data-target="timer-view">
+                        <i class="fa-solid fa-stopwatch"></i> Beat the Timer
+                    </button>
+                    <button class="nav-item" data-target="tycoon-view">
+                        <i class="fa-solid fa-shop"></i> Restaurant Tycoon
+                    </button>
+                </nav>
+
+                <div class="top-user-actions">
+                    <div class="header-tycoon-stat">
+                        <i class="fa-solid fa-coins text-amber"></i>
+                        $<span id="sidebar-cash">0.00</span>
+                    </div>
+                    <div class="sidebar-user-panel" id="sidebar-user-panel" style="display:none; margin: 0; padding: 0; background: transparent; border: none; box-shadow: none;">
+                        <div class="user-avatar-row" style="gap: 8px;">
+                            <img id="user-avatar" class="user-avatar" src="" alt="Avatar" style="width: 32px; height: 32px;" onerror="this.style.display='none'">
+                            <div class="user-info">
+                                <span class="user-name" id="user-display-name">Student</span>
+                                <span class="user-username" id="user-username-display" style="font-size: 0.72rem; color: var(--text-muted); font-weight: 500; display: block; margin-top: -2px;"></span>
+                            </div>
+                            <button class="btn btn-sm btn-outline" id="signout-btn" style="padding: 4px 12px; font-size: 0.75rem; border-radius: 100px;">
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline" id="reset-app-btn" title="Reset All Data" style="padding: 6px 12px; border-radius: 100px; font-size: 0.8rem;">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
             </div>
-        </aside>
+        </header>
 
         <!-- Main Workspace -->
         <main class="main-content">
@@ -810,30 +787,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- View 6: Community Decks & Search -->
-            <section id="community-view" class="view-panel" style="display: none;">
-                <div class="view-header">
-                    <h1><i class="fa-solid fa-users text-indigo"></i> Community Decks</h1>
-                    <p>Search, preview, and import high-yield vocabulary decks created by the DoVocab community.</p>
-                </div>
-
-                <div class="community-search-bar-wrap" style="margin-bottom: 2rem; display: flex; gap: 12px; max-width: 720px;">
-                    <div style="position: relative; flex: 1; display: flex; align-items: center;">
-                        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; color: var(--text-muted); font-size: 0.9rem;"></i>
-                        <input type="text" id="community-search-input" class="form-control" placeholder="Search by title, topic, or username (e.g. &quot;SAT&quot;, &quot;Transition&quot;)..." style="padding-left: 44px; height: 48px; width: 100%;">
-                    </div>
-                    <button class="btn btn-indigo" id="community-search-btn" style="height: 48px; padding: 0 24px; font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-search"></i> Search
-                    </button>
-                </div>
-
-                <div id="community-decks-status" style="display: none; margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;"></div>
-
-                <div class="community-decks-grid" id="community-decks-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
-                    <!-- Community cards will be injected dynamically -->
                 </div>
             </section>
             <!-- Static SEO Crawlability Section -->
