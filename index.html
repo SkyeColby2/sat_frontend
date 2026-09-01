@@ -51,7 +51,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -217,6 +217,9 @@
                 </button>
                 <button class="nav-item" data-target="tycoon-view">
                     <i class="fa-solid fa-shop"></i> Restaurant Tycoon
+                </button>
+                <button class="nav-item" data-target="community-view">
+                    <i class="fa-solid fa-users"></i> Search Decks
                 </button>
             </nav>
 
@@ -808,6 +811,31 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- View 6: Community Decks & Search -->
+            <section id="community-view" class="view-panel" style="display: none;">
+                <div class="view-header">
+                    <h1><i class="fa-solid fa-users text-indigo"></i> Community Decks</h1>
+                    <p>Search, preview, and import high-yield vocabulary decks created by the DoVocab community.</p>
+                </div>
+
+                <div class="community-search-bar-wrap" style="margin-bottom: 2rem; display: flex; gap: 12px; max-width: 720px;">
+                    <div style="position: relative; flex: 1; display: flex; align-items: center;">
+                        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; color: var(--text-muted); font-size: 0.9rem;"></i>
+                        <input type="text" id="community-search-input" class="form-control" placeholder="Search by title, topic, or username (e.g. &quot;SAT&quot;, &quot;Transition&quot;)..." style="padding-left: 44px; height: 48px; width: 100%;">
+                    </div>
+                    <button class="btn btn-indigo" id="community-search-btn" style="height: 48px; padding: 0 24px; font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-search"></i> Search
+                    </button>
+                </div>
+
+                <div id="community-decks-status" style="display: none; margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;"></div>
+
+                <div class="community-decks-grid" id="community-decks-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+                    <!-- Community cards will be injected dynamically -->
+                </div>
+            </section>
             <!-- Static SEO Crawlability Section -->
             <section class="seo-crawl-section">
                 <div class="seo-container">

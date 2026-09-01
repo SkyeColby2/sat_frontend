@@ -805,6 +805,8 @@ class AppController {
             } else if (target === 'tycoon-view') {
                 this.tycoonEngine.renderVisuals();
                 this.tycoonEngine.updateUI();
+            } else if (target === 'community-view') {
+                this.searchCommunityDecks();
             }
             
             // Stop timer game if leaving timer view
@@ -1584,34 +1586,176 @@ async importWordsFromMappedColumn() {
                     }
 
                     const deckWords = this.savedLists[this.activeListName] || [];
+                    const user = authManager.user;
+                    if (!user) throw new Error("You must be logged in to publish.");
 
                     const { collection, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
                     const db = authManager.db;
 
-                    await addDoc(collection(db, 'public_decks'), {
+                    const payload = {
                         title: title,
                         description: desc,
                         tags: tags,
-                        authorUid: authManager.user.uid,
-                        authorUsername: this.currentUsername,
+                        authorUid: user.uid,
+                        authorUsername: this.currentUsername || "creator",
                         wordCount: deckWords.length,
                         words: deckWords,
                         downloadsCount: 0,
                         searchKeywords: Array.from(keywords),
                         createdAt: serverTimestamp()
-                    });
+                    };
+
+                    await addDoc(collection(db, 'public_decks'), payload);
 
                     this.showNotification("Published Successfully", `"${title}" has been published to the community!`, "success");
                     publishModal.style.display = 'none';
+                    
+                    // Refresh community view if visible
+                    this.searchCommunityDecks();
                 } catch (err) {
                     console.error("Publication error:", err);
-                    errorEl.textContent = "Failed to publish deck: " + err.message;
+                    errorEl.textContent = "Failed to publish deck: " + (err.message.includes("permissions") ? "Missing or insufficient permissions. Please ensure your Firestore Security Rules allow writes to /public_decks for authenticated users." : err.message);
                     errorEl.style.display = 'block';
                 } finally {
                     submitPublishBtn.disabled = false;
                 }
             };
         }
+
+        // Wire up Community Search Input
+        const searchInput = document.getElementById('community-search-input');
+        const searchBtn = document.getElementById('community-search-btn');
+
+        if (searchBtn) {
+            searchBtn.onclick = () => {
+                const q = searchInput ? searchInput.value.trim() : "";
+                this.searchCommunityDecks(q);
+            };
+        }
+        if (searchInput) {
+            searchInput.onkeydown = (e) => {
+                if (e.key === 'Enter') {
+                    this.searchCommunityDecks(searchInput.value.trim());
+                }
+            };
+        }
+    }
+
+    async searchCommunityDecks(queryStr = "") {
+        const grid = document.getElementById('community-decks-list');
+        const statusEl = document.getElementById('community-decks-status');
+        if (!grid) return;
+
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin fa-2x"></i><p style="margin-top:0.75rem;">Loading community decks...</p></div>`;
+        if (statusEl) statusEl.style.display = 'none';
+
+        try {
+            const { collection, getDocs, query, limit } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+            const db = authManager.db;
+
+            if (!db) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">Firebase is running in local-only mode. Connect Firebase to browse community decks.</div>`;
+                return;
+            }
+
+            const decksRef = collection(db, 'public_decks');
+            const q = query(decksRef, limit(50));
+            const snapshot = await getDocs(q);
+
+            const decks = [];
+            snapshot.forEach(doc => {
+                decks.push({ id: doc.id, ...doc.data() });
+            });
+
+            const cleanQuery = queryStr.trim().toLowerCase();
+            let filteredDecks = decks;
+            if (cleanQuery) {
+                filteredDecks = decks.filter(d => {
+                    const matchTitle = (d.title || "").toLowerCase().includes(cleanQuery);
+                    const matchDesc = (d.description || "").toLowerCase().includes(cleanQuery);
+                    const matchAuthor = (d.authorUsername || "").toLowerCase().includes(cleanQuery);
+                    const matchTags = Array.isArray(d.tags) && d.tags.some(t => t.toLowerCase().includes(cleanQuery));
+                    return matchTitle || matchDesc || matchAuthor || matchTags;
+                });
+            }
+
+            if (filteredDecks.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);"><i class="fa-solid fa-folder-open fa-2x"></i><p style="margin-top:0.75rem;">${cleanQuery ? `No community decks found matching "${queryStr}".` : 'No community decks published yet. Be the first to publish a list!'}</p></div>`;
+                return;
+            }
+
+            grid.innerHTML = "";
+            filteredDecks.forEach(deck => {
+                const card = document.createElement('div');
+                card.className = 'community-deck-card';
+
+                const tagsHtml = (deck.tags || []).map(t => `<span class="deck-tag">#${t}</span>`).join('');
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="deck-card-header">
+                            <h3 class="deck-card-title">${deck.title || 'Untitled Deck'}</h3>
+                            <span class="deck-card-author">@${deck.authorUsername || 'creator'}</span>
+                        </div>
+                        <p class="deck-card-desc" style="margin-top: 0.5rem;">${deck.description || 'No description provided.'}</p>
+                    </div>
+                    <div class="deck-card-tags" style="margin-top: 0.5rem;">
+                        ${tagsHtml}
+                    </div>
+                    <div class="deck-card-footer">
+                        <div class="deck-meta-info">
+                            <span class="deck-meta-item"><i class="fa-solid fa-layer-group"></i> ${deck.wordCount || (deck.words ? deck.words.length : 0)} words</span>
+                            <span class="deck-meta-item"><i class="fa-solid fa-download"></i> ${deck.downloadsCount || 0}</span>
+                        </div>
+                        <button class="btn btn-sm btn-indigo import-deck-btn" style="border-radius: 100px; padding: 6px 16px; font-weight: 600;">
+                            <i class="fa-solid fa-plus"></i> Import Deck
+                        </button>
+                    </div>
+                `;
+
+                const importBtn = card.querySelector('.import-deck-btn');
+                importBtn.onclick = () => this.importCommunityDeck(deck);
+
+                grid.appendChild(card);
+            });
+
+        } catch (err) {
+            console.error("[Community Decks Search Error]", err);
+            grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--color-danger);"><i class="fa-solid fa-circle-exclamation fa-2x"></i><p style="margin-top:0.75rem;">Failed to load community decks: ${err.message}</p></div>`;
+        }
+    }
+
+    async importCommunityDeck(deck) {
+        if (!deck || !Array.isArray(deck.words) || deck.words.length === 0) {
+            this.showNotification("Import Error", "Selected deck does not contain valid words.", "error");
+            return;
+        }
+
+        const title = deck.title || "Community Deck";
+        let targetTitle = title;
+        let counter = 1;
+        while (this.savedLists[targetTitle]) {
+            targetTitle = `${title} (${counter++})`;
+        }
+
+        this.savedLists[targetTitle] = deck.words;
+        this.saveAllListsToStorage();
+        this.updateListDropdownUI();
+        this.switchActiveList(targetTitle);
+
+        this.showNotification("Deck Imported!", `"${targetTitle}" has been added to your lists with ${deck.words.length} words!`, "success");
+
+        // Increment download counter on Firestore (best effort)
+        try {
+            const { doc, updateDoc, increment } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js');
+            const db = authManager.db;
+            if (db && deck.id) {
+                const deckRef = doc(db, 'public_decks', deck.id);
+                await updateDoc(deckRef, {
+                    downloadsCount: increment(1)
+                });
+            }
+        } catch (_) {}
     }
 }
 
