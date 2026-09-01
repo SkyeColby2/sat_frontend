@@ -55,13 +55,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Ensure FontAwesome Icons render properly */
+i.fa-solid, i.fa-regular, i.fa-brands, i.fa-light, .fa, .fas, .far, .fab {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-style: normal;
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: 'Roboto', sans-serif !important;
+    font-family: var(--font-sans);
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
