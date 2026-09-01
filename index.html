@@ -105,15 +105,15 @@
 
             <div class="login-divider"><span>or</span></div>
             <div id="email-login-form" style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px; width: 100%;">
-                <input type="email" id="login-email" placeholder="Email Address" style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                <input type="email" id="login-email" placeholder="Email Address" style="padding: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text-1); font-family: inherit;">
                 
-                <input type="password" id="login-password" placeholder="Password" style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                <input type="password" id="login-password" placeholder="Password" style="padding: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text-1); font-family: inherit;">
                 
                 <div style="display: flex; gap: 10px; margin-top: 4px;">
-                    <button id="btn-email-signin" style="flex: 1; padding: 12px; background: #6366F1; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button id="btn-email-signin" style="flex: 1; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 100px; font-weight: 600; cursor: pointer;">
                         Sign In
                     </button>
-                    <button id="btn-email-signup" style="flex: 1; padding: 12px; background: transparent; color: #9CA3AF; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    <button id="btn-email-signup" style="flex: 1; padding: 12px; background: transparent; color: var(--text-2); border: 1px solid var(--border); border-radius: 100px; font-weight: 600; cursor: pointer;">
                         Register
                     </button>
                 </div>
@@ -162,12 +162,12 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px;">
                   <defs>
                     <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#1E1B4B" />
-                      <stop offset="100%" stop-color="#0F172A" />
+                      <stop offset="0%" stop-color="#0D1E1C" />
+                      <stop offset="100%" stop-color="#1A7A6E" />
                     </linearGradient>
                     <linearGradient id="dv-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#38BDF8" />
-                      <stop offset="50%" stop-color="#6366F1" />
+                      <stop offset="0%" stop-color="#5BBFB5" />
+                      <stop offset="50%" stop-color="#2A9D8F" />
                       <stop offset="100%" stop-color="#10B981" />
                     </linearGradient>
                   </defs>
@@ -179,8 +179,8 @@
 
                 <!-- Brand Typography -->
                 <div class="brand-text" style="display: flex; flex-direction: column;">
-                    <span class="brand-title" style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; line-height: 1.1;">DoVocab</span>
-                    <span class="brand-subtitle" style="font-size: 0.68rem; font-weight: 700; color: #6366F1; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;">SAT &amp; TYCOON</span>
+                    <span class="brand-title" style="font-size: 1.15rem; font-weight: 800; color: var(--text-1); line-height: 1.1;">DoVocab</span>
+                    <span class="brand-subtitle" style="font-size: 0.68rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;">SAT &amp; TYCOON</span>
                 </div>
             </div>
             <!-- Tycoon Mini-Widget in Sidebar -->
@@ -196,9 +196,9 @@
                     <span>+<span id="sidebar-income-rate">0.00</span>/sec</span>
                 </div>
                 <!-- 🌟 Critic Stars Review Widget -->
-                <div class="tycoon-stat-card" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 4px;">
+                <div class="tycoon-stat-card" style="background: var(--surface-2); border: 1px solid var(--border); padding: 12px; border-radius: 8px; display: flex; flex-direction: column; gap: 4px;">
                     <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Restaurant Rating</span>
-                    <div id="tycoon-review-stars" style="color: #FBBF24; font-weight: 700; font-size: 1rem;">★☆☆☆☆ (1.5 / 5.0 Stars)</div>
+                    <div id="tycoon-review-stars" style="color: #d97706; font-weight: 700; font-size: 1rem;">★☆☆☆☆ (1.5 / 5.0 Stars)</div>
                 </div>
             </div>
 
@@ -360,9 +360,9 @@
                                     type="text" 
                                     id="new-list-title" 
                                     placeholder="List Title (e.g., June SAT Prep)" 
-                                    style="flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-size: 0.85rem; font-family: inherit;"
+                                    style="flex: 1; padding: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text-1); font-size: 0.85rem; font-family: inherit;"
                                 >
-                                <button id="create-list-btn" class="btn btn-indigo" style="padding: 12px 16px; font-weight: 600; border-radius: 8px; cursor: pointer; white-space: nowrap;">
+                                <button id="create-list-btn" class="btn btn-indigo" style="padding: 12px 16px; font-weight: 600; border-radius: 100px; cursor: pointer; white-space: nowrap;">
                                     Create List
                                 </button>
                             </div>
@@ -373,14 +373,14 @@
                                     Active Study Target:
                                 </label>
                                 <div style="display: flex; gap: 8px; width: 100%;">
-                                    <select id="active-list-select" style="flex: 1; padding: 12px; background: rgba(10, 14, 25, 0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit; font-size: 0.85rem; cursor: pointer; outline: none;">
+                                    <select id="active-list-select" style="flex: 1; padding: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; color: var(--text-1); font-family: inherit; font-size: 0.85rem; cursor: pointer; outline: none;">
                                         <!-- Options dynamically filled by app.js -->
                                     </select>
-                                    <button id="delete-list-btn" class="btn" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #F87171; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Delete current list">
+                                    <button id="delete-list-btn" class="btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.25); color: #F87171; padding: 12px; border-radius: 100px; cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Delete current list">
                                         <i class="fa-solid fa-trash-can"></i> Delete List
                                     </button>
                                 </div>
-                                <button id="publish-list-btn" class="btn btn-outline" style="width: 100%; display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; border-color: rgba(99, 102, 241, 0.4); color: #a5b4fc; height: 48px;">
+                                <button id="publish-list-btn" class="btn btn-outline" style="width: 100%; display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; border-color: var(--accent-border); color: var(--accent); height: 48px; border-radius: 100px;">
                                     <i class="fa-solid fa-globe"></i> Publish to Community
                                 </button>
                             </div>
@@ -755,29 +755,29 @@
                                 </div>
                                 <!-- 🍳 New Global Dish Unlock Upgrade Card -->
                                 <!-- 🍳 Integrated Global Dish Upgrade & Collapsible Menu Card -->
-                                <div class="upgrade-item-card" id="upgrade-dish" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 12px;">
+                                <div class="upgrade-item-card" id="upgrade-dish" style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 12px; box-shadow: var(--shadow-sm);">
                                     
                                     <!-- Top Action Row -->
                                     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 16px;">
                                         <div class="upgrade-card-info" style="display: flex; gap: 12px; align-items: center;">
-                                            <div style="font-size: 2rem; background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 8px;">🍳</div>
+                                            <div style="font-size: 2rem; background: var(--accent-ghost); padding: 8px; border-radius: 8px;">🍳</div>
                                             <div>
-                                                <h4 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: white;">Expand Global Menu</h4>
+                                                <h4 style="margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text-1);">Expand Global Menu</h4>
                                                 <p style="margin: 4px 0 0; font-size: 0.75rem; color: var(--text-muted);">
                                                     Unlock new cuisines to increase your star reviews. (<span class="level-val">6</span>/300)
                                                     <br>
                                                     <!-- 👁️ View Menu Text Link -->
-                                                    <span id="toggle-menu-board-btn" style="color: #6366F1; text-decoration: underline; cursor: pointer; font-weight: 600; font-size: 0.75rem; margin-top: 4px; display: inline-block;">👁️ View Menu</span>
+                                                    <span id="toggle-menu-board-btn" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-weight: 600; font-size: 0.75rem; margin-top: 4px; display: inline-block;">👁️ View Menu</span>
                                                 </p>
                                             </div>
                                         </div>
-                                        <button class="btn upgrade-buy-btn disabled" style="padding: 10px 16px; border-radius: 8px; font-weight: 600; font-family: inherit; cursor: pointer; border: none; white-space: nowrap;" disabled>
+                                        <button class="btn upgrade-buy-btn disabled" style="padding: 10px 16px; border-radius: 100px; font-weight: 600; font-family: inherit; cursor: pointer; border: none; white-space: nowrap;" disabled>
                                             Unlock Dish ($<span class="price-val">93</span>)
                                         </button>
                                     </div>
 
                                     <!-- 📜 Collapsible Internal Drawer List (Hidden by default) -->
-                                    <div id="tycoon-menu-list" style="display: none; max-height: 200px; overflow-y: auto; background: rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 10px; flex-direction: column; gap: 8px; margin-top: 4px; border: 1px solid rgba(255,255,255,0.03);">
+                                    <div id="tycoon-menu-list" style="display: none; max-height: 200px; overflow-y: auto; background: var(--bg-alt); border-radius: 8px; padding: 10px; flex-direction: column; gap: 8px; margin-top: 4px; border: 1px solid var(--border);">
                                         <!-- Filled dynamically by tycoon-engine.js -->
                                     </div>
                                 </div>

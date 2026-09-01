@@ -106,7 +106,7 @@ body {
     font-size: 1.15rem;
     font-weight: 750;
     letter-spacing: -0.025em;
-    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    background: linear-gradient(135deg, var(--text-1) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -123,8 +123,8 @@ body {
 .sidebar-tycoon-widget {
     margin: 1.25rem 1rem 0.5rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
+    background: var(--accent-ghost);
+    border: 1px solid var(--accent-border);
     border-radius: 0.75rem;
     display: flex;
     flex-direction: column;
@@ -144,7 +144,7 @@ body {
     font-size: 1.35rem;
     font-weight: 800;
     color: var(--color-amber);
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-sans);
 }
 
 .widget-income {
@@ -176,8 +176,8 @@ body {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    color: var(--text-secondary);
+    border-radius: 100px;
+    color: var(--text-2);
     font-family: var(--font-sans);
     font-size: 0.9rem;
     font-weight: 600;
@@ -187,16 +187,14 @@ body {
 }
 
 .nav-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text-primary);
+    background: var(--accent-ghost);
+    color: var(--accent);
 }
 
 .nav-item.active {
-    background: rgba(99, 102, 241, 0.12);
-    color: #818cf8;
-    border-left: 3.5px solid var(--color-indigo);
-    border-radius: 0 0.5rem 0.5rem 0;
-    padding-left: calc(1rem - 3.5px);
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(26,122,110,0.25);
 }
 
 .sidebar-footer {
@@ -340,7 +338,7 @@ body {
 
 .form-control {
     flex: 1;
-    background-color: #0b101c;
+    background-color: var(--surface-2);
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     padding: 0.6rem 0.75rem;
@@ -1239,7 +1237,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(5, 7, 15, 0.85);
+    background: rgba(13, 30, 28, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1249,9 +1247,9 @@ body {
 }
 
 .modal-card {
-    background: #0f1424;
+    background: var(--surface-2);
     border: 1px solid var(--border-color);
-    border-radius: 1.25rem;
+    border-radius: var(--radius-lg);
     width: 520px;
     max-width: 90vw;
     box-shadow: var(--shadow-lg);
@@ -1263,7 +1261,7 @@ body {
 
 .modal-header {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2110,7 +2108,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #070913;
+    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2121,24 +2119,24 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.18;
+    opacity: 0.25;
     animation: glowFloat 8s ease-in-out infinite;
     pointer-events: none;
 }
 .login-bg-glow-1 {
     width: 500px; height: 500px;
-    background: radial-gradient(circle, #6366f1, transparent 70%);
+    background: radial-gradient(circle, var(--accent-light), transparent 70%);
     top: -120px; left: -100px;
 }
 .login-bg-glow-2 {
     width: 400px; height: 400px;
-    background: radial-gradient(circle, #10b981, transparent 70%);
+    background: radial-gradient(circle, var(--accent-mid), transparent 70%);
     bottom: -100px; right: -80px;
     animation-delay: -3s;
 }
 .login-bg-glow-3 {
     width: 300px; height: 300px;
-    background: radial-gradient(circle, #8b5cf6, transparent 70%);
+    background: radial-gradient(circle, var(--accent), transparent 70%);
     top: 50%; left: 60%;
     animation-delay: -5s;
 }
@@ -2153,13 +2151,11 @@ body {
     z-index: 1;
     width: 100%;
     max-width: 420px;
-    background: rgba(15, 20, 40, 0.7);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 1.5rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: 2.5rem 2.25rem;
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    box-shadow: 0 32px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.08);
+    box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
     gap: 1.35rem;
@@ -2181,13 +2177,13 @@ body {
 .login-brand-icon {
     width: 64px; height: 64px;
     border-radius: 1rem;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    background: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.75rem;
     color: #fff;
-    box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+    box-shadow: 0 8px 24px rgba(26,122,110,0.30);
     margin-bottom: 0.25rem;
 }
 
@@ -2195,7 +2191,7 @@ body {
     font-size: 1.75rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #fff 40%, #a5b4fc 100%);
+    background: linear-gradient(135deg, var(--text-1) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -2227,8 +2223,8 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.85rem 1rem;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
     border-radius: 0.75rem;
 }
 .login-benefits li {
@@ -2239,7 +2235,7 @@ body {
     color: var(--text-secondary);
     font-weight: 500;
 }
-.login-benefits li i { width: 16px; text-align: center; flex-shrink: 0; }
+.login-benefits li i { width: 16px; text-align: center; flex-shrink: 0; color: var(--accent); }
 
 .btn-google-signin {
     display: flex;
@@ -2248,18 +2244,18 @@ body {
     gap: 0.75rem;
     width: 100%;
     padding: 0.85rem 1.25rem;
-    background: #fff;
-    color: #1f2937;
+    background: var(--accent);
+    color: #fff;
     border: none;
-    border-radius: 0.65rem;
+    border-radius: 100px;
     font-size: 0.95rem;
     font-weight: 700;
     font-family: var(--font-sans);
     cursor: pointer;
     transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 16px rgba(26,122,110,0.25);
 }
-.btn-google-signin:hover { background: #f1f5f9; box-shadow: 0 4px 16px rgba(0,0,0,0.4); transform: translateY(-1px); }
+.btn-google-signin:hover { background: var(--accent-mid); transform: translateY(-1px); }
 .btn-google-signin:active { transform: translateY(0); }
 .btn-google-signin:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
@@ -2276,7 +2272,7 @@ body {
     content: '';
     flex: 1;
     height: 1px;
-    background: rgba(255,255,255,0.06);
+    background: var(--border);
 }
 
 .btn-guest {
@@ -2289,8 +2285,8 @@ body {
     padding: 0.7rem 1rem;
     background: transparent;
     color: var(--text-secondary);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
     font-size: 0.85rem;
     font-weight: 600;
     font-family: var(--font-sans);
@@ -2298,7 +2294,7 @@ body {
     transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
     text-align: center;
 }
-.btn-guest:hover { border-color: rgba(255,255,255,0.15); color: var(--text-primary); background: rgba(255,255,255,0.03); }
+.btn-guest:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-ghost); }
 .btn-guest-note { display: block; width: 100%; font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
 
 .login-loading {
@@ -2311,8 +2307,8 @@ body {
 }
 .login-spinner {
     width: 20px; height: 20px;
-    border: 2px solid rgba(99,102,241,0.2);
-    border-top-color: var(--color-indigo);
+    border: 2px solid var(--accent-border);
+    border-top-color: var(--accent);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
 }
@@ -2335,12 +2331,13 @@ body {
 .sidebar-user-panel {
     margin: 0 1rem 0.5rem;
     padding: 0.85rem;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
 }
 .user-avatar-row { display: flex; align-items: center; gap: 0.65rem; }
-.user-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(99,102,241,0.4); object-fit: cover; flex-shrink: 0; }
+.user-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; flex-shrink: 0; }
 .user-info { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
 .user-name { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .user-sync-status { font-size: 0.7rem; color: var(--color-emerald); font-weight: 600; display: flex; align-items: center; gap: 0.25rem; }
